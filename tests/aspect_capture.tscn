@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cw0wh5xp8mtw6"]
+
+[ext_resource type="Script" uid="uid://teg0rl50a6bv" path="res://scripts/core/aspect_capture.gd" id="1_pyutx"]
+[ext_resource type="PackedScene" uid="uid://banp2rkfmj1ju" path="res://scenes/main.tscn" id="2_c80h1"]
+
+[node name="AspectCapture" type="Node" unique_id=692263076 node_paths=PackedStringArray("main")]
+script = ExtResource("1_pyutx")
+main = NodePath("Main")
+
+[node name="Main" parent="." unique_id=1280720619 instance=ExtResource("2_c80h1")]

@@ -306,7 +306,7 @@ func _set_sea_fog(on: bool) -> void:
 	env.fog_enabled = on
 	if on:
 		env.fog_light_color = Color(0.62, 0.86, 0.95)
-		env.fog_density = 0.0035
+		env.fog_density = 0.0014
 		env.fog_sky_affect = 0.0
 
 

@@ -45,22 +45,22 @@ mesh = ExtResource("1_ik3ry")
 surface_material_override/0 = ExtResource("2_r7rtf")
 
 [node name="ShelfDonut1" parent="." unique_id=531055059 instance=ExtResource("3_r7rtf")]
-transform = Transform3D(-0.3803565, 0, 0.815677, 0, 0.9, 0, -0.815677, 0, -0.3803565, -8.35, 0.47, 0.02)
+transform = Transform3D(-0.28738046, 0, 0.61628926, 0, 0.68, 0, -0.61628926, 0, -0.28738046, -8.35, 0.47, 0.02)
 
 [node name="ShelfDonut2" parent="." unique_id=1418128999 instance=ExtResource("4_qbecj")]
-transform = Transform3D(-0.71877193, 0, 0.5416336, 0, 0.9, 0, -0.5416336, 0, -0.71877193, -8.35, 0.86, 0.02)
+transform = Transform3D(-0.5430721, 0, 0.4092343, 0, 0.68, 0, -0.4092343, 0, -0.5430721, -8.35, 0.86, 0.02)
 
 [node name="ShelfDonut3" parent="." unique_id=1281412164 instance=ExtResource("5_leopl")]
-transform = Transform3D(-0.4363286, 0, 0.7871577, 0, 0.9, 0, -0.7871577, 0, -0.4363286, -8.35, 1.25, 0.02)
+transform = Transform3D(-0.3296705, 0, 0.5947414, 0, 0.68, 0, -0.5947414, 0, -0.3296705, -8.35, 1.25, 0.02)
 
 [node name="ShelfDonut4" parent="." unique_id=978574478 instance=ExtResource("4_qbecj")]
-transform = Transform3D(-0.3803565, 0, 0.815677, 0, 0.9, 0, -0.815677, 0, -0.3803565, -7.65, 0.47, 0.02)
+transform = Transform3D(-0.28738046, 0, 0.61628926, 0, 0.68, 0, -0.61628926, 0, -0.28738046, -7.65, 0.47, 0.02)
 
 [node name="ShelfDonut5" parent="." unique_id=1225295007 instance=ExtResource("5_leopl")]
-transform = Transform3D(-0.57850885, 0, 0.68943995, 0, 0.9, 0, -0.68943995, 0, -0.57850885, -7.65, 0.86, 0.02)
+transform = Transform3D(-0.43709558, 0, 0.5209102, 0, 0.68, 0, -0.5209102, 0, -0.43709558, -7.65, 0.86, 0.02)
 
 [node name="ShelfDonut6" parent="." unique_id=1823076062 instance=ExtResource("3_r7rtf")]
-transform = Transform3D(-0.7794228, 0, 0.45000005, 0, 0.9, 0, -0.45000005, 0, -0.7794228, -7.65, 1.25, 0.02)
+transform = Transform3D(-0.5888973, 0, 0.34000003, 0, 0.68, 0, -0.34000003, 0, -0.5888973, -7.65, 1.25, 0.02)
 
 [node name="SinkCounter" parent="." unique_id=1238741445 instance=ExtResource("6_bdl0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)

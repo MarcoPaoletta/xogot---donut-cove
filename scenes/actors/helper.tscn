@@ -38,7 +38,8 @@ mesh = SubResource("BoxMesh_s3tf3")
 [node name="BackStack" type="Node3D" parent="Visual" unique_id=1345937561]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -0.38)
 script = ExtResource("4_jf76k")
-item_height = 0.13
+item_height = 0.168
+pickup_sound = &"pickup_soft"
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1131562128]
 root_node = NodePath("../Visual/Model")

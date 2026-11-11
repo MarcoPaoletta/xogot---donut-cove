@@ -282,6 +282,9 @@ visible = false
 
 [node name="SeaCamera" parent="." unique_id=1713012841 node_paths=PackedStringArray("ship") instance=ExtResource("36_ty1g6")]
 ship = NodePath("../Sea/Ship")
+offset = Vector3(5.2, 6.4, 8.6)
+look_offset = Vector3(-4.5, 0.8, -11)
+base_fov = 55.0
 
 [node name="BlendCamera" type="Camera3D" parent="." unique_id=745516656]
 fov = 38.0
@@ -310,6 +313,7 @@ player = NodePath("../Baker")
 [node name="ConceptCams" type="Node3D" parent="." unique_id=240367028 node_paths=PackedStringArray("orbit_camera")]
 script = ExtResource("22_jscy8")
 orbit_camera = NodePath("OrbitCam")
+dev_shortcut = false
 
 [node name="ConceptCam_Stall" type="Camera3D" parent="ConceptCams" unique_id=1884514998]
 transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, -4.68, 9.29, 6.74)

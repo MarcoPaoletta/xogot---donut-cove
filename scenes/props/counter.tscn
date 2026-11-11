@@ -162,16 +162,16 @@ material_override = ExtResource("4_sjoy6")
 mesh = SubResource("BoxMesh_yxmi8")
 
 [node name="Sample1" parent="DisplayCase" unique_id=531055059 instance=ExtResource("8_5amex")]
-transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, -0.78, 0.13, 0.02)
+transform = Transform3D(0.8, 0, 0, 0, 0.7063581, -0.37557727, 0, 0.37557727, 0.7063581, -0.78, 0.13, 0.02)
 
 [node name="Sample2" parent="DisplayCase" unique_id=1418128999 instance=ExtResource("9_jijff")]
-transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, -0.26, 0.13, 0.02)
+transform = Transform3D(0.8, 0, 0, 0, 0.7063581, -0.37557727, 0, 0.37557727, 0.7063581, -0.26, 0.13, 0.02)
 
 [node name="Sample3" parent="DisplayCase" unique_id=313398877 instance=ExtResource("10_nrlkk")]
-transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, 0.26, 0.13, 0.02)
+transform = Transform3D(0.8, 0, 0, 0, 0.7063581, -0.37557727, 0, 0.37557727, 0.7063581, 0.26, 0.13, 0.02)
 
 [node name="Sample4" parent="DisplayCase" unique_id=1281412164 instance=ExtResource("11_4poot")]
-transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, 0.78, 0.13, 0.02)
+transform = Transform3D(0.8, 0, 0, 0, 0.7063581, -0.37557727, 0, 0.37557727, 0.7063581, 0.78, 0.13, 0.02)
 
 [node name="CashTray" type="Node3D" parent="." unique_id=1024302919]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, 0.87, 0.52)

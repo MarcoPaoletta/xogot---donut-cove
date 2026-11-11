@@ -9,19 +9,19 @@ render_mode blend_mix, depth_draw_never, cull_back, specular_schlick_ggx;
 
 global uniform float sea_time;
 
-uniform vec3 shallow_color : source_color = vec3(0.06, 0.78, 0.78);
-uniform vec3 mid_color : source_color = vec3(0.0, 0.60, 0.82);
-uniform vec3 deep_color : source_color = vec3(0.0, 0.44, 0.78);
+uniform vec3 shallow_color : source_color = vec3(0.02, 0.66, 0.70);
+uniform vec3 mid_color : source_color = vec3(0.0, 0.46, 0.74);
+uniform vec3 deep_color : source_color = vec3(0.0, 0.30, 0.66);
 uniform vec3 foam_color : source_color = vec3(1.0, 1.0, 1.0);
 uniform float depth_fade = 2.4;
 uniform float foam_width = 0.11;
 uniform float wave_height = 0.10;
 uniform float wave_length = 14.0;
 uniform float facet_scale = 0.14;
-uniform float facet_strength = 0.09;
+uniform float facet_strength = 0.12;
 uniform float sparkle_strength = 0.55;
-uniform float fog_start = 90.0;
-uniform float fog_end = 260.0;
+uniform float fog_start = 130.0;
+uniform float fog_end = 320.0;
 uniform vec3 horizon_color : source_color = vec3(0.45, 0.83, 0.95);
 uniform sampler2D depth_texture : hint_depth_texture, filter_nearest, repeat_disable;
 

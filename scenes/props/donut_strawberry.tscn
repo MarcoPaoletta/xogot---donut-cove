@@ -10,7 +10,7 @@
 [node name="DonutStrawberry" type="Node3D" unique_id=531055059]
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1689812446]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 0, 0, 0)
 mesh = ExtResource("1_ajsho")
 surface_material_override/0 = ExtResource("2_3lcba")
 surface_material_override/1 = ExtResource("3_4pk1y")

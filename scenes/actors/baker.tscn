@@ -7,6 +7,8 @@
 [ext_resource type="AnimationNodeBlendTree" uid="uid://2h0npeux08n6" path="res://assets/anim/bunny_tree.tres" id="4_to7vf"]
 [ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="5_uesfo"]
 [ext_resource type="FontFile" uid="uid://cs8ipfukn2b8m" path="res://assets/fonts/LilitaOne-Regular.ttf" id="6_rydtt"]
+[ext_resource type="Material" uid="uid://djdm2pe7x0w84" path="res://assets/fx/run_dust_process.tres" id="8_to7vf"]
+[ext_resource type="SphereMesh" uid="uid://cxrasrpma6rl7" path="res://assets/fx/puff_mesh.tres" id="9_uesfo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_07410"]
 radius = 0.36
@@ -15,7 +17,7 @@ height = 1.5
 [sub_resource type="BoxMesh" id="BoxMesh_wxynt"]
 size = Vector3(0.56, 0.5, 0.26)
 
-[node name="Baker" type="CharacterBody3D" unique_id=605568101 node_paths=PackedStringArray("carry_stack", "visual", "anim", "max_label", "backpack") groups=["player"]]
+[node name="Baker" type="CharacterBody3D" unique_id=605568101 node_paths=PackedStringArray("carry_stack", "visual", "anim", "max_label", "backpack", "run_dust") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_8fi4i")
 carry_stack = NodePath("Visual/BackStack")
@@ -23,6 +25,7 @@ visual = NodePath("Visual")
 anim = NodePath("AnimationTree")
 max_label = NodePath("MaxLabel")
 backpack = NodePath("Visual/Backpack")
+run_dust = NodePath("RunDust")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1341350313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -36,7 +39,7 @@ transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
 [node name="BackStack" type="Node3D" parent="Visual" unique_id=1273761912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, -0.4)
 script = ExtResource("3_wxynt")
-item_height = 0.13
+item_height = 0.168
 pickup_apex = 0.8
 
 [node name="Backpack" type="MeshInstance3D" parent="Visual" unique_id=1445546741]
@@ -72,3 +75,11 @@ text = "MAX"
 font = ExtResource("6_rydtt")
 font_size = 76
 outline_size = 24
+
+[node name="RunDust" type="GPUParticles3D" parent="." unique_id=1022124820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+emitting = false
+amount = 10
+lifetime = 0.5
+process_material = ExtResource("8_to7vf")
+draw_pass_1 = ExtResource("9_uesfo")

@@ -17,6 +17,7 @@ extends CharacterBody3D
 @export var anim: CharacterAnim
 @export var max_label: Label3D
 @export var backpack: MeshInstance3D
+@export var run_dust: GPUParticles3D
 ## One tint per backpack level (start, bigger, biggest).
 @export var backpack_tints: Array[Color] = [Color(0.2, 0.75, 0.72), Color(1.0, 0.62, 0.2), Color(0.85, 0.35, 0.9)]
 
@@ -63,6 +64,8 @@ func _physics_process(delta: float) -> void:
 		_model_yaw = lerp_angle(_model_yaw, atan2(wish.x, wish.z), 1.0 - exp(-turn_k * delta))
 	if visual != null:
 		visual.rotation = Vector3(deg_to_rad(lean_degrees) * speed01, _model_yaw, 0.0)
+	if run_dust != null:
+		run_dust.emitting = speed01 > 0.6 and is_on_floor()
 	if anim != null:
 		anim.set_speed01(speed01)
 		anim.set_holding(carry_stack != null and carry_stack.count() > 0)
