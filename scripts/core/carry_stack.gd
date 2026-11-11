@@ -212,6 +212,13 @@ func notify_full() -> void:
 	rejected_full.emit()
 
 
+## Flavor of the item on top, or empty.
+func top_kind() -> StringName:
+	if _stacked.is_empty():
+		return &""
+	return _stacked[_stacked.size() - 1].get_meta("kind", &"") as StringName
+
+
 ## Number of stacked items of `kind`.
 func count_kind(kind: StringName) -> int:
 	var total: int = 0

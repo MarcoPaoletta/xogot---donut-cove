@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://detcddlqqj6we"]
+
+[ext_resource type="Script" uid="uid://bgg1i74ttxd8s" path="res://scripts/ui/presenter_panel.gd" id="1_23wwx"]
+[ext_resource type="Script" uid="uid://c7iqd20osk2ym" path="res://scripts/ui/juicy_button.gd" id="2_roi4m"]
+
+[node name="PresenterPanel" type="CanvasLayer" unique_id=1641666758 node_paths=PackedStringArray("root_control", "buttons", "time_button", "god_button")]
+layer = 30
+script = ExtResource("1_23wwx")
+root_control = NodePath("Root")
+buttons = NodePath("Root/Panel/Box/Buttons")
+time_button = NodePath("Root/Panel/Box/Buttons/TimeScale")
+god_button = NodePath("Root/Panel/Box/Buttons/GodMode")
+
+[node name="Root" type="Control" parent="." unique_id=485661765]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Root" unique_id=1128103091]
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_right = 560.0
+grow_vertical = 2
+
+[node name="Box" type="VBoxContainer" parent="Root/Panel" unique_id=419954361]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Root/Panel/Box" unique_id=1153835872]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 50
+text = "Presenter (F1)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Root/Panel/Box" unique_id=1898438937]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Coins100" type="Button" parent="Root/Panel/Box/Buttons" unique_id=618290604]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "+100 coins"
+script = ExtResource("2_roi4m")
+
+[node name="Coins1000" type="Button" parent="Root/Panel/Box/Buttons" unique_id=2127110705]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "+1,000 coins"
+script = ExtResource("2_roi4m")
+
+[node name="NextPad" type="Button" parent="Root/Panel/Box/Buttons" unique_id=280320333]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Unlock next pad"
+script = ExtResource("2_roi4m")
+
+[node name="RareCaptain" type="Button" parent="Root/Panel/Box/Buttons" unique_id=449749349]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Rare captain"
+script = ExtResource("2_roi4m")
+
+[node name="FillRacks" type="Button" parent="Root/Panel/Box/Buttons" unique_id=570291295]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Fill all racks"
+script = ExtResource("2_roi4m")
+
+[node name="Kraken" type="Button" parent="Root/Panel/Box/Buttons" unique_id=1155315923]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Start the Kraken"
+script = ExtResource("2_roi4m")
+
+[node name="Loot" type="Button" parent="Root/Panel/Box/Buttons" unique_id=1022452726]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Give loot"
+script = ExtResource("2_roi4m")
+
+[node name="TimeScale" type="Button" parent="Root/Panel/Box/Buttons" unique_id=336846443]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Time x1"
+script = ExtResource("2_roi4m")
+
+[node name="GodMode" type="Button" parent="Root/Panel/Box/Buttons" unique_id=690733804]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Hull god mode: off"
+script = ExtResource("2_roi4m")
+
+[node name="Erase" type="Button" parent="Root/Panel/Box/Buttons" unique_id=423763334]
+custom_minimum_size = Vector2(470, 78)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Erase progress, start over"
+script = ExtResource("2_roi4m")

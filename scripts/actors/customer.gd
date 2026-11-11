@@ -105,6 +105,23 @@ func wants() -> StringName:
 	return &""
 
 
+## The customer takes another flavor instead (the one the carrier holds).
+func substitute(from_kind: StringName, to_kind: StringName) -> void:
+	if to_kind == &"" or from_kind == to_kind or not order.has(from_kind):
+		return
+	var old_price: int = Flavors.price(from_kind)
+	var count: int = int(order[from_kind])
+	var waiting: int = int(_pending.get(from_kind, 0))
+	order.erase(from_kind)
+	_pending.erase(from_kind)
+	order[to_kind] = int(order.get(to_kind, 0)) + count
+	_pending[to_kind] = int(_pending.get(to_kind, 0)) + waiting
+	_amount = maxi(_amount + count * (Flavors.price(to_kind) - old_price), 1)
+	_wait = maxf(_wait, 12.0)
+	_refresh_bubble(true)
+	Audio.play_varied(&"pirate_grumpy", 0.1, -8.0)
+
+
 ## Marks one donut of `kind` as on its way, so no extra one is sent.
 func reserve(kind: StringName) -> void:
 	_pending[kind] = int(_pending.get(kind, 0)) - 1

@@ -7,3 +7,4 @@ Target: 60 fps at 1920x1080 on an RTX 3060 (GDD Section 15). One row per check, 
 | 2026-11-11 16:56 | M2 | First row: island, stall, kitchen line, dock, water, one pad | 197 | 108 | 6.36 | 337 | 628,528 | 477 MB | yes |
 | 2026-11-11 17:08 | M3 | Pads 1 to 12 placed, three ovens, display case, statue, two table sets with seated pirates, helper bunny, compact island | 197 | 144 | 6.16 | 420 | 792,698 | 535 MB | yes |
 | 2026-11-11 17:39 | M4-M6 | Ship, sea camera, islets, cannons, sharks, tentacles, loot, Kraken, house, title and end screens (built in one pass, measured with the ship sailing on autopilot and firing) | 191 | 139 | 6.37 | 501 | 880,146 | 608 MB | yes |
+| 2026-11-11 18:11 | M7 | Audio (three music loops, ambience, 33 effects), presenter panel, HUD sea widgets and mute icon, economy retune | 189 | 145 | 6.36 | 502 | 940,316 | 595 MB | yes |

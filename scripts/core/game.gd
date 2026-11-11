@@ -377,7 +377,7 @@ func _apply(pad_id: StringName) -> void:
 		&"display_case":
 			if queue != null:
 				queue.open_slots = 6
-				queue.spawn_interval = 3.0
+				queue.spawn_interval = 1.8
 		&"backpack":
 			_set_capacity(1, 10)
 		&"backpack2":

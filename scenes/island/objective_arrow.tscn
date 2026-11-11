@@ -17,11 +17,11 @@ size = Vector3(0.36, 0.6, 0.36)
 script = ExtResource("1_gbmsx")
 
 [node name="Head" type="MeshInstance3D" parent="." unique_id=1821323370]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.3, 0)
 material_override = ExtResource("2_wgxj5")
 mesh = SubResource("CylinderMesh_n7h38")
 
 [node name="Shaft" type="MeshInstance3D" parent="." unique_id=2016068920]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.98, 0)
+transform = Transform3D(0.49497473, 0, 0.49497473, 0, 0.7, 0, -0.49497473, 0, 0.49497473, 0, 0.74, 0)
 material_override = ExtResource("2_wgxj5")
 mesh = SubResource("BoxMesh_m17kp")

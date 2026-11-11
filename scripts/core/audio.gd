@@ -20,12 +20,18 @@ var _music_name: StringName = &""
 var _duck: Tween = null
 
 @onready var _music: AudioStreamPlayer = $Music
+@onready var _ambience: AudioStreamPlayer = $Ambience
 @onready var _pool: Node = $Pool
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_muted(true)
+	var waves: AudioStream = _stream(MUSIC_DIR, &"ambience")
+	if waves != null and _ambience != null:
+		_loop(waves)
+		_ambience.stream = waves
+		_ambience.play()
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -70,6 +76,7 @@ func play_music(track: StringName, fade: float = 0.8) -> void:
 	tween.tween_callback(func() -> void:
 		_music.stream = stream
 		if stream != null:
+			_loop(stream)
 			_music.play()
 		else:
 			_music.stop()
@@ -88,6 +95,13 @@ func duck(depth_db: float = -9.0, time: float = 1.2) -> void:
 	_duck.tween_method(func(v: float) -> void: AudioServer.set_bus_volume_db(bus, v), 0.0, depth_db, 0.12)
 	_duck.tween_interval(time * 0.5)
 	_duck.tween_method(func(v: float) -> void: AudioServer.set_bus_volume_db(bus, v), depth_db, 0.0, time * 0.5)
+
+
+func _loop(stream: AudioStream) -> void:
+	if stream is AudioStreamOggVorbis:
+		(stream as AudioStreamOggVorbis).loop = true
+	elif stream is AudioStreamWAV:
+		(stream as AudioStreamWAV).loop_mode = AudioStreamWAV.LOOP_FORWARD
 
 
 func _stream(dir: String, sound: StringName) -> AudioStream:

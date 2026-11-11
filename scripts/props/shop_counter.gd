@@ -18,6 +18,9 @@ signal sale(amount: int, at: Vector3)
 ## Value of one coin on the tray. Bigger sales make more coins.
 @export var coin_value: int = 4
 
+## Seconds a carrier with the wrong flavors waits before the front customer changes its order.
+@export var substitute_after: float = 1.6
+
 @export_group("Feed cadence")
 @export var feed_first: float = 0.22
 @export var feed_factor: float = 0.85
@@ -98,7 +101,17 @@ func _feed(carrier: Node3D, delta: float) -> void:
 			kind = wanted
 			break
 	if customer == null:
+		# Nobody wants what this carrier holds. After a short wait the customer at the
+		# front takes what there is, so a full stack of another flavor never blocks the line.
+		state["stall"] = float(state.get("stall", 0.0)) + delta
+		var waiting: Array[Customer] = ready_customers()
+		if float(state["stall"]) >= substitute_after and not waiting.is_empty():
+			var unwanted: StringName = waiting[0].wants()
+			if unwanted != &"":
+				waiting[0].substitute(unwanted, stack.top_kind())
+			state["stall"] = 0.0
 		return
+	state["stall"] = 0.0
 	customer.reserve(kind)
 	stack.send_top(customer.receive_position, 0.24, 0.7, customer.receive, kind)
 	Audio.play(&"serve", 1.0 + 0.05 * float(state["chain"]))

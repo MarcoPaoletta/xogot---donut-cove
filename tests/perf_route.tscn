@@ -5,7 +5,7 @@
 
 [node name="PerfRoute" type="Node3D" unique_id=1311205074 node_paths=PackedStringArray("camera", "waypoints", "main")]
 script = ExtResource("1_iw2ad")
-label = "M4-M6"
+label = "M7"
 camera = NodePath("Camera")
 waypoints = NodePath("Waypoints")
 main = NodePath("Main")

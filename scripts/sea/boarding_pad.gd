@@ -40,6 +40,6 @@ func _process(delta: float) -> void:
 		return
 	_held += delta
 	if _held >= hold_time:
+		# Keep asking while the baker stands here: the ship may still be sailing in.
 		_held = 0.0
-		_carrier = null
 		boarded.emit()

@@ -6,7 +6,7 @@
 script = ExtResource("1_8wyu3")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1920249906]
-volume_db = -8.0
+volume_db = -7.0
 bus = &"Music"
 
 [node name="Pool" type="Node" parent="." unique_id=1862697009]
@@ -46,3 +46,7 @@ bus = &"SFX"
 
 [node name="Sfx12" type="AudioStreamPlayer" parent="Pool" unique_id=339241006]
 bus = &"SFX"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1722130387]
+volume_db = -14.0
+bus = &"Music"
