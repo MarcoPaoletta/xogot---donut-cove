@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://btwvvwor8gi63"]
+
+[ext_resource type="Script" uid="uid://c8jopn3b251ae" path="res://scripts/sea/ship.gd" id="1_pif8r"]
+[ext_resource type="PackedScene" uid="uid://ocyjhepi3w2l" path="res://scenes/sea/cannonball.tscn" id="2_oo20q"]
+[ext_resource type="PackedScene" uid="uid://dsiqijhuepnfy" path="res://scenes/fx/fx_muzzle_flash.tscn" id="3_nqf8o"]
+[ext_resource type="PackedScene" uid="uid://dqlhqd1eu8u4s" path="res://assets/quaternius/pirate/Ship_Large.gltf" id="4_b358a"]
+[ext_resource type="PackedScene" uid="uid://chyy7j4mcqxed" path="res://assets/quaternius/restaurant/Rabbit_Cyan.gltf" id="5_bmvxu"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://2h0npeux08n6" path="res://assets/anim/bunny_tree.tres" id="6_5702y"]
+[ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="7_wf864"]
+[ext_resource type="Material" uid="uid://d04grhe7x67as" path="res://materials/wheel_wood.tres" id="8_o8prg"]
+[ext_resource type="PackedScene" uid="uid://b7qwvr3op44n6" path="res://assets/quaternius/pirate/Prop_Cannon.gltf" id="9_v86uk"]
+[ext_resource type="Material" uid="uid://3ggstl4m3koq" path="res://materials/deck_flash.tres" id="10_troa6"]
+[ext_resource type="Material" uid="uid://ddakj8s453jb8" path="res://assets/fx/wake_process.tres" id="11_kpwb5"]
+[ext_resource type="SphereMesh" uid="uid://cxrasrpma6rl7" path="res://assets/fx/puff_mesh.tres" id="12_63pvh"]
+[ext_resource type="Material" uid="uid://bvhnf405slc5e" path="res://assets/fx/spray_process.tres" id="13_ueq1v"]
+[ext_resource type="Material" uid="uid://dv6mvh68dm465" path="res://materials/aim_ring.tres" id="14_i45ep"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1e2lq"]
+size = Vector3(0.16, 0.9, 0.16)
+
+[sub_resource type="TorusMesh" id="TorusMesh_l3kg5"]
+inner_radius = 0.3
+outer_radius = 0.4
+rings = 20
+ring_segments = 6
+
+[sub_resource type="BoxMesh" id="BoxMesh_6gxel"]
+size = Vector3(0.96, 0.06, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_724t7"]
+size = Vector3(0.96, 0.06, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j3oqv"]
+size = Vector3(0.96, 0.06, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_63ocr"]
+size = Vector3(3.6, 0.3, 11)
+
+[sub_resource type="TorusMesh" id="TorusMesh_h4wbn"]
+inner_radius = 1.15
+outer_radius = 1.45
+rings = 40
+ring_segments = 6
+
+[sub_resource type="SphereMesh" id="SphereMesh_nd77x"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_4smme"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_fywvk"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_2cri5"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_iewm6"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_smr51"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_uv6e5"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_1qlp7"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_vdaro"]
+radius = 0.13
+height = 0.26
+radial_segments = 8
+rings = 4
+
+[node name="Ship" type="Node3D" unique_id=797402851 node_paths=PackedStringArray("hull_pivot", "deck_bunny", "port_cannons", "starboard_cannons", "wake", "spray", "aim_ring", "aim_dots", "deck_flash")]
+script = ExtResource("1_pif8r")
+cannonball_scene = ExtResource("2_oo20q")
+muzzle_flash_scene = ExtResource("3_nqf8o")
+hull_pivot = NodePath("Hull")
+deck_bunny = NodePath("Hull/DeckBunny")
+port_cannons = NodePath("Hull/PortCannons")
+starboard_cannons = NodePath("Hull/StarboardCannons")
+wake = NodePath("Wake")
+spray = NodePath("Spray")
+aim_ring = NodePath("AimRing")
+aim_dots = NodePath("AimDots")
+deck_flash = NodePath("Hull/DeckFlash")
+
+[node name="Hull" type="Node3D" parent="." unique_id=1139172428]
+
+[node name="Model" parent="Hull" unique_id=374552523 instance=ExtResource("4_b358a")]
+transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, 0, 0.15, 0)
+
+[node name="DeckBunny" type="Node3D" parent="Hull" unique_id=2065683868]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.72, 2.25)
+
+[node name="Model" parent="Hull/DeckBunny" unique_id=99096947 instance=ExtResource("5_bmvxu")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="Hull/DeckBunny" unique_id=71929606]
+root_node = NodePath("../Model")
+tree_root = ExtResource("6_5702y")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/Loco/blend_position = 0.0
+parameters/Hold/blend_position = 0.0
+parameters/Carry/blend_amount = 0.0
+parameters/Shot_Yes/active = false
+parameters/Shot_Yes/internal_active = false
+parameters/Shot_Yes/request = 0
+parameters/Shot_HitReact/active = false
+parameters/Shot_HitReact/internal_active = false
+parameters/Shot_HitReact/request = 0
+script = ExtResource("7_wf864")
+
+[node name="Wheel" type="Node3D" parent="Hull" unique_id=407335437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72, 1.55)
+
+[node name="Post" type="MeshInstance3D" parent="Hull/Wheel" unique_id=2023894761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+material_override = ExtResource("8_o8prg")
+mesh = SubResource("BoxMesh_1e2lq")
+
+[node name="Rim" type="MeshInstance3D" parent="Hull/Wheel" unique_id=2010029534]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.95, 0.1)
+material_override = ExtResource("8_o8prg")
+mesh = SubResource("TorusMesh_l3kg5")
+
+[node name="Spoke1" type="MeshInstance3D" parent="Hull/Wheel" unique_id=358820350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0.1)
+material_override = ExtResource("8_o8prg")
+mesh = SubResource("BoxMesh_6gxel")
+
+[node name="Spoke2" type="MeshInstance3D" parent="Hull/Wheel" unique_id=1584344043]
+transform = Transform3D(0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0, 0, 1, 0, 0.95, 0.1)
+material_override = ExtResource("8_o8prg")
+mesh = SubResource("BoxMesh_724t7")
+
+[node name="Spoke3" type="MeshInstance3D" parent="Hull/Wheel" unique_id=1154296285]
+transform = Transform3D(-0.50000006, -0.8660254, 0, 0.8660254, -0.50000006, 0, 0, 0, 1, 0, 0.95, 0.1)
+material_override = ExtResource("8_o8prg")
+mesh = SubResource("BoxMesh_j3oqv")
+
+[node name="PortCannons" type="Node3D" parent="Hull" unique_id=1493627335]
+
+[node name="Cannon1" type="Node3D" parent="Hull/PortCannons" unique_id=365794505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 1.38, -1.3)
+
+[node name="Model" parent="Hull/PortCannons/Cannon1" unique_id=1354888316 instance=ExtResource("9_v86uk")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="Muzzle" type="Marker3D" parent="Hull/PortCannons/Cannon1" unique_id=994302168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.25, 0)
+
+[node name="Cannon2" type="Node3D" parent="Hull/PortCannons" unique_id=923369033 groups=["reveal_double_cannons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 1.38, 0.4)
+visible = false
+
+[node name="Model" parent="Hull/PortCannons/Cannon2" unique_id=1544031037 instance=ExtResource("9_v86uk")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="Muzzle" type="Marker3D" parent="Hull/PortCannons/Cannon2" unique_id=210087274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0.25, 0)
+
+[node name="StarboardCannons" type="Node3D" parent="Hull" unique_id=1227315565]
+
+[node name="Cannon1" type="Node3D" parent="Hull/StarboardCannons" unique_id=1932753064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 1.38, -1.3)
+
+[node name="Model" parent="Hull/StarboardCannons/Cannon1" unique_id=1580178201 instance=ExtResource("9_v86uk")]
+transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 0, 0, 0)
+
+[node name="Muzzle" type="Marker3D" parent="Hull/StarboardCannons/Cannon1" unique_id=662431399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.25, 0)
+
+[node name="Cannon2" type="Node3D" parent="Hull/StarboardCannons" unique_id=674835457 groups=["reveal_double_cannons"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 1.38, 0.4)
+visible = false
+
+[node name="Model" parent="Hull/StarboardCannons/Cannon2" unique_id=686185654 instance=ExtResource("9_v86uk")]
+transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 0, 0, 0)
+
+[node name="Muzzle" type="Marker3D" parent="Hull/StarboardCannons/Cannon2" unique_id=455869514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0.25, 0)
+
+[node name="DeckFlash" type="MeshInstance3D" parent="Hull" unique_id=1000026198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+material_override = ExtResource("10_troa6")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_63ocr")
+
+[node name="Wake" type="GPUParticles3D" parent="." unique_id=121675260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 4.6)
+emitting = false
+amount = 40
+lifetime = 1.6
+process_material = ExtResource("11_kpwb5")
+draw_pass_1 = ExtResource("12_63pvh")
+
+[node name="Spray" type="GPUParticles3D" parent="." unique_id=449475010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -6.4)
+emitting = false
+amount = 24
+lifetime = 0.7
+process_material = ExtResource("13_ueq1v")
+draw_pass_1 = ExtResource("12_63pvh")
+
+[node name="AimRing" type="MeshInstance3D" parent="." unique_id=467542031]
+transform = Transform3D(1, 0, 0, 0, 0.12, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("TorusMesh_h4wbn")
+
+[node name="AimDots" type="Node3D" parent="." unique_id=1094006277]
+
+[node name="Dot1" type="MeshInstance3D" parent="AimDots" unique_id=635284580]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_nd77x")
+
+[node name="Dot2" type="MeshInstance3D" parent="AimDots" unique_id=57130804]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_4smme")
+
+[node name="Dot3" type="MeshInstance3D" parent="AimDots" unique_id=1980974733]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_fywvk")
+
+[node name="Dot4" type="MeshInstance3D" parent="AimDots" unique_id=1891356201]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_2cri5")
+
+[node name="Dot5" type="MeshInstance3D" parent="AimDots" unique_id=293493520]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_iewm6")
+
+[node name="Dot6" type="MeshInstance3D" parent="AimDots" unique_id=1491286739]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_smr51")
+
+[node name="Dot7" type="MeshInstance3D" parent="AimDots" unique_id=1198807404]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_uv6e5")
+
+[node name="Dot8" type="MeshInstance3D" parent="AimDots" unique_id=799554129]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_1qlp7")
+
+[node name="Dot9" type="MeshInstance3D" parent="AimDots" unique_id=662161267]
+material_override = ExtResource("14_i45ep")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_vdaro")

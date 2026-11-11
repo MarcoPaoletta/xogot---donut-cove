@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dki6gwacdgpmj"]
+
+[ext_resource type="Script" uid="uid://c5no3tjiq08fx" path="res://scripts/core/fx_burst.gd" id="1_4xqmu"]
+[ext_resource type="Material" uid="uid://bj7u5f8yfgfyo" path="res://assets/fx/fx_splash_process.tres" id="2_7w5fy"]
+[ext_resource type="SphereMesh" uid="uid://cxrasrpma6rl7" path="res://assets/fx/puff_mesh.tres" id="3_3rflt"]
+
+[node name="FxSplash" type="Node3D" unique_id=572788395]
+script = ExtResource("1_4xqmu")
+life = 1.2
+
+[node name="P" type="GPUParticles3D" parent="." unique_id=1308478347]
+emitting = false
+amount = 22
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("2_7w5fy")
+draw_pass_1 = ExtResource("3_3rflt")

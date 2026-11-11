@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://e33jk7hybm4q" path="res://scripts/ui/money_counter.gd" id="2_136eg"]
 [ext_resource type="Script" uid="uid://bq8uo61cu1ct6" path="res://scripts/ui/hud_coin_flight.gd" id="3_oj5la"]
 [ext_resource type="PackedScene" uid="uid://dbo0lnhg3eggc" path="res://scenes/ui/hud_coin.tscn" id="4_gss2c"]
+[ext_resource type="Script" uid="uid://dm2qme2knvts6" path="res://xogot_draw_recipe.gd" id="5_136eg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h022r"]
 content_margin_left = 14.0
@@ -40,11 +41,196 @@ corner_radius_bottom_left = 44
 corner_detail = 12
 anti_aliasing_size = 1.5
 
-[node name="Hud" type="CanvasLayer" unique_id=122610672 node_paths=PackedStringArray("coin_flight", "root_control") groups=["hud"]]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj5la"]
+content_margin_left = 22.0
+content_margin_top = 10.0
+content_margin_right = 22.0
+content_margin_bottom = 10.0
+bg_color = Color(0.995, 0.965, 0.885, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.47, 0.29, 0.14, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 12
+shadow_color = Color(0.2, 0.1, 0, 0.28)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gss2c"]
+bg_color = Color(0.2, 0.21, 0.25, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.42, 0.44, 0.5, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kicr4"]
+bg_color = Color(0.2, 0.21, 0.25, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.42, 0.44, 0.5, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj13f"]
+bg_color = Color(0.2, 0.21, 0.25, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.42, 0.44, 0.5, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h1do"]
+bg_color = Color(0.2, 0.21, 0.25, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.42, 0.44, 0.5, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d46k"]
+bg_color = Color(0.2, 0.21, 0.25, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.42, 0.44, 0.5, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erw67"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 22.0
+content_margin_bottom = 6.0
+bg_color = Color(0.995, 0.965, 0.885, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.47, 0.29, 0.14, 1)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+corner_detail = 12
+shadow_color = Color(0.2, 0.1, 0, 0.28)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gonto"]
+bg_color = Color(0.72, 0.45, 0.2, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.78, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwdlq"]
+bg_color = Color(0.36, 0.22, 0.12, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.47, 0.29, 0.14, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 12
+shadow_color = Color(0.2, 0.1, 0, 0.28)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xly"]
+bg_color = Color(0.42, 0.85, 0.4, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.36, 0.22, 0.12, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_we3sy"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(0.995, 0.965, 0.885, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.47, 0.29, 0.14, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 12
+shadow_color = Color(0.2, 0.1, 0, 0.28)
+shadow_size = 8
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 1.5
+
+[node name="Hud" type="CanvasLayer" unique_id=122610672 node_paths=PackedStringArray("coin_flight", "root_control", "sea_panel", "ammo_row", "hold_label", "hull_bar", "fade_rect", "mute_icon", "mute_slash") groups=["hud"]]
 layer = 5
 script = ExtResource("1_8qguk")
 coin_flight = NodePath("Root/CoinFlight")
 root_control = NodePath("Root")
+sea_panel = NodePath("Root/SeaPanel")
+ammo_row = NodePath("Root/SeaPanel/AmmoPill/Row")
+hold_label = NodePath("Root/SeaPanel/Row2/HoldPill/Row/Hold")
+hull_bar = NodePath("Root/SeaPanel/Row2/Hull")
+fade_rect = NodePath("Fade")
+mute_icon = NodePath("Root/Mute")
+mute_slash = NodePath("Root/Mute/Row/Icon/Slash")
 
 [node name="Root" type="Control" parent="." unique_id=431059827]
 layout_mode = 3
@@ -105,3 +291,143 @@ mouse_filter = 2
 script = ExtResource("3_oj5la")
 counter = NodePath("../CoinPill/Row/CoinIcon")
 coin_scene = ExtResource("4_gss2c")
+
+[node name="SeaPanel" type="VBoxContainer" parent="Root" unique_id=1179532224]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 152.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AmmoPill" type="PanelContainer" parent="Root/SeaPanel" unique_id=820264109]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oj5la")
+
+[node name="Row" type="HBoxContainer" parent="Root/SeaPanel/AmmoPill" unique_id=658081281]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Ball1" type="Panel" parent="Root/SeaPanel/AmmoPill/Row" unique_id=1924626241]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gss2c")
+
+[node name="Ball2" type="Panel" parent="Root/SeaPanel/AmmoPill/Row" unique_id=990914734]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kicr4")
+
+[node name="Ball3" type="Panel" parent="Root/SeaPanel/AmmoPill/Row" unique_id=924942869]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mj13f")
+
+[node name="Ball4" type="Panel" parent="Root/SeaPanel/AmmoPill/Row" unique_id=1136261631]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0h1do")
+
+[node name="Ball5" type="Panel" parent="Root/SeaPanel/AmmoPill/Row" unique_id=1757061058]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4d46k")
+
+[node name="Row2" type="HBoxContainer" parent="Root/SeaPanel" unique_id=2051880399]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HoldPill" type="PanelContainer" parent="Root/SeaPanel/Row2" unique_id=433356193]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_erw67")
+
+[node name="Row" type="HBoxContainer" parent="Root/SeaPanel/Row2/HoldPill" unique_id=1797555584]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Chest" type="Panel" parent="Root/SeaPanel/Row2/HoldPill/Row" unique_id=664387446]
+custom_minimum_size = Vector2(52, 44)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gonto")
+
+[node name="Hold" type="Label" parent="Root/SeaPanel/Row2/HoldPill/Row" unique_id=1921557921]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 52
+text = "0"
+vertical_alignment = 1
+
+[node name="Hull" type="ProgressBar" parent="Root/SeaPanel/Row2" unique_id=1041568]
+custom_minimum_size = Vector2(320, 44)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_cwdlq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o6xly")
+value = 100.0
+show_percentage = false
+
+[node name="Mute" type="PanelContainer" parent="Root" unique_id=442552491]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 116.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_we3sy")
+
+[node name="Row" type="HBoxContainer" parent="Root/Mute" unique_id=680668991]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="Control" parent="Root/Mute/Row" unique_id=1604757352]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("5_136eg")
+recipe_json = "[{\"polygon\":[[6,20],[20,20],[36,6],[36,50],[20,36],[6,36]],\"color\":\"#5c3820\"},{\"arc\":[36,28,10,-60,60],\"color\":\"#5c3820\",\"width\":5}]"
+
+[node name="Slash" type="ColorRect" parent="Root/Mute/Row/Icon" unique_id=1372529377]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 24.0
+offset_right = 56.0
+offset_bottom = 32.0
+rotation = 0.6
+pivot_offset = Vector2(27, 4)
+mouse_filter = 2
+color = Color(0.9, 0.25, 0.2, 1)
+
+[node name="Key" type="Label" parent="Root/Mute/Row" unique_id=1629083952]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 48
+text = "M"
+vertical_alignment = 1
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1122579718]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.05, 0.03, 0.02, 1)

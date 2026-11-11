@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cutprfctgx3lt"]
+
+[ext_resource type="Script" uid="uid://d7tx27vno070" path="res://scripts/sea/sea_camera.gd" id="1_qpgup"]
+
+[node name="SeaCamera" type="Node3D" unique_id=1713012841 node_paths=PackedStringArray("camera") groups=["game_camera"]]
+script = ExtResource("1_qpgup")
+camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1109778914]
+fov = 50.0
+near = 0.5
+far = 600.0

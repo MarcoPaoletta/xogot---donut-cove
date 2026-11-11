@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dfqbvtjy5je0n"]
+
+[ext_resource type="Script" uid="uid://bo1ol64x5t8rq" path="res://scripts/props/house.gd" id="1_dg4xw"]
+[ext_resource type="PackedScene" uid="uid://62g768jbe3nf" path="res://assets/quaternius/pirate/Environment_House1.gltf" id="2_vsx5f"]
+[ext_resource type="Material" uid="uid://y2a4ir43m8b4" path="res://materials/pole_wood.tres" id="3_14mqr"]
+[ext_resource type="Material" uid="uid://dp4wwqh3q35mu" path="res://materials/flag_black.tres" id="4_hi7f7"]
+[ext_resource type="PackedScene" uid="uid://cx2ildosamykj" path="res://scenes/props/donut_strawberry.tscn" id="5_evgwj"]
+[ext_resource type="PackedScene" uid="uid://bhq2l1agb6w52" path="res://scenes/props/donut_plain.tscn" id="6_2s8g3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3fqfm"]
+top_radius = 0.07
+bottom_radius = 0.09
+height = 6.4
+radial_segments = 8
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_dlt8j"]
+size = Vector3(1.5, 0.95, 0.04)
+
+[node name="DonutHouse" type="Node3D" unique_id=1861598536 node_paths=PackedStringArray("flag", "sign_light", "sign_donut")]
+script = ExtResource("1_dg4xw")
+flag = NodePath("Flag")
+sign_light = NodePath("SignLight")
+sign_donut = NodePath("SignDonut")
+
+[node name="Model" parent="." unique_id=84176244 instance=ExtResource("2_vsx5f")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=1666613794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 3.2, 0.2)
+material_override = ExtResource("3_14mqr")
+mesh = SubResource("CylinderMesh_3fqfm")
+
+[node name="Flag" type="Node3D" parent="." unique_id=1178591556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 1, 0.2)
+
+[node name="Cloth" type="MeshInstance3D" parent="Flag" unique_id=138509591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.6, 0)
+material_override = ExtResource("4_hi7f7")
+mesh = SubResource("BoxMesh_dlt8j")
+
+[node name="Donut" parent="Flag" unique_id=531055059 instance=ExtResource("5_evgwj")]
+transform = Transform3D(1.5, 0, 0, 0, -6.556708e-08, -1.5, 0, 1.5, -6.556708e-08, 0.8, 0.6, 0.06)
+
+[node name="SignDonut" parent="." unique_id=313398877 instance=ExtResource("6_2s8g3")]
+transform = Transform3D(5, 0, 0, 0, 1.7101008, -4.698463, 0, 4.698463, 1.7101008, -0.6, 4.6, 0)
+
+[node name="SignLight" type="OmniLight3D" parent="." unique_id=1889566971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2.2)
+light_color = Color(1, 0.75, 0.4, 1)
+light_energy = 2.4
+omni_range = 9.0

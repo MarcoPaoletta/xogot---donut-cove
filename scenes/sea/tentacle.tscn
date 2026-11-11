@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cji58kott6p61"]
+
+[ext_resource type="Script" uid="uid://cmbdhxnjk3sew" path="res://scripts/sea/tentacle.gd" id="1_cb6e2"]
+[ext_resource type="PackedScene" uid="uid://bv1dv7r7ool5b" path="res://scenes/sea/loot_chest.tscn" id="2_vw3qt"]
+[ext_resource type="PackedScene" uid="uid://rpv22ef6e06g" path="res://assets/quaternius/pirate/Characters_Tentacle.gltf" id="3_5b6pv"]
+[ext_resource type="Material" uid="uid://dnccejdtvjbbi" path="res://materials/slam_shadow.tres" id="4_7nxb1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lyj0w"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.02
+radial_segments = 24
+rings = 1
+
+[node name="Tentacle" type="Node3D" unique_id=819932800 node_paths=PackedStringArray("visual", "animation_player", "shadow")]
+script = ExtResource("1_cb6e2")
+loot_scene = ExtResource("2_vw3qt")
+visual = NodePath("Visual")
+animation_player = NodePath("Visual/Model/AnimationPlayer")
+shadow = NodePath("Shadow")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1429217369]
+
+[node name="Model" parent="Visual" unique_id=1213429179 instance=ExtResource("3_5b6pv")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Shadow" type="MeshInstance3D" parent="." unique_id=1697607105]
+transform = Transform3D(3.85, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+material_override = ExtResource("4_7nxb1")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_lyj0w")

@@ -28,6 +28,7 @@ func _buy(main: Game, pad_id: StringName) -> bool:
 
 func _run() -> void:
 	var main: Game = tree.current_scene as Game
+	main.start_game(true)
 	var baker: Baker = main.baker
 	var queue: CustomerQueue = main.counter.queue
 	for pad_id: StringName in [&"oven2", &"display_case", &"backpack", &"oven3", &"statue", &"tables", &"helper", &"oven_speed"]:

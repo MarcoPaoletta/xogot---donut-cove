@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://6yvjtg74p6b2"]
+
+[ext_resource type="Script" uid="uid://c7j3pi3k4oue0" path="res://scripts/sea/floating_loot.gd" id="1_0qgw3"]
+[ext_resource type="PackedScene" uid="uid://7nb4tbqecl16" path="res://assets/quaternius/pirate/Prop_Coins.gltf" id="2_3wi55"]
+
+[node name="LootCoins" type="Node3D" unique_id=1946372514]
+script = ExtResource("1_0qgw3")
+
+[node name="Model" parent="." unique_id=602202418 instance=ExtResource("2_3wi55")]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0, 0)
+
+[node name="Glint" type="OmniLight3D" parent="." unique_id=1198991653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(1, 0.82, 0.3, 1)
+light_energy = 0.7
+omni_range = 2.5

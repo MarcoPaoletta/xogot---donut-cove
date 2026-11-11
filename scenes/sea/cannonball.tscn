@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ocyjhepi3w2l"]
+
+[ext_resource type="Script" uid="uid://t6ookfsd76bx" path="res://scripts/sea/cannonball.gd" id="1_51bsv"]
+[ext_resource type="PackedScene" uid="uid://dk8mriu6d6dux" path="res://assets/quaternius/pirate/Prop_CannonBall.gltf" id="2_g8g14"]
+
+[node name="Cannonball" type="Node3D" unique_id=1411084090]
+script = ExtResource("1_51bsv")
+
+[node name="Model" parent="." unique_id=1302287332 instance=ExtResource("2_g8g14")]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0, 0)

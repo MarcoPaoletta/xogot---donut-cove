@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://82swuhufvccp"]
+
+[ext_resource type="Script" uid="uid://c5no3tjiq08fx" path="res://scripts/core/fx_burst.gd" id="1_jqu14"]
+[ext_resource type="Material" uid="uid://b5d3d1qg1hlrv" path="res://assets/fx/fx_bubbles_process.tres" id="2_a1xal"]
+[ext_resource type="SphereMesh" uid="uid://cxrasrpma6rl7" path="res://assets/fx/puff_mesh.tres" id="3_r730j"]
+
+[node name="FxBubbles" type="Node3D" unique_id=1910096644]
+script = ExtResource("1_jqu14")
+life = 2.2
+
+[node name="P" type="GPUParticles3D" parent="." unique_id=1780258826]
+emitting = false
+amount = 18
+lifetime = 1.8
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("2_a1xal")
+draw_pass_1 = ExtResource("3_r730j")

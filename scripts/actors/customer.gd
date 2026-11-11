@@ -83,6 +83,16 @@ func sit_at(point: Vector3, face_yaw: float, height: float) -> void:
 	go_to(point, face_yaw, true)
 
 
+func _ready() -> void:
+	add_to_group(&"customers")
+
+
+## Everyone on the island cheers at the finale.
+func cheer() -> void:
+	if anim != null and _state != State.LEAVING:
+		anim.fire(&"Yes" if randf() < 0.5 else &"Wave")
+
+
 func is_ready() -> bool:
 	return _state == State.WAITING and _arrived()
 

@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://cx2ildosamykj" path="res://scenes/props/donut_strawberry.tscn" id="19_ymu3e"]
 [ext_resource type="PackedScene" uid="uid://dvdauc6yud6le" path="res://scenes/props/donut_chocolate.tscn" id="20_h5bsj"]
 [ext_resource type="PackedScene" uid="uid://cuu6oggrssewq" path="res://scenes/props/donut_honey.tscn" id="21_kcoeb"]
+[ext_resource type="PackedScene" uid="uid://dqlhqd1eu8u4s" path="res://assets/quaternius/pirate/Ship_Large.gltf" id="22_rtgd3"]
+[ext_resource type="PackedScene" uid="uid://ctkcv0xgk1btb" path="res://assets/quaternius/pirate/Characters_Shark.gltf" id="23_2ahxt"]
+[ext_resource type="PackedScene" uid="uid://rpv22ef6e06g" path="res://assets/quaternius/pirate/Characters_Tentacle.gltf" id="24_vnspe"]
 
 [node name="AssetPreview" type="Node3D" unique_id=2034374714]
 
@@ -82,3 +85,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 0)
 
 [node name="D3" parent="." unique_id=1418128999 instance=ExtResource("21_kcoeb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+
+[node name="Ship" parent="." unique_id=374552523 instance=ExtResource("22_rtgd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="Shark" parent="." unique_id=41805330 instance=ExtResource("23_2ahxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 40)
+
+[node name="Tent" parent="." unique_id=1213429179 instance=ExtResource("24_vnspe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 40)
+
+[node name="RefBunny" parent="." unique_id=1171025220 instance=ExtResource("8_d7owr")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 2.5, 1.9, 40)

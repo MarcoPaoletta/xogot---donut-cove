@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://wvrvioei7vxo"]
+
+[ext_resource type="Script" uid="uid://trklxsgdfu2a" path="res://scripts/ui/pause_menu.gd" id="1_0lmf7"]
+[ext_resource type="Script" uid="uid://c7iqd20osk2ym" path="res://scripts/ui/juicy_button.gd" id="2_f6eus"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1113946722 node_paths=PackedStringArray("root_control", "panel", "resume_button", "restart_button", "mute_button", "fullscreen_button", "quit_button")]
+layer = 20
+script = ExtResource("1_0lmf7")
+root_control = NodePath("Root")
+panel = NodePath("Root/Center/Panel")
+resume_button = NodePath("Root/Center/Panel/Box/Resume")
+restart_button = NodePath("Root/Center/Panel/Box/Restart")
+mute_button = NodePath("Root/Center/Panel/Box/Mute")
+fullscreen_button = NodePath("Root/Center/Panel/Box/Fullscreen")
+quit_button = NodePath("Root/Center/Panel/Box/Quit")
+
+[node name="Root" type="Control" parent="." unique_id=732725614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=2001874935]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.06, 0.02, 0.5)
+
+[node name="Center" type="CenterContainer" parent="Root" unique_id=1977134787]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="Root/Center" unique_id=60773058]
+layout_mode = 2
+
+[node name="Box" type="VBoxContainer" parent="Root/Center/Panel" unique_id=20697249]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Root/Center/Panel/Box" unique_id=1102239885]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 92
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="Root/Center/Panel/Box" unique_id=942833623]
+custom_minimum_size = Vector2(520, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resume"
+script = ExtResource("2_f6eus")
+
+[node name="Restart" type="Button" parent="Root/Center/Panel/Box" unique_id=1811231375]
+custom_minimum_size = Vector2(520, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart"
+script = ExtResource("2_f6eus")
+
+[node name="Mute" type="Button" parent="Root/Center/Panel/Box" unique_id=1854769092]
+custom_minimum_size = Vector2(520, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sound: off"
+script = ExtResource("2_f6eus")
+
+[node name="Fullscreen" type="Button" parent="Root/Center/Panel/Box" unique_id=1937752470]
+custom_minimum_size = Vector2(520, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fullscreen: off"
+script = ExtResource("2_f6eus")
+
+[node name="Quit" type="Button" parent="Root/Center/Panel/Box" unique_id=694594206]
+custom_minimum_size = Vector2(520, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+script = ExtResource("2_f6eus")

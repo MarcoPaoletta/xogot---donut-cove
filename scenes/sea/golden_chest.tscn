@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://blvrycntgjk5b"]
+
+[ext_resource type="Script" uid="uid://c7j3pi3k4oue0" path="res://scripts/sea/floating_loot.gd" id="1_smx6d"]
+[ext_resource type="PackedScene" uid="uid://cjnt5ggl342bo" path="res://assets/quaternius/pirate/Prop_Chest_Gold.gltf" id="2_k7xs3"]
+
+[node name="GoldenChest" type="Node3D" unique_id=1419559152]
+script = ExtResource("1_smx6d")
+value = 900
+pull_radius = 7.0
+is_chest = true
+
+[node name="Model" parent="." unique_id=1837906981 instance=ExtResource("2_k7xs3")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
+
+[node name="Glint" type="OmniLight3D" parent="." unique_id=1407700765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(1, 0.82, 0.3, 1)
+light_energy = 1.6

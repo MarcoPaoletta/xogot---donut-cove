@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d3om57fkbwns7"
+
+[deps]
+
+files=["res://docs/records/evidence/perf_M3.draw.translation", "res://docs/records/evidence/perf_M3.triangles.translation"]
+
+source_file="res://docs/records/evidence/perf_M3.csv"
+dest_files=["res://docs/records/evidence/perf_M3.draw.translation", "res://docs/records/evidence/perf_M3.triangles.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -12,8 +12,11 @@ func _check(name: String, ok: bool, detail: String = "") -> void:
 
 func _run() -> void:
 	var main: Game = tree.current_scene as Game
+	main.start_game(true)
 	var baker: Baker = main.baker
 	var stack: CarryStack = baker.get_carry_stack()
+	await tree.process_frame
+	await tree.process_frame
 	_check("start cash", Wallet.cash == 60, str(Wallet.cash))
 	_check("muted at boot", AudioServer.is_bus_mute(0))
 	_check("arrow points at the oven", main.arrow.target == main.first_oven.pickup_zone)

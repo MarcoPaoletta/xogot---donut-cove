@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://7jflyw4uvts2"]
+
+[ext_resource type="Script" uid="uid://d17yqbl5wrddk" path="res://scripts/sea/boarding_pad.gd" id="1_kkxi3"]
+[ext_resource type="Material" uid="uid://c33mbblmqu4j8" path="res://materials/board_disc.tres" id="2_mmkom"]
+[ext_resource type="Material" uid="uid://bbdp52i3nstg" path="res://materials/board_ring.tres" id="3_mf2l5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uimo5"]
+size = Vector3(2.2, 2, 2.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6ogpa"]
+top_radius = 1.05
+bottom_radius = 1.05
+height = 0.02
+radial_segments = 40
+rings = 1
+
+[sub_resource type="TorusMesh" id="TorusMesh_cfh5g"]
+inner_radius = 0.98
+outer_radius = 1.22
+rings = 40
+ring_segments = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lvdoq"]
+top_radius = 0.0
+bottom_radius = 0.42
+height = 0.5
+radial_segments = 4
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_slt8s"]
+size = Vector3(0.28, 0.4, 0.28)
+
+[node name="BoardingPad" type="Area3D" unique_id=900929283 node_paths=PackedStringArray("ring", "arrow")]
+collision_layer = 128
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_kkxi3")
+ring = NodePath("Ring")
+arrow = NodePath("Arrow")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=519539948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_uimo5")
+
+[node name="Disc" type="MeshInstance3D" parent="." unique_id=2032036002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = ExtResource("2_mmkom")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_6ogpa")
+
+[node name="Ring" type="MeshInstance3D" parent="." unique_id=1542375941]
+transform = Transform3D(1, 0, 0, 0, 0.12, 0, 0, 0, 1, 0, 0.12, 0)
+material_override = ExtResource("3_mf2l5")
+cast_shadow = 0
+mesh = SubResource("TorusMesh_cfh5g")
+
+[node name="Arrow" type="Node3D" parent="." unique_id=1459449409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Head" type="MeshInstance3D" parent="Arrow" unique_id=774767405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42, 0)
+material_override = ExtResource("3_mf2l5")
+mesh = SubResource("CylinderMesh_lvdoq")
+
+[node name="Shaft" type="MeshInstance3D" parent="Arrow" unique_id=990971121]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+material_override = ExtResource("3_mf2l5")
+mesh = SubResource("BoxMesh_slt8s")

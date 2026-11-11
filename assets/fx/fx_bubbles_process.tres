@@ -1,0 +1,14 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://b5d3d1qg1hlrv"]
+
+[ext_resource type="Texture2D" uid="uid://v6fh6f6ilkuw" path="res://assets/fx/shrink_curve_tex.tres" id="1_cimx5"]
+
+[resource]
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 0.6
+initial_velocity_max = 1.8
+gravity = Vector3(0, 0.4, 0)
+scale_min = 0.3
+scale_max = 0.8
+scale_curve = ExtResource("1_cimx5")
+color = Color(0.85, 0.97, 1, 1)

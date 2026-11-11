@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bnne34obktvgf"]
+
+[ext_resource type="Script" uid="uid://be18dxel1ij88" path="res://scripts/ui/end_card.gd" id="1_4e70i"]
+[ext_resource type="Script" uid="uid://dm2qme2knvts6" path="res://xogot_draw_recipe.gd" id="2_3wo4b"]
+[ext_resource type="Script" uid="uid://c7iqd20osk2ym" path="res://scripts/ui/juicy_button.gd" id="3_g75bg"]
+
+[node name="EndCard" type="CanvasLayer" unique_id=563348897 node_paths=PackedStringArray("root_control", "panel", "stats_label", "keep_button")]
+layer = 15
+script = ExtResource("1_4e70i")
+root_control = NodePath("Root")
+panel = NodePath("Root/Center/Panel")
+stats_label = NodePath("Root/Center/Panel/Box/Stats")
+keep_button = NodePath("Root/Center/Panel/Box/Keep")
+
+[node name="Root" type="Control" parent="." unique_id=258620806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=742344756]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.1, 0.06, 0.02, 0.4)
+
+[node name="Center" type="CenterContainer" parent="Root" unique_id=2038500572]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="Root/Center" unique_id=783823789]
+layout_mode = 2
+
+[node name="Box" type="VBoxContainer" parent="Root/Center/Panel" unique_id=1013493139]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Icon" type="Control" parent="Root/Center/Panel/Box" unique_id=2034182410]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("2_3wo4b")
+recipe_json = "[{\"circle\":[90,90,86],\"color\":\"#7a4a22\"},{\"circle\":[90,90,80],\"color\":\"#f0b46a\"},{\"circle\":[90,86,72],\"color\":\"#ff86b8\"},{\"circle\":[90,90,30],\"color\":\"#7a4a22\"},{\"circle\":[90,90,25],\"color\":\"#9fdcf7\"},{\"rect\":[50,48,16,6],\"filled\":true,\"color\":\"#ffffff\"},{\"rect\":[112,40,16,6],\"filled\":true,\"color\":\"#ffe14d\"},{\"rect\":[130,96,16,6],\"filled\":true,\"color\":\"#6fd6ff\"},{\"rect\":[40,104,16,6],\"filled\":true,\"color\":\"#ffe14d\"},{\"rect\":[84,134,16,6],\"filled\":true,\"color\":\"#ffffff\"},{\"rect\":[70,24,16,6],\"filled\":true,\"color\":\"#6fd6ff\"}]"
+
+[node name="Title" type="Label" parent="Root/Center/Panel/Box" unique_id=1903068361]
+custom_minimum_size = Vector2(980, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 66
+text = "Donut Cove is the best donut shop on the seven seas"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Stats" type="Label" parent="Root/Center/Panel/Box" unique_id=1485602132]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.29, 0.14, 1)
+theme_override_font_sizes/font_size = 50
+text = "Coins earned: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Keep" type="Button" parent="Root/Center/Panel/Box" unique_id=1591434416]
+custom_minimum_size = Vector2(520, 116)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+text = "Keep playing"
+script = ExtResource("3_g75bg")

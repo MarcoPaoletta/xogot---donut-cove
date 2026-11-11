@@ -26,6 +26,7 @@ func _wait(seconds: float) -> void:
 func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	var main: Game = tree.current_scene as Game
+	main.start_game(true)
 	var baker: Baker = main.baker
 	baker.teleport(Vector3(-5.3, 0.05, -4.5), PI)
 	await _wait(0.1)
