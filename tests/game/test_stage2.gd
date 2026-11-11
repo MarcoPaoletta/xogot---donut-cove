@@ -35,6 +35,60 @@ func _run() -> void:
 		var bought: bool = await _buy(main, pad_id)
 		_check("pad %s bought by standing" % pad_id, bought)
 	_check("three flavors can be ordered", queue.kinds.size() == 3, str(queue.kinds))
+	# V2: the hologram is the real target at its real place, in the hologram material.
+	var house: Node3D = main.get_node("Reveals/House") as Node3D
+	_check("a pad not offered yet keeps its target hidden", not house.visible)
+	var ship_pad: UnlockPad = main.pad(&"ship")
+	var ship: Node3D = main.get_node("Sea/Ship") as Node3D
+	var ghosted: MeshInstance3D = ship.find_children("*", "MeshInstance3D", true, false)[0] as MeshInstance3D
+	_check("the offered ship stands at its mooring as a hologram", ship_pad.available and ship.visible and ghosted.material_overlay is ShaderMaterial)
+	var oven2: Node3D = main.get_node("Ovens/Oven2") as Node3D
+	var oven_mesh: MeshInstance3D = oven2.find_children("*", "MeshInstance3D", true, false)[0] as MeshInstance3D
+	_check("a bought oven is solid again", oven_mesh.material_overlay == null)
+	# V2: five optional decorations, one offered at a time, each bought by standing.
+	for decor_id: StringName in [&"kitchen_floor", &"plants", &"lamps", &"prep_counter", &"pot_shelf"]:
+		_check("decoration %s is the one on offer" % decor_id, main.next_decor() != null and main.next_decor().pad_id == decor_id)
+		var got: bool = await _buy(main, decor_id)
+		var shown: bool = true
+		for target: Node in tree.get_nodes_in_group("reveal_" + String(decor_id)):
+			shown = shown and (target as Node3D).visible
+		_check("decoration %s bought and shown" % decor_id, got and shown)
+	_check("no decoration left", main.next_decor() == null)
+	# V2: running across a pad pays nothing.
+	var cross: UnlockPad = main.pad(&"ship")
+	Wallet.add(50)
+	var cash_before: int = Wallet.cash
+	baker.teleport(cross.global_position + Vector3(0.0, 0.05, 0.0), 0.0)
+	await tree.create_timer(0.25).timeout
+	baker.teleport(Vector3(0.0, 0.05, 0.0), 0.0)
+	await tree.create_timer(0.3).timeout
+	_check("crossing a pad for a quarter second pays nothing", Wallet.cash == cash_before, str(cash_before - Wallet.cash))
+	# V2: the donuts are carried in front, and there is no backpack.
+	_check("the stack is in front of the baker", (baker.carry_stack as Node3D).position.z > 0.3 and baker.get_node_or_null("Visual/Backpack") == null)
+	# V2: wheel zoom and drag pan.
+	var cam: IslandCamera = main.island_camera
+	var rest: float = cam.camera.position.length()
+	var wheel: InputEventMouseButton = InputEventMouseButton.new()
+	wheel.button_index = MOUSE_BUTTON_WHEEL_DOWN
+	wheel.pressed = true
+	for i in 4:
+		Input.parse_input_event(wheel)
+	await tree.create_timer(0.7).timeout
+	_check("the wheel zooms out", cam.camera.position.length() > rest * 1.3, str(cam.camera.position.length() / rest))
+	wheel.button_index = MOUSE_BUTTON_WHEEL_UP
+	for i in 4:
+		Input.parse_input_event(wheel)
+	var rig: Vector3 = cam.global_position
+	var drag: InputEventMouseMotion = InputEventMouseMotion.new()
+	drag.button_mask = MOUSE_BUTTON_MASK_LEFT
+	drag.relative = Vector2(-200.0, 0.0)
+	Input.parse_input_event(drag)
+	await tree.create_timer(0.7).timeout
+	_check("dragging pans the view", cam.global_position.distance_to(rig) > 1.0, str(cam.global_position.distance_to(rig)))
+	Input.action_press(&"move_right")
+	await tree.create_timer(2.0).timeout
+	Input.action_release(&"move_right")
+	_check("the view drifts back when the baker walks", (cam.get("_pan") as Vector3).length() < 0.2)
 	_check("queue has 6 slots", queue.open_slots == 6)
 	_check("display case shown", (main.get_node("Counter/DisplayCase") as Node3D).visible)
 	_check("capacity is 10", baker.carry_stack.capacity == 10)

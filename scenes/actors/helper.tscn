@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b6k6kfeeo8h5p" path="res://scripts/actors/helper.gd" id="1_gt6uk"]
 [ext_resource type="PackedScene" uid="uid://43gkwnagj3so" path="res://assets/quaternius/restaurant/Rabbit_Pink.gltf" id="2_fegfa"]
-[ext_resource type="Material" uid="uid://cksasb14i0ukq" path="res://materials/chair_pink.tres" id="3_0iurs"]
 [ext_resource type="Script" uid="uid://3od2q6k272y3" path="res://scripts/core/carry_stack.gd" id="4_jf76k"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://2h0npeux08n6" path="res://assets/anim/bunny_tree.tres" id="5_5flrr"]
 [ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="6_o7bsn"]
@@ -10,9 +9,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v1ne1"]
 radius = 0.34
 height = 1.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_s3tf3"]
-size = Vector3(0.52, 0.46, 0.24)
 
 [node name="Helper" type="CharacterBody3D" unique_id=263321325 node_paths=PackedStringArray("carry_stack", "visual", "anim")]
 collision_layer = 8
@@ -30,13 +26,8 @@ shape = SubResource("CapsuleShape3D_v1ne1")
 [node name="Model" parent="Visual" unique_id=799387511 instance=ExtResource("2_fegfa")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="Backpack" type="MeshInstance3D" parent="Visual" unique_id=44428899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -0.32)
-material_override = ExtResource("3_0iurs")
-mesh = SubResource("BoxMesh_s3tf3")
-
 [node name="BackStack" type="Node3D" parent="Visual" unique_id=1345937561]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -0.38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, 0.48)
 script = ExtResource("4_jf76k")
 item_height = 0.168
 pickup_sound = &"pickup_soft"

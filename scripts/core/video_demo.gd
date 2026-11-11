@@ -25,6 +25,13 @@ func _ready() -> void:
 	await _go(main.counter.serve_zone.global_position, 3.6)
 	await _go(main.counter.cash_zone.global_position, 1.4)
 	await _go(main.pad(&"oven2").global_position, 2.6)
+	# V2: look around with the mouse wheel, then furnish the kitchen.
+	await _wheel(MOUSE_BUTTON_WHEEL_DOWN, 5, 1.4)
+	await _wheel(MOUSE_BUTTON_WHEEL_UP, 5, 0.6)
+	Hud.collect_coins(self, _baker.global_position + Vector3.UP * 1.6, 120)
+	await _go(main.pad(&"kitchen_floor").global_position, 2.2)
+	await _go(main.pad(&"plants").global_position, 2.2)
+	await _go(main.pad(&"lamps").global_position, 2.2)
 	# The kitchen grows: two more pads, a bigger tower from two ovens.
 	Hud.collect_coins(self, _baker.global_position + Vector3.UP * 1.6, 260)
 	await _go(main.pad(&"display_case").global_position, 2.4)
@@ -48,6 +55,16 @@ func _ready() -> void:
 	main.ship.god_mode = true
 	await _wait(17.0)
 	get_tree().quit()
+
+
+func _wheel(button: MouseButton, ticks: int, stay: float) -> void:
+	var wheel: InputEventMouseButton = InputEventMouseButton.new()
+	wheel.button_index = button
+	wheel.pressed = true
+	for i in ticks:
+		Input.parse_input_event(wheel)
+		await _wait(0.08)
+	await _wait(stay)
 
 
 func _wait(seconds: float) -> void:

@@ -1,28 +1,8 @@
 [gd_scene format=3 uid="uid://b4e3vfxcuw40d"]
 
-[ext_resource type="Material" uid="uid://cvwr6b8uv3r3p" path="res://materials/coin_gold.tres" id="1_uxxfr"]
-[ext_resource type="Material" uid="uid://dsiuf6g8gtsea" path="res://materials/coin_gold_dark.tres" id="2_r8n3v"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7734d"]
-top_radius = 0.17
-bottom_radius = 0.17
-height = 0.06
-radial_segments = 20
-rings = 1
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_yr5yf"]
-top_radius = 0.11
-bottom_radius = 0.11
-height = 0.075
-radial_segments = 20
-rings = 1
+[ext_resource type="PackedScene" uid="uid://bov7ftn2j5nyc" path="res://assets/quaternius/platformer/Coin.gltf" id="1_xxn87"]
 
 [node name="Coin" type="Node3D" unique_id=564949729]
 
-[node name="Model" type="MeshInstance3D" parent="." unique_id=925029637]
-material_override = ExtResource("1_uxxfr")
-mesh = SubResource("CylinderMesh_7734d")
-
-[node name="Rim" type="MeshInstance3D" parent="." unique_id=167683894]
-material_override = ExtResource("2_r8n3v")
-mesh = SubResource("CylinderMesh_yr5yf")
+[node name="Model" parent="." unique_id=43043572 instance=ExtResource("1_xxn87")]
+transform = Transform3D(0.18, 0, 0, 0, -7.86805e-09, -0.18, 0, 0.18, -7.86805e-09, 0, 0, 0)

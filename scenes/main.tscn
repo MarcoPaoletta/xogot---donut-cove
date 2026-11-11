@@ -17,32 +17,37 @@
 [ext_resource type="PackedScene" uid="uid://6wwrjxy0wvga" path="res://scenes/island/unlock_pad.tscn" id="9_yq6so"]
 [ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="10_fv21b"]
 [ext_resource type="PackedScene" uid="uid://bse6boglquxhy" path="res://scenes/sea/tentacle_kraken.tscn" id="10_nvyfr"]
-[ext_resource type="ArrayMesh" uid="uid://dy80vami4s564" path="res://assets/quaternius/interior/Kitchen_Oven.obj" id="11_tel4y"]
-[ext_resource type="Material" uid="uid://dqo1qkawa4d74" path="res://materials/pal/interior_Kitchen.tres" id="12_qkpxi"]
 [ext_resource type="Material" uid="uid://wwyoh6htxjjk" path="res://materials/pal/interior_White.tres" id="13_5q0nq"]
 [ext_resource type="Material" uid="uid://c3a5rsgk3vstl" path="res://materials/pal/interior_LightMetal.tres" id="14_dgi5k"]
-[ext_resource type="Material" uid="uid://swa53736ogxh" path="res://materials/pal/interior_DarkMetal.tres" id="15_j8jky"]
-[ext_resource type="Material" uid="uid://b0alltk73imwr" path="res://materials/pal/interior_Glass.tres" id="16_kmb1v"]
-[ext_resource type="Material" uid="uid://b6k8bpvfv2r3c" path="res://materials/pal/interior_KitchenTop.tres" id="17_fuf3a"]
-[ext_resource type="PackedScene" uid="uid://cfgxwl2lbp24r" path="res://scenes/props/holo/holo_skeleton.tscn" id="18_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://da7ohhtp3xa53" path="res://scenes/actors/baker.tscn" id="18_pibwh"]
 [ext_resource type="PackedScene" uid="uid://b26pun8htlit4" path="res://scenes/core/island_camera.tscn" id="19_c6pm6"]
-[ext_resource type="ArrayMesh" uid="uid://bsl6wy0ipxfle" path="res://assets/quaternius/interior/Table_RoundSmall.obj" id="19_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://iu8b3qxj6rkc" path="res://scenes/island/objective_arrow.tscn" id="20_5he1u"]
-[ext_resource type="Material" uid="uid://dh4q4bv5awi3g" path="res://materials/pal/interior_Wood.tres" id="20_j8jky"]
 [ext_resource type="PackedScene" uid="uid://b1lx7dnumk5ye" path="res://scenes/ui/hud.tscn" id="21_5poiv"]
-[ext_resource type="PackedScene" uid="uid://becj76ss68wxi" path="res://scenes/props/holo/holo_rabbit.tscn" id="21_kmb1v"]
 [ext_resource type="FontFile" uid="uid://cs8ipfukn2b8m" path="res://assets/fonts/LilitaOne-Regular.ttf" id="22_fuf3a"]
 [ext_resource type="Script" uid="uid://cbe0ptr2f5uhu" path="res://scripts/core/showcase_cams.gd" id="22_jscy8"]
-[ext_resource type="PackedScene" uid="uid://dtjnb6004ps04" path="res://scenes/props/holo/holo_ship.tscn" id="23_pibwh"]
+[ext_resource type="PackedScene" uid="uid://ds72yatwkyxkt" path="res://assets/quaternius/restaurant/Floor_Wood.gltf" id="23_0loja"]
 [ext_resource type="PackedScene" uid="uid://p1mjniwra4nn" path="res://scenes/props/holo/holo_cannon.tscn" id="24_c6pm6"]
-[ext_resource type="PackedScene" uid="uid://qoc0nu3jq7mv" path="res://scenes/props/holo/holo_house.tscn" id="25_5he1u"]
+[ext_resource type="PackedScene" uid="uid://ndsyjn6ftvvc" path="res://assets/quaternius/restaurant/Decoration_Plant2.gltf" id="24_ids8r"]
+[ext_resource type="PackedScene" uid="uid://fc4vlco7w1tp" path="res://assets/quaternius/restaurant/Decoration_Plant1.gltf" id="25_dnhof"]
+[ext_resource type="ArrayMesh" uid="uid://do0hnelbbgw4h" path="res://assets/quaternius/interior/Houseplant_5.obj" id="26_1v6qk"]
 [ext_resource type="PackedScene" uid="uid://brdrrmo58ua8u" path="res://scenes/props/statue.tscn" id="26_5poiv"]
 [ext_resource type="PackedScene" uid="uid://b5i2nri3ikj0t" path="res://scenes/props/table_set.tscn" id="27_2cjbq"]
+[ext_resource type="Material" uid="uid://c6vvsoay44tn6" path="res://materials/pal/interior_Black.tres" id="27_augu2"]
 [ext_resource type="PackedScene" uid="uid://dduvbw73e4mng" path="res://scenes/actors/helper.tscn" id="28_chjal"]
+[ext_resource type="Material" uid="uid://dpi65yvxgxea2" path="res://materials/pal/interior_Brown.tres" id="28_tm6hj"]
+[ext_resource type="Material" uid="uid://cyuwjbicdpnuu" path="res://materials/pal/interior_Plant_Green.tres" id="29_kf5aa"]
+[ext_resource type="ArrayMesh" uid="uid://3q3gij2g5mvl" path="res://assets/quaternius/interior/Light_Stand1.obj" id="30_t5ykj"]
+[ext_resource type="PackedScene" uid="uid://csvmbmguqiu2a" path="res://scenes/props/tinted/counter_drawers_sage.tscn" id="33_e755i"]
+[ext_resource type="Material" uid="uid://bwnjabmuaq6kn" path="res://materials/counter_top.tres" id="34_ro3en"]
+[ext_resource type="PackedScene" uid="uid://ib0qhl2nko7f" path="res://assets/quaternius/restaurant/Environment_CuttingTable.gltf" id="35_od4ux"]
 [ext_resource type="PackedScene" uid="uid://dfqbvtjy5je0n" path="res://scenes/props/donut_house.tscn" id="36_nvyfr"]
 [ext_resource type="PackedScene" uid="uid://cutprfctgx3lt" path="res://scenes/sea/sea_camera.tscn" id="36_ty1g6"]
+[ext_resource type="PackedScene" uid="uid://dpsy8xbneftcg" path="res://assets/quaternius/restaurant/Environment_Pot_2_Filled.gltf" id="36_xhfw6"]
+[ext_resource type="PackedScene" uid="uid://ck6x1orffj2ge" path="res://assets/quaternius/restaurant/Environment_Pan.gltf" id="37_1epgm"]
 [ext_resource type="PackedScene" uid="uid://7jflyw4uvts2" path="res://scenes/sea/boarding_pad.tscn" id="37_j2jfr"]
+[ext_resource type="PackedScene" uid="uid://c217ugrin57jb" path="res://scenes/props/tinted/cabinet_shelves2_sage.tscn" id="38_152kg"]
+[ext_resource type="PackedScene" uid="uid://cnsoo03wbqyfk" path="res://assets/quaternius/restaurant/Environment_Pot_1_Empty.gltf" id="39_r4e17"]
+[ext_resource type="PackedScene" uid="uid://igjk7kqkkn04" path="res://assets/quaternius/restaurant/Environment_Bottles.gltf" id="40_y57op"]
 [ext_resource type="Script" uid="uid://b4fknnybl4g16" path="res://scripts/ui/menu_camera_director.gd" id="44_ty1g6"]
 [ext_resource type="Script" uid="uid://b403rujevj0mj" path="res://scripts/ui/menu_camera_shot.gd" id="45_j2jfr"]
 [ext_resource type="PackedScene" uid="uid://0ahgy6uyawp2" path="res://scenes/ui/title_screen.tscn" id="46_bjg73"]
@@ -50,17 +55,75 @@
 [ext_resource type="PackedScene" uid="uid://bnne34obktvgf" path="res://scenes/ui/end_card.tscn" id="48_o7ddy"]
 [ext_resource type="PackedScene" uid="uid://detcddlqqj6we" path="res://scenes/ui/presenter_panel.tscn" id="49_ty1g6"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_0loja"]
-size = Vector3(1.5, 0.5, 0.6)
+[sub_resource type="TorusMesh" id="TorusMesh_0loja"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
 
-[sub_resource type="BoxMesh" id="BoxMesh_ids8r"]
-size = Vector3(0.9, 0.85, 0.42)
+[sub_resource type="TorusMesh" id="TorusMesh_ids8r"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
 
-[sub_resource type="BoxMesh" id="BoxMesh_dnhof"]
-size = Vector3(0.9, 0.85, 0.42)
+[sub_resource type="TorusMesh" id="TorusMesh_dnhof"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
 
-[node name="Main" type="Node3D" unique_id=1280720619 node_paths=PackedStringArray("baker", "pads_root", "arrow", "counter", "first_oven", "island_camera", "ship", "sea_camera", "boarding_pad", "sea_life", "dock_point", "world_environment", "sun", "blend_camera", "house", "hud", "title", "end_card")]
+[sub_resource type="TorusMesh" id="TorusMesh_1v6qk"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="TorusMesh" id="TorusMesh_augu2"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="TorusMesh" id="TorusMesh_tm6hj"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="TorusMesh" id="TorusMesh_kf5aa"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="TorusMesh" id="TorusMesh_t5ykj"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="TorusMesh" id="TorusMesh_e755i"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="TorusMesh" id="TorusMesh_ro3en"]
+inner_radius = 0.14
+outer_radius = 0.36
+rings = 20
+ring_segments = 10
+
+[sub_resource type="BoxMesh" id="BoxMesh_od4ux"]
+size = Vector3(1.72, 0.05, 0.78)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhfw6"]
+size = Vector3(1.75, 1.4, 0.9)
+
+[node name="Main" type="Node3D" unique_id=1280720619 node_paths=PackedStringArray("decor_root", "baker", "pads_root", "arrow", "counter", "first_oven", "island_camera", "ship", "sea_camera", "boarding_pad", "sea_life", "dock_point", "world_environment", "sun", "blend_camera", "house", "hud", "title", "end_card")]
 script = ExtResource("1_yc10j")
+decor_root = NodePath("DecorPads")
 baker = NodePath("Baker")
 pads_root = NodePath("Pads")
 arrow = NodePath("ObjectiveArrow")
@@ -92,10 +155,10 @@ visible = false
 [node name="Islet1" parent="Sea" unique_id=542380142 instance=ExtResource("6_cjqg0")]
 transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 58, 0.35, -42)
 
-[node name="Islet2" parent="Sea" unique_id=1482992881 instance=ExtResource("6_cjqg0")]
+[node name="Islet2" parent="Sea" unique_id=1092137089 instance=ExtResource("6_cjqg0")]
 transform = Transform3D(-0.9396926, 0, -0.34202015, 0, 1, 0, 0.34202015, 0, -0.9396926, -52, 0.35, 46)
 
-[node name="SeaLife" type="Node3D" parent="Sea" unique_id=602126867]
+[node name="SeaLife" type="Node3D" parent="Sea" unique_id=1590567241]
 script = ExtResource("7_vchkt")
 shark_scene = ExtResource("8_txyw0")
 tentacle_scene = ExtResource("9_vc5cj")
@@ -103,7 +166,7 @@ kraken_tentacle_scene = ExtResource("10_nvyfr")
 
 [node name="Island" parent="." unique_id=1773429126 instance=ExtResource("4_y6deb")]
 
-[node name="Ovens" type="Node3D" parent="." unique_id=19308659]
+[node name="Ovens" type="Node3D" parent="." unique_id=180770958]
 
 [node name="Oven1" parent="Ovens" unique_id=81000961 groups=["ovens"] instance=ExtResource("5_og1vs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 0, -6)
@@ -122,93 +185,84 @@ active = false
 [node name="Counter" parent="." unique_id=1801664688 instance=ExtResource("8_2f3dj")]
 transform = Transform3D(0.6156615, 0, -0.7880107, 0, 1, 0, 0.7880107, 0, 0.6156615, 3.4, 0, 0.6)
 
-[node name="Pads" type="Node3D" parent="." unique_id=1396868061]
+[node name="Pads" type="Node3D" parent="." unique_id=761511229]
 
 [node name="Pad_oven2" parent="Pads" unique_id=632523551 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0, -2.8)
 pad_id = &"oven2"
+title = "CHOCOLATE OVEN"
 price = 40
 
-[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_oven2" unique_id=1160350142]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.1, 0)
-material_override = ExtResource("10_fv21b")
-mesh = ExtResource("11_tel4y")
-surface_material_override/0 = ExtResource("12_qkpxi")
-surface_material_override/1 = ExtResource("13_5q0nq")
-surface_material_override/2 = ExtResource("14_dgi5k")
-surface_material_override/3 = ExtResource("15_j8jky")
-surface_material_override/4 = ExtResource("16_kmb1v")
-surface_material_override/5 = ExtResource("17_fuf3a")
-
-[node name="Pad_display_case" parent="Pads" unique_id=952940952 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, 4.2)
+[node name="Pad_display_case" parent="Pads" unique_id=353516131 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 3.2)
 pad_id = &"display_case"
+title = "DISPLAY CASE"
 price = 80
 
-[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_display_case" unique_id=170563313]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
-material_override = ExtResource("10_fv21b")
-mesh = SubResource("BoxMesh_0loja")
-
-[node name="Pad_backpack" parent="Pads" unique_id=2134003902 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, 0, 3.6)
+[node name="Pad_backpack" parent="Pads" unique_id=415084357 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1)
 pad_id = &"backpack"
+title = "CARRY 10 DONUTS"
 price = 70
 
-[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_backpack" unique_id=230323140]
+[node name="Ghost" type="Node3D" parent="Pads/Pad_backpack" unique_id=499950542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+
+[node name="Donut1" type="MeshInstance3D" parent="Pads/Pad_backpack/Ghost" unique_id=496398520]
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_0loja")
+
+[node name="Donut2" type="MeshInstance3D" parent="Pads/Pad_backpack/Ghost" unique_id=1497788765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_ids8r")
+
+[node name="Donut3" type="MeshInstance3D" parent="Pads/Pad_backpack/Ghost" unique_id=342906637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_dnhof")
+
+[node name="Donut4" type="MeshInstance3D" parent="Pads/Pad_backpack/Ghost" unique_id=189813034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 material_override = ExtResource("10_fv21b")
-mesh = SubResource("BoxMesh_ids8r")
+mesh = SubResource("TorusMesh_1v6qk")
 
-[node name="Pad_oven3" parent="Pads" unique_id=1757176304 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1)
+[node name="Donut5" type="MeshInstance3D" parent="Pads/Pad_backpack/Ghost" unique_id=1468903136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_augu2")
+
+[node name="Pad_oven3" parent="Pads" unique_id=1004943593 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.8)
 pad_id = &"oven3"
+title = "HONEY OVEN"
 price = 120
 
-[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_oven3" unique_id=783402967]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.1, 0)
-material_override = ExtResource("10_fv21b")
-mesh = ExtResource("11_tel4y")
-surface_material_override/0 = ExtResource("12_qkpxi")
-surface_material_override/1 = ExtResource("13_5q0nq")
-surface_material_override/2 = ExtResource("14_dgi5k")
-surface_material_override/3 = ExtResource("15_j8jky")
-surface_material_override/4 = ExtResource("16_kmb1v")
-surface_material_override/5 = ExtResource("17_fuf3a")
-
-[node name="Pad_statue" parent="Pads" unique_id=1095098889 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2, 0, -1.4)
+[node name="Pad_statue" parent="Pads" unique_id=981000415 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 0.6)
 pad_id = &"statue"
+title = "LUCKY STATUE"
 price = 250
 
-[node name="Ghost" parent="Pads/Pad_statue" unique_id=873757714 instance=ExtResource("18_5q0nq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-
-[node name="Pad_tables" parent="Pads" unique_id=1536674870 instance=ExtResource("9_yq6so")]
+[node name="Pad_tables" parent="Pads" unique_id=34728263 instance=ExtResource("9_yq6so")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6.6)
 pad_id = &"tables"
+title = "TABLES"
 price = 150
 
-[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_tables" unique_id=616081818]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.1, 0)
-material_override = ExtResource("10_fv21b")
-mesh = ExtResource("19_dgi5k")
-surface_material_override/0 = ExtResource("20_j8jky")
-
-[node name="Pad_helper" parent="Pads" unique_id=176030128 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, 0, 3.6)
+[node name="Pad_helper" parent="Pads" unique_id=466087617 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, 0, -2.2)
 pad_id = &"helper"
+title = "HELPER"
 price = 200
 
-[node name="Ghost" parent="Pads/Pad_helper" unique_id=1208618355 instance=ExtResource("21_kmb1v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-
-[node name="Pad_oven_speed" parent="Pads" unique_id=285236200 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1)
+[node name="Pad_oven_speed" parent="Pads" unique_id=75496881 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3, 0, -2.8)
 pad_id = &"oven_speed"
+title = "FASTER OVENS"
 price = 150
 
-[node name="Ghost" type="Label3D" parent="Pads/Pad_oven_speed" unique_id=586475166]
+[node name="Ghost" type="Label3D" parent="Pads/Pad_oven_speed" unique_id=1785011642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 pixel_size = 0.006
 billboard = 1
@@ -219,41 +273,93 @@ font = ExtResource("22_fuf3a")
 font_size = 260
 outline_size = 0
 
-[node name="Pad_ship" parent="Pads" unique_id=294583345 instance=ExtResource("9_yq6so")]
+[node name="Pad_ship" parent="Pads" unique_id=341071544 instance=ExtResource("9_yq6so")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6, 0, -0.5)
 pad_id = &"ship"
+title = "SHIP"
 price = 400
 
-[node name="Ghost" parent="Pads/Pad_ship" unique_id=303830739 instance=ExtResource("23_pibwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="Pad_backpack2" parent="Pads" unique_id=1900350165 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0, 4.2)
+[node name="Pad_backpack2" parent="Pads" unique_id=334864384 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 1)
 pad_id = &"backpack2"
+title = "CARRY 16 DONUTS"
 price = 200
 
-[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_backpack2" unique_id=482005255]
+[node name="Ghost" type="Node3D" parent="Pads/Pad_backpack2" unique_id=1851703727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+
+[node name="Donut1" type="MeshInstance3D" parent="Pads/Pad_backpack2/Ghost" unique_id=111215066]
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_tm6hj")
+
+[node name="Donut2" type="MeshInstance3D" parent="Pads/Pad_backpack2/Ghost" unique_id=911963150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_kf5aa")
+
+[node name="Donut3" type="MeshInstance3D" parent="Pads/Pad_backpack2/Ghost" unique_id=40317449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_t5ykj")
+
+[node name="Donut4" type="MeshInstance3D" parent="Pads/Pad_backpack2/Ghost" unique_id=1161056290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 material_override = ExtResource("10_fv21b")
-mesh = SubResource("BoxMesh_dnhof")
+mesh = SubResource("TorusMesh_e755i")
 
-[node name="Pad_double_cannons" parent="Pads" unique_id=329779035 instance=ExtResource("9_yq6so")]
+[node name="Donut5" type="MeshInstance3D" parent="Pads/Pad_backpack2/Ghost" unique_id=1664314700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+material_override = ExtResource("10_fv21b")
+mesh = SubResource("TorusMesh_ro3en")
+
+[node name="Pad_double_cannons" parent="Pads" unique_id=1023248063 instance=ExtResource("9_yq6so")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6, 0, -0.5)
 pad_id = &"double_cannons"
+title = "DOUBLE CANNONS"
 price = 250
 
 [node name="Ghost" parent="Pads/Pad_double_cannons" unique_id=1036125288 instance=ExtResource("24_c6pm6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Pad_house" parent="Pads" unique_id=498130972 instance=ExtResource("9_yq6so")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2, 0, -3.4)
+[node name="Pad_house" parent="Pads" unique_id=330807783 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4, 0, 2)
 pad_id = &"house"
+title = "DONUT HOUSE"
 price = 1000
 
-[node name="Ghost" parent="Pads/Pad_house" unique_id=1358832454 instance=ExtResource("25_5he1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+[node name="DecorPads" type="Node3D" parent="." unique_id=1358738504]
 
-[node name="Reveals" type="Node3D" parent="." unique_id=1131771069]
+[node name="Pad_kitchen_floor" parent="DecorPads" unique_id=402395193 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, -2.8)
+pad_id = &"kitchen_floor"
+title = "WOOD FLOOR"
+price = 30
+
+[node name="Pad_plants" parent="DecorPads" unique_id=1930998984 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0, -2.8)
+pad_id = &"plants"
+title = "PLANTS"
+price = 30
+
+[node name="Pad_lamps" parent="DecorPads" unique_id=1453781354 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, -2.8)
+pad_id = &"lamps"
+title = "LAMPS"
+price = 40
+
+[node name="Pad_prep_counter" parent="DecorPads" unique_id=1917448193 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2.9)
+pad_id = &"prep_counter"
+title = "PREP COUNTER"
+price = 60
+
+[node name="Pad_pot_shelf" parent="DecorPads" unique_id=483724862 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0, -2.8)
+pad_id = &"pot_shelf"
+title = "POT SHELF"
+price = 50
+
+[node name="Reveals" type="Node3D" parent="." unique_id=1687360260]
 
 [node name="Statue" parent="Reveals" unique_id=333481022 groups=["reveal_statue"] instance=ExtResource("26_5poiv")]
 transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -9.2, 0, -1.4)
@@ -265,16 +371,121 @@ visible = false
 shop_queue = NodePath("../../Counter/Queue")
 arrival_interval = 7.0
 
-[node name="Table2" parent="Reveals" unique_id=1089442518 node_paths=PackedStringArray("shop_queue") groups=["reveal_tables"] instance=ExtResource("27_2cjbq")]
+[node name="Table2" parent="Reveals" unique_id=1197852025 node_paths=PackedStringArray("shop_queue") groups=["reveal_tables"] instance=ExtResource("27_2cjbq")]
 transform = Transform3D(0.90630776, 0, -0.42261827, 0, 1, 0, 0.42261827, 0, 0.90630776, -1.6, 0, 7.9)
 visible = false
 shop_queue = NodePath("../../Counter/Queue")
 arrival_interval = 7.0
 
 [node name="Helper" parent="Reveals" unique_id=263321325 node_paths=PackedStringArray("counter") groups=["reveal_helper"] instance=ExtResource("28_chjal")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0.05, -2.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, 0.05, -4.2)
 visible = false
 counter = NodePath("../../Counter")
+
+[node name="KitchenFloor" type="Node3D" parent="Reveals" unique_id=1806826483 groups=["reveal_kitchen_floor"]]
+visible = false
+
+[node name="Planks1" parent="Reveals/KitchenFloor" unique_id=1688414639 instance=ExtResource("23_0loja")]
+transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, -7.5, 0, -5.6)
+
+[node name="Planks2" parent="Reveals/KitchenFloor" unique_id=802499073 instance=ExtResource("23_0loja")]
+transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, -3.25, 0, -5.6)
+
+[node name="Planks3" parent="Reveals/KitchenFloor" unique_id=1540209202 instance=ExtResource("23_0loja")]
+transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 1, 0, -5.6)
+
+[node name="Planks4" parent="Reveals/KitchenFloor" unique_id=19432085 instance=ExtResource("23_0loja")]
+transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 5.25, 0, -5.6)
+
+[node name="Plants" type="Node3D" parent="Reveals" unique_id=1412740641 groups=["reveal_plants"]]
+visible = false
+
+[node name="TallWest" parent="Reveals/Plants" unique_id=627459522 instance=ExtResource("24_ids8r")]
+transform = Transform3D(0.7987387, 0, 0.29071712, 0, 0.85, 0, -0.29071712, 0, 0.7987387, -9.75, 0, -5.7)
+
+[node name="TallEast" parent="Reveals/Plants" unique_id=261899201 instance=ExtResource("24_ids8r")]
+transform = Transform3D(-0.7987387, 0, -0.29071712, 0, 0.85, 0, 0.29071712, 0, -0.7987387, 7.8, 0, -6.2)
+
+[node name="Bush" parent="Reveals/Plants" unique_id=1945196376 instance=ExtResource("25_dnhof")]
+transform = Transform3D(0.34999996, 0, 0.6062178, 0, 0.7, 0, -0.6062178, 0, 0.34999996, -9.6, 0, -4.5)
+
+[node name="Pot" type="MeshInstance3D" parent="Reveals/Plants" unique_id=1116490330]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.05, 0.86, -6.18)
+mesh = ExtResource("26_1v6qk")
+surface_material_override/0 = ExtResource("27_augu2")
+surface_material_override/1 = ExtResource("28_tm6hj")
+surface_material_override/2 = ExtResource("29_kf5aa")
+
+[node name="Lamps" type="Node3D" parent="Reveals" unique_id=976640122 groups=["reveal_lamps"]]
+visible = false
+
+[node name="Lamp1" type="MeshInstance3D" parent="Reveals/Lamps" unique_id=1870111548]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.6, 0, -4.1)
+mesh = ExtResource("30_t5ykj")
+surface_material_override/0 = ExtResource("14_dgi5k")
+surface_material_override/1 = ExtResource("13_5q0nq")
+
+[node name="Glow" type="OmniLight3D" parent="Reveals/Lamps/Lamp1" unique_id=962858742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
+light_color = Color(1, 0.78, 0.45, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="Lamp2" type="MeshInstance3D" parent="Reveals/Lamps" unique_id=866520036]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 7.1, 0, -4.1)
+mesh = ExtResource("30_t5ykj")
+surface_material_override/0 = ExtResource("14_dgi5k")
+surface_material_override/1 = ExtResource("13_5q0nq")
+
+[node name="Glow" type="OmniLight3D" parent="Reveals/Lamps/Lamp2" unique_id=599722920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
+light_color = Color(1, 0.78, 0.45, 1)
+light_energy = 2.2
+omni_range = 6.0
+
+[node name="PrepCounter" type="Node3D" parent="Reveals" unique_id=1967231052 groups=["reveal_prep_counter"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, 0, -6)
+visible = false
+
+[node name="Drawers" parent="Reveals/PrepCounter" unique_id=2127939260 instance=ExtResource("33_e755i")]
+
+[node name="Top" type="MeshInstance3D" parent="Reveals/PrepCounter" unique_id=981600325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83, 0)
+material_override = ExtResource("34_ro3en")
+mesh = SubResource("BoxMesh_od4ux")
+
+[node name="Board" parent="Reveals/PrepCounter" unique_id=820954627 instance=ExtResource("35_od4ux")]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, -0.3, 0.86, 0.05)
+
+[node name="Pot" parent="Reveals/PrepCounter" unique_id=305954120 instance=ExtResource("36_xhfw6")]
+transform = Transform3D(0.29444864, 0, 0.17, 0, 0.34, 0, -0.17, 0, 0.29444864, -0.3, 0.9, 0)
+
+[node name="Pan" parent="Reveals/PrepCounter" unique_id=1618127769 instance=ExtResource("37_1epgm")]
+transform = Transform3D(0.31176916, 0, -0.18, 0, 0.36, 0, 0.18, 0, 0.31176916, 0.5, 0.86, -0.1)
+
+[node name="Body" type="StaticBody3D" parent="Reveals/PrepCounter" unique_id=230769718]
+
+[node name="Shape" type="CollisionShape3D" parent="Reveals/PrepCounter/Body" unique_id=610117450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("BoxShape3D_xhfw6")
+
+[node name="PotShelf" type="Node3D" parent="Reveals" unique_id=556960069 groups=["reveal_pot_shelf"]]
+visible = false
+
+[node name="Cabinet" parent="Reveals/PotShelf" unique_id=944707781 instance=ExtResource("38_152kg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 1.95, -6.45)
+
+[node name="PotA" parent="Reveals/PotShelf" unique_id=589044606 instance=ExtResource("39_r4e17")]
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 2.25, -6.45)
+
+[node name="PotB" parent="Reveals/PotShelf" unique_id=1898227373 instance=ExtResource("36_xhfw6")]
+transform = Transform3D(0.22981334, 0, 0.19283628, 0, 0.3, 0, -0.19283628, 0, 0.22981334, 0.75, 2.25, -6.45)
+
+[node name="PanTop" parent="Reveals/PotShelf" unique_id=806926052 instance=ExtResource("37_1epgm")]
+transform = Transform3D(0.11628685, 0, 0.3194955, 0, 0.34, 0, -0.3194955, 0, 0.11628685, 2.05, 2.25, -6.4)
+
+[node name="Bottles" parent="Reveals/PotShelf" unique_id=537766038 instance=ExtResource("40_y57op")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 4.55, 1.93, -6.05)
 
 [node name="House" parent="Reveals" unique_id=1861598536 groups=["reveal_house"] instance=ExtResource("36_nvyfr")]
 transform = Transform3D(0.20791166, 0, 0.9781476, 0, 1, 0, -0.9781476, 0, 0.20791166, -12, 3, -2.9)
@@ -286,7 +497,7 @@ offset = Vector3(5.2, 6.4, 8.6)
 look_offset = Vector3(-4.5, 0.8, -11)
 base_fov = 55.0
 
-[node name="BlendCamera" type="Camera3D" parent="." unique_id=745516656]
+[node name="BlendCamera" type="Camera3D" parent="." unique_id=1124626071]
 fov = 38.0
 near = 0.5
 far = 600.0
@@ -295,7 +506,7 @@ far = 600.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6, 0, -0.5)
 visible = false
 
-[node name="DockPoint" type="Marker3D" parent="." unique_id=761985749]
+[node name="DockPoint" type="Marker3D" parent="." unique_id=559166301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6, 0.05, -0.5)
 
 [node name="Baker" parent="." unique_id=605568101 instance=ExtResource("18_pibwh")]
@@ -310,45 +521,45 @@ player = NodePath("../Baker")
 
 [node name="Hud" parent="." unique_id=122610672 instance=ExtResource("21_5poiv")]
 
-[node name="ConceptCams" type="Node3D" parent="." unique_id=240367028 node_paths=PackedStringArray("orbit_camera")]
+[node name="ConceptCams" type="Node3D" parent="." unique_id=1777935664 node_paths=PackedStringArray("orbit_camera")]
 script = ExtResource("22_jscy8")
 orbit_camera = NodePath("OrbitCam")
 dev_shortcut = false
 
-[node name="ConceptCam_Stall" type="Camera3D" parent="ConceptCams" unique_id=1884514998]
+[node name="ConceptCam_Stall" type="Camera3D" parent="ConceptCams" unique_id=1482362303]
 transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, -4.68, 9.29, 6.74)
 fov = 38.0
 near = 0.5
 far = 400.0
 
-[node name="ConceptCam_Island" type="Camera3D" parent="ConceptCams" unique_id=1342704749]
+[node name="ConceptCam_Island" type="Camera3D" parent="ConceptCams" unique_id=1849048233]
 transform = Transform3D(0.8910065, 0.30377895, -0.33738068, 0, 0.7431448, 0.6691306, 0.4539905, -0.59619975, 0.66214687, -10.5, 23, 22.5)
 fov = 38.0
 near = 0.5
 far = 600.0
 
-[node name="ConceptCam_Sea" type="Camera3D" parent="ConceptCams" unique_id=395399420]
+[node name="ConceptCam_Sea" type="Camera3D" parent="ConceptCams" unique_id=547062194]
 transform = Transform3D(-0.21303047, -0.29542914, 0.9313107, 0, 0.9531907, 0.3023699, -0.97704554, 0.064414, -0.20305866, 36.5, 8.2, -13.2)
 fov = 50.0
 near = 0.5
 far = 600.0
 
-[node name="OrbitCam" type="Camera3D" parent="ConceptCams" unique_id=2059534648]
+[node name="OrbitCam" type="Camera3D" parent="ConceptCams" unique_id=1795125271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 30, 38)
 fov = 36.0
 near = 0.5
 far = 600.0
 
-[node name="MenuCameras" type="Node3D" parent="." unique_id=1109620141 node_paths=PackedStringArray("camera")]
+[node name="MenuCameras" type="Node3D" parent="." unique_id=1681768101 node_paths=PackedStringArray("camera")]
 script = ExtResource("44_ty1g6")
 camera = NodePath("Camera3D")
 
-[node name="Camera3D" type="Camera3D" parent="MenuCameras" unique_id=1715787206]
+[node name="Camera3D" type="Camera3D" parent="MenuCameras" unique_id=2102389289]
 fov = 45.0
 near = 0.5
 far = 600.0
 
-[node name="ShotStallOrbit" type="Node3D" parent="MenuCameras" unique_id=2058671113]
+[node name="ShotStallOrbit" type="Node3D" parent="MenuCameras" unique_id=1363951845]
 transform = Transform3D(0.77051324, 0.22010136, -0.59821796, 0, 0.938493, 0.3452982, 0.637424, -0.26605684, 0.7231213, -9, 6.5, 9.5)
 script = ExtResource("45_j2jfr")
 duration = 5.0
@@ -357,35 +568,35 @@ fov = 44.0
 orbit_target = Vector3(0.5, 1, -2)
 orbit_degrees = 28.0
 
-[node name="ShotDockDolly" type="Node3D" parent="MenuCameras" unique_id=2135463594]
+[node name="ShotDockDolly" type="Node3D" parent="MenuCameras" unique_id=1618667882]
 transform = Transform3D(0.8241262, -0.12548645, 0.5523307, 0, 0.97514933, 0.2215485, -0.56640625, -0.18258391, 0.8036461, 18.5, 3.2, 6.5)
 script = ExtResource("45_j2jfr")
 duration = 4.5
 fov = 52.0
 end_offset = Vector3(5, 0.6, -1.5)
 
-[node name="ShotIslandHigh" type="Node3D" parent="MenuCameras" unique_id=1248109975]
+[node name="ShotIslandHigh" type="Node3D" parent="MenuCameras" unique_id=1569118320]
 transform = Transform3D(0.8571673, 0.32760447, -0.39741606, 0, 0.7716246, 0.6360782, 0.5150381, -0.54522544, 0.6614114, -15, 24, 24)
 script = ExtResource("45_j2jfr")
 duration = 5.0
 fov = 38.0
 end_offset = Vector3(4, -3, -3)
 
-[node name="ShotCounterLow" type="Node3D" parent="MenuCameras" unique_id=1526592398]
+[node name="ShotCounterLow" type="Node3D" parent="MenuCameras" unique_id=982290509]
 transform = Transform3D(0.71812636, -0.111263365, 0.6869607, 0, 0.98713624, 0.15988119, -0.6959128, -0.11481489, 0.70888853, 9.4, 2.4, 6.6)
 script = ExtResource("45_j2jfr")
 duration = 4.5
 fov = 50.0
 end_offset = Vector3(-3, 0.4, 0.5)
 
-[node name="ShotKitchenPush" type="Node3D" parent="MenuCameras" unique_id=908562280]
+[node name="ShotKitchenPush" type="Node3D" parent="MenuCameras" unique_id=1982733348]
 transform = Transform3D(0.98388505, -0.04808346, 0.1722156, 0, 0.96316254, 0.26891983, -0.17880222, -0.2645862, 0.94764125, -1, 3.4, 2.8)
 script = ExtResource("45_j2jfr")
 duration = 4.5
 fov = 48.0
 end_offset = Vector3(-0.6, -0.6, -2.4)
 
-[node name="Screens" type="Node" parent="." unique_id=1055626456]
+[node name="Screens" type="Node" parent="." unique_id=103517819]
 
 [node name="Title" parent="Screens" unique_id=63151240 node_paths=PackedStringArray("director") instance=ExtResource("46_bjg73")]
 director = NodePath("../../MenuCameras")

@@ -10,11 +10,13 @@ extends Node3D
 @export var count_label: Label3D
 
 var _rest: Vector3 = Vector3.ONE
+var _full: Vector3 = Vector3.ONE
 var _tween: Tween = null
 
 
 func _ready() -> void:
 	_rest = scale
+	_full = scale
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 
 
@@ -35,6 +37,17 @@ func show_order(kind: StringName, count: int, pop: bool = true) -> void:
 		_pop(1.25)
 
 
+## 1.0 for the customer being served, smaller for the ones further back in
+## the line, so the bubbles of a queue do not cover each other.
+func set_size(factor: float) -> void:
+	var size: Vector3 = _full * factor
+	if size.is_equal_approx(_rest):
+		return
+	_rest = size
+	if visible:
+		_pop(1.0)
+
+
 func hide_bubble() -> void:
 	if _tween != null and _tween.is_valid():
 		_tween.kill()
@@ -46,6 +59,7 @@ func hide_bubble() -> void:
 func _pop(peak: float) -> void:
 	if _tween != null and _tween.is_valid():
 		_tween.kill()
-	scale = _rest * peak
+	if peak > 1.0:
+		scale = _rest * peak
 	_tween = create_tween()
 	_tween.tween_property(self, "scale", _rest, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

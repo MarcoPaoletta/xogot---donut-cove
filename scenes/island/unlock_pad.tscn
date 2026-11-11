@@ -2,122 +2,58 @@
 
 [ext_resource type="Script" uid="uid://di7svjd5a8e8t" path="res://scripts/island/unlock_pad.gd" id="1_vpnrr"]
 [ext_resource type="PackedScene" uid="uid://b4e3vfxcuw40d" path="res://scenes/props/coin.tscn" id="2_32qm2"]
-[ext_resource type="Material" uid="uid://ch44rvwu1yvyx" path="res://materials/pad_border.tres" id="3_b7t44"]
-[ext_resource type="Material" uid="uid://16va4b50eisy" path="res://materials/pad_plate.tres" id="4_k3g5r"]
-[ext_resource type="Material" uid="uid://bjj3lppkvt2pd" path="res://materials/pad_fill.tres" id="5_muopx"]
-[ext_resource type="Script" uid="uid://d3wg0j7ia7ckp" path="res://scripts/core/face_camera.gd" id="6_fhqmq"]
-[ext_resource type="Material" uid="uid://c6gsrkgmcdxs3" path="res://materials/pill_outline.tres" id="7_tman1"]
-[ext_resource type="Material" uid="uid://vvjcujeodav2" path="res://materials/pill_cream.tres" id="8_4imhd"]
+[ext_resource type="Material" uid="uid://dfj3v3h8wni0n" path="res://materials/hologram_fill.tres" id="3_s7v0q"]
+[ext_resource type="Material" uid="uid://5oe7bqlgm7vu" path="res://materials/pad_brackets.tres" id="4_3ophb"]
 [ext_resource type="FontFile" uid="uid://cs8ipfukn2b8m" path="res://assets/fonts/LilitaOne-Regular.ttf" id="9_380yq"]
-[ext_resource type="Material" uid="uid://clh8nap4oi3ev" path="res://materials/coin_flat_edge.tres" id="9_b7t44"]
-[ext_resource type="Material" uid="uid://j8tsmyye3eca" path="res://materials/coin_flat.tres" id="10_k3g5r"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_muopx"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ycjo"]
 size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_fhqmq"]
-size = Vector3(2.5, 0.02, 2.5)
+[sub_resource type="PlaneMesh" id="PlaneMesh_6740r"]
+size = Vector2(2.6, 2.6)
 
-[sub_resource type="BoxMesh" id="BoxMesh_tman1"]
-size = Vector3(2.3, 0.02, 2.3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4imhd"]
-size = Vector3(2.3, 0.02, 2.3)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_380yq"]
-radius = 0.36
-height = 1.78
-radial_segments = 24
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ox352"]
-radius = 0.3
-height = 1.66
-radial_segments = 24
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_r34r1"]
-top_radius = 0.27
-bottom_radius = 0.27
-height = 0.02
-radial_segments = 28
-rings = 1
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_gmg66"]
-top_radius = 0.215
-bottom_radius = 0.215
-height = 0.02
-radial_segments = 28
-rings = 1
-
-[node name="UnlockPad" type="Area3D" unique_id=632523551 node_paths=PackedStringArray("price_label", "price_pill", "fill")]
+[node name="UnlockPad" type="Area3D" unique_id=632523551 node_paths=PackedStringArray("price_label", "price_pill", "title_label", "brackets")]
 collision_layer = 128
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_vpnrr")
 coin_scene = ExtResource("2_32qm2")
+ghost_material = ExtResource("3_s7v0q")
 price_label = NodePath("Price/Label")
 price_pill = NodePath("Price")
-fill = NodePath("Fill")
+title_label = NodePath("Title")
+brackets = NodePath("Brackets")
 
-[node name="Shape" type="CollisionShape3D" parent="." unique_id=598033725]
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=17704329]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_muopx")
+shape = SubResource("BoxShape3D_1ycjo")
 
-[node name="Border" type="MeshInstance3D" parent="." unique_id=765741908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, 0)
-material_override = ExtResource("3_b7t44")
-mesh = SubResource("BoxMesh_fhqmq")
+[node name="Brackets" type="MeshInstance3D" parent="." unique_id=1871906991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0)
+material_override = ExtResource("4_3ophb")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_6740r")
 
-[node name="Plate" type="MeshInstance3D" parent="." unique_id=1286665146]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
-material_override = ExtResource("4_k3g5r")
-mesh = SubResource("BoxMesh_tman1")
-
-[node name="Fill" type="MeshInstance3D" parent="." unique_id=2138948191]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, 0)
-visible = false
-material_override = ExtResource("5_muopx")
-mesh = SubResource("BoxMesh_4imhd")
-
-[node name="Price" type="Node3D" parent="." unique_id=1800816759]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0.55, 1.5)
-script = ExtResource("6_fhqmq")
-
-[node name="Edge" type="MeshInstance3D" parent="Price" unique_id=723355743]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 0.08, 0, 0, 0)
-material_override = ExtResource("7_tman1")
-mesh = SubResource("CapsuleMesh_380yq")
-
-[node name="Back" type="MeshInstance3D" parent="Price" unique_id=1567505235]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 0.1, 0, 0, 0.012)
-material_override = ExtResource("8_4imhd")
-mesh = SubResource("CapsuleMesh_ox352")
-
-[node name="CoinEdge" type="MeshInstance3D" parent="Price" unique_id=432638561]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.5, 0, 0.06)
-material_override = ExtResource("9_b7t44")
-mesh = SubResource("CylinderMesh_r34r1")
-
-[node name="Coin" type="MeshInstance3D" parent="Price" unique_id=203792670]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.5, 0, 0.075)
-material_override = ExtResource("10_k3g5r")
-mesh = SubResource("CylinderMesh_gmg66")
-
-[node name="CoinSign" type="Label3D" parent="Price" unique_id=929517578]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.01, 0.095)
-pixel_size = 0.0032
-modulate = Color(0.78, 0.45, 0.02, 1)
+[node name="Title" type="Label3D" parent="." unique_id=1264221096]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.07, -0.74)
+pixel_size = 0.004
 outline_modulate = Color(0.25, 0.14, 0.08, 1)
-text = "$"
+text = "OVEN"
 font = ExtResource("9_380yq")
-font_size = 110
-outline_size = 0
+font_size = 60
+outline_size = 26
 
-[node name="Label" type="Label3D" parent="Price" unique_id=1988769495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22, -0.01, 0.08)
-pixel_size = 0.0032
-modulate = Color(0.36, 0.22, 0.12, 1)
+[node name="Price" type="Node3D" parent="." unique_id=1084329270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0.12)
+
+[node name="Coin" parent="Price" unique_id=564949729 instance=ExtResource("2_32qm2")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0.03, -0.3)
+
+[node name="Label" type="Label3D" parent="Price" unique_id=831208179]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0.42)
+pixel_size = 0.004
 outline_modulate = Color(0.25, 0.14, 0.08, 1)
 text = "150"
 font = ExtResource("9_380yq")
 font_size = 150
-outline_size = 0
+outline_size = 44

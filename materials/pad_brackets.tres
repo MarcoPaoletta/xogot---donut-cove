@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://5oe7bqlgm7vu"]
+
+[ext_resource type="Shader" uid="uid://dm316bfkg46nn" path="res://shaders/pad_brackets.gdshader" id="1_2dkp7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2dkp7")
+shader_parameter/line_color = Color(1, 1, 1, 0.96)
+shader_parameter/paid_color = Color(0.42, 1, 0.62, 1)
+shader_parameter/shade_color = Color(0.28, 0.16, 0.08, 0.3)
+shader_parameter/corner_radius = 0.34
+shader_parameter/thickness = 0.1
+shader_parameter/gap = 0.3
+shader_parameter/shade_offset = 0.035

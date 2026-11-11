@@ -64,6 +64,12 @@ func go_to(point: Vector3, face_yaw: float = 0.0, use_face: bool = false) -> voi
 	_has_face = use_face
 
 
+## The size of the order bubble (see `OrderBubble.set_size`).
+func bubble_size(factor: float) -> void:
+	if bubble != null:
+		bubble.set_size(factor)
+
+
 ## Puts the customer on a spot at once (the queue that is already there at boot).
 func place_at(point: Vector3, face_yaw: float) -> void:
 	global_position = point
@@ -73,7 +79,7 @@ func place_at(point: Vector3, face_yaw: float) -> void:
 	_has_face = true
 	_state = State.WAITING
 	if visual != null:
-		visual.rotation = Vector3(0.0, _yaw, 0.0)
+		visual.global_rotation = Vector3(0.0, _yaw, 0.0)
 
 
 ## Walks to a chair and sits there. `height` is the seat height above the sand.
@@ -173,7 +179,8 @@ func _process(delta: float) -> void:
 	elif _has_face and _state != State.LEAVING:
 		_yaw = lerp_angle(_yaw, _face_yaw, 1.0 - exp(-turn_k * delta))
 	if visual != null:
-		visual.rotation = Vector3(0.0, _yaw, 0.0)
+		# World yaw: the queue that owns the customer is rotated with the counter.
+		visual.global_rotation = Vector3(0.0, _yaw, 0.0)
 		var sit: float = (_seat_height - seat_drop) if (_seated and not moving and _state == State.WAITING) else 0.0
 		visual.position.y = lerpf(visual.position.y, sit, 1.0 - exp(-10.0 * delta))
 	if anim != null:

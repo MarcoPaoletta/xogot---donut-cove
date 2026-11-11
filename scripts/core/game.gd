@@ -17,6 +17,9 @@ enum Mode { TITLE, ISLAND, SEA }
 @export var start_cash: int = 60
 ## How many unbought pads are offered at once (the concept shows two).
 @export var pads_offered: int = 2
+## The optional kitchen decorations: one is offered at a time next to the main
+## sequence, and none of them is needed to finish the game.
+@export var decor_root: Node
 ## Loot a voyage must bring home before the Kraken wakes.
 @export var kraken_loot: int = 150
 @export var kraken_reward: int = 900
@@ -60,6 +63,7 @@ var kraken_done: bool = false
 var ended: bool = false
 
 var _pads: Array[UnlockPad] = []
+var _decor: Array[UnlockPad] = []
 var _first_sale_done: bool = false
 var _blend: Tween = null
 var _grade: Tween = null
@@ -76,6 +80,11 @@ func _ready() -> void:
 			var found: UnlockPad = child as UnlockPad
 			_pads.append(found)
 			found.unlocked.connect(_on_pad_unlocked)
+	if decor_root != null:
+		for child: Node in decor_root.get_children():
+			if child is UnlockPad:
+				_decor.append(child as UnlockPad)
+				(child as UnlockPad).unlocked.connect(_on_pad_unlocked)
 	if counter != null:
 		counter.sale.connect(func(_amount: int, _at: Vector3) -> void: _first_sale_done = true)
 	if boarding_pad != null:
@@ -158,6 +167,19 @@ func next_pad() -> UnlockPad:
 func pad(pad_id: StringName) -> UnlockPad:
 	for candidate: UnlockPad in _pads:
 		if candidate.pad_id == pad_id:
+			return candidate
+	for candidate: UnlockPad in _decor:
+		if candidate.pad_id == pad_id:
+			return candidate
+	return null
+
+
+## The decoration on offer, or null.
+func next_decor() -> UnlockPad:
+	if not is_bought(&"oven2"):
+		return null
+	for candidate: UnlockPad in _decor:
+		if not candidate.done:
 			return candidate
 	return null
 
@@ -352,6 +374,9 @@ func _offer_pads() -> void:
 		offered += 1
 		if offered >= pads_offered:
 			break
+	var decoration: UnlockPad = next_decor()
+	if decoration != null:
+		decoration.offer()
 
 
 func _on_pad_unlocked(bought: UnlockPad) -> void:
@@ -496,6 +521,9 @@ func perf_prepare() -> void:
 			break
 		upcoming.offer()
 		upcoming.unlock_now()
+	for decoration: UnlockPad in _decor:
+		decoration.offer()
+		decoration.unlock_now()
 	debug_fill_racks()
 	Wallet.add(5000)
 	end_card = null

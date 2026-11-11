@@ -26,6 +26,7 @@ const ELEMENT_SCENES: PackedStringArray = [
 	"res://scenes/fx/fx_muzzle_flash.tscn",
 ]
 
+const DECOR_IDS: PackedStringArray = ["kitchen_floor", "plants", "lamps", "prep_counter", "pot_shelf"]
 const MAIN_NODES: PackedStringArray = [
 	"Sky/WorldEnvironment", "Sky/Sun", "Sea/Water", "Sea/Ship", "Sea/SeaLife", "Sea/Islet1", "Sea/Islet2", "Island/Ground",
 	"Island/KitchenLine", "Island/Dock", "Ovens/Oven1", "Ovens/Oven2", "Ovens/Oven3", "Counter/Queue", "Counter/CashTray",
@@ -69,6 +70,15 @@ func test_main_shows_the_whole_world() -> Variant:
 	return true
 
 
+## The nodes of `group` under `node` (the scene under test is not in the tree).
+func _grouped(node: Node, group: String, found: Array[Node] = []) -> Array[Node]:
+	if node.is_in_group(group):
+		found.append(node)
+	for child: Node in node.get_children():
+		_grouped(child, group, found)
+	return found
+
+
 func test_pads_are_in_buying_order() -> Variant:
 	var pads: Node = _main.get_node("Pads")
 	if pads.get_child_count() != PAD_IDS.size():
@@ -78,8 +88,27 @@ func test_pads_are_in_buying_order() -> Variant:
 			return "pad %d is %s" % [i, pads.get_child(i).get("pad_id")]
 		if int(pads.get_child(i).get("price")) <= 0:
 			return "pad %s has no price" % PAD_IDS[i]
-		if pads.get_child(i).get_node_or_null("Ghost") == null:
+		# The hologram is the placed target itself, or a `Ghost` child for an upgrade.
+		if pads.get_child(i).get_node_or_null("Ghost") == null and _grouped(_main, "reveal_" + PAD_IDS[i]).is_empty():
 			return "pad %s has no hologram" % PAD_IDS[i]
+		if pads.get_child(i).get("ghost_material") == null:
+			return "pad %s has no hologram material" % PAD_IDS[i]
+	return true
+
+
+func test_five_optional_decorations_are_placed_hidden() -> Variant:
+	var pads: Node = _main.get_node("DecorPads")
+	if pads.get_child_count() != DECOR_IDS.size():
+		return "expected %d decoration pads, found %d" % [DECOR_IDS.size(), pads.get_child_count()]
+	for i in DECOR_IDS.size():
+		if String(pads.get_child(i).get("pad_id")) != DECOR_IDS[i]:
+			return "decoration %d is %s" % [i, pads.get_child(i).get("pad_id")]
+		var targets: Array[Node] = _grouped(_main, "reveal_" + DECOR_IDS[i])
+		if targets.is_empty():
+			return "decoration %s buys nothing" % DECOR_IDS[i]
+		for target: Node in targets:
+			if (target as Node3D).visible:
+				return "decoration %s is visible before it is bought" % DECOR_IDS[i]
 	return true
 
 

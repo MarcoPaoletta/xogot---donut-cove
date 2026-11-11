@@ -1,58 +1,110 @@
 [gd_scene format=3 uid="uid://crnfy3arvnh52"]
 
 [ext_resource type="Script" uid="uid://dwib4h3lo0qd8" path="res://scripts/props/order_bubble.gd" id="1_82gcw"]
-[ext_resource type="Material" uid="uid://cu8uh0a6l67ha" path="res://materials/bubble_white.tres" id="2_ktm63"]
+[ext_resource type="Material" uid="uid://got63bjeh4n6" path="res://materials/bubble_ink.tres" id="2_ktm63"]
+[ext_resource type="Material" uid="uid://3115k6pq2ti3" path="res://materials/bubble_paper.tres" id="3_2o4ny"]
 [ext_resource type="PackedScene" uid="uid://cx2ildosamykj" path="res://scenes/props/donut_strawberry.tscn" id="3_q7017"]
 [ext_resource type="PackedScene" uid="uid://dvdauc6yud6le" path="res://scenes/props/donut_chocolate.tscn" id="4_2o4ny"]
 [ext_resource type="PackedScene" uid="uid://cuu6oggrssewq" path="res://scenes/props/donut_honey.tscn" id="5_v5oj0"]
 [ext_resource type="FontFile" uid="uid://cs8ipfukn2b8m" path="res://assets/fonts/LilitaOne-Regular.ttf" id="6_qgm85"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_afft8"]
-radial_segments = 24
-rings = 12
+[sub_resource type="BoxMesh" id="BoxMesh_v5oj0"]
+size = Vector3(0.42, 0.42, 0.02)
 
-[sub_resource type="SphereMesh" id="SphereMesh_0lp1h"]
-radius = 0.16
-height = 0.32
-radial_segments = 12
-rings = 6
+[sub_resource type="CylinderMesh" id="CylinderMesh_qgm85"]
+top_radius = 0.68
+bottom_radius = 0.68
+height = 0.02
+radial_segments = 48
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_afft8"]
+size = Vector3(0.3, 0.3, 0.02)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0lp1h"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.02
+radial_segments = 48
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qvfgn"]
+top_radius = 0.36
+bottom_radius = 0.36
+height = 0.02
+radial_segments = 48
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8bhnl"]
+top_radius = 0.31
+bottom_radius = 0.31
+height = 0.02
+radial_segments = 48
+rings = 1
 
 [node name="OrderBubble" type="Node3D" unique_id=2085741632 node_paths=PackedStringArray("icons", "count_label")]
 physics_interpolation_mode = 2
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0, 0)
 script = ExtResource("1_82gcw")
 icons = NodePath("Icons")
 count_label = NodePath("Count")
 
-[node name="Back" type="MeshInstance3D" parent="." unique_id=1858381480]
-transform = Transform3D(1, 0, 0, 0, 0.86, 0, 0, 0, 0.1, 0, 0, 0)
+[node name="TailEdge" type="MeshInstance3D" parent="." unique_id=7750376]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.34, -0.5, -0.004)
 material_override = ExtResource("2_ktm63")
-mesh = SubResource("SphereMesh_afft8")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_v5oj0")
 
-[node name="Tail" type="MeshInstance3D" parent="." unique_id=2140699325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.1, -0.22, -0.46, 0)
+[node name="Edge" type="MeshInstance3D" parent="." unique_id=1690030448]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 material_override = ExtResource("2_ktm63")
-mesh = SubResource("SphereMesh_0lp1h")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qgm85")
 
-[node name="Icons" type="Node3D" parent="." unique_id=2114624898]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0.04, 0.1)
+[node name="Tail" type="MeshInstance3D" parent="." unique_id=128275360]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -0.33, -0.46, 0.014)
+material_override = ExtResource("3_2o4ny")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_afft8")
+
+[node name="Back" type="MeshInstance3D" parent="." unique_id=330696799]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.014)
+material_override = ExtResource("3_2o4ny")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0lp1h")
+
+[node name="Icons" type="Node3D" parent="." unique_id=1512854183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, 0.06, 0.22)
 
 [node name="strawberry" parent="Icons" unique_id=531055059 instance=ExtResource("3_q7017")]
-transform = Transform3D(0.95, 0, 0, 0, 0.3558763, -0.8808247, 0, 0.8808247, 0.3558763, 0, 0, 0)
+transform = Transform3D(1.8, 0, 0, 0, 0.84504884, -1.5893055, 0, 1.5893055, 0.84504884, 0, 0, 0)
 
 [node name="chocolate" parent="Icons" unique_id=1281412164 instance=ExtResource("4_2o4ny")]
-transform = Transform3D(0.95, 0, 0, 0, 0.3558763, -0.8808247, 0, 0.8808247, 0.3558763, 0, 0, 0)
+transform = Transform3D(1.8, 0, 0, 0, 0.84504884, -1.5893055, 0, 1.5893055, 0.84504884, 0, 0, 0)
 visible = false
 
 [node name="honey" parent="Icons" unique_id=1418128999 instance=ExtResource("5_v5oj0")]
-transform = Transform3D(0.95, 0, 0, 0, 0.3558763, -0.8808247, 0, 0.8808247, 0.3558763, 0, 0, 0)
+transform = Transform3D(1.8, 0, 0, 0, 0.84504884, -1.5893055, 0, 1.5893055, 0.84504884, 0, 0, 0)
 visible = false
 
-[node name="Count" type="Label3D" parent="." unique_id=366651532]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27, -0.2, 0.12)
+[node name="BadgeEdge" type="MeshInstance3D" parent="." unique_id=108061392]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5, -0.42, 0.42)
+material_override = ExtResource("3_2o4ny")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_qvfgn")
+
+[node name="Badge" type="MeshInstance3D" parent="." unique_id=203086008]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5, -0.42, 0.434)
+material_override = ExtResource("2_ktm63")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_8bhnl")
+
+[node name="Count" type="Label3D" parent="." unique_id=1401124187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.43, 0.46)
 pixel_size = 0.0032
-modulate = Color(0.36, 0.22, 0.12, 1)
+render_priority = 2
 outline_modulate = Color(0.25, 0.14, 0.08, 1)
 text = "x2"
 font = ExtResource("6_qgm85")
-font_size = 110
+font_size = 128
 outline_size = 0

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://pad7e3te7thp" path="res://scripts/actors/baker.gd" id="1_8fi4i"]
 [ext_resource type="PackedScene" uid="uid://chyy7j4mcqxed" path="res://assets/quaternius/restaurant/Rabbit_Cyan.gltf" id="2_6rogo"]
 [ext_resource type="Script" uid="uid://3od2q6k272y3" path="res://scripts/core/carry_stack.gd" id="3_wxynt"]
-[ext_resource type="Material" uid="uid://bw15ato0no3xa" path="res://materials/backpack.tres" id="4_6rogo"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://2h0npeux08n6" path="res://assets/anim/bunny_tree.tres" id="4_to7vf"]
 [ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="5_uesfo"]
 [ext_resource type="FontFile" uid="uid://cs8ipfukn2b8m" path="res://assets/fonts/LilitaOne-Regular.ttf" id="6_rydtt"]
@@ -14,18 +13,21 @@
 radius = 0.36
 height = 1.5
 
-[sub_resource type="BoxMesh" id="BoxMesh_wxynt"]
-size = Vector3(0.56, 0.5, 0.26)
-
 [node name="Baker" type="CharacterBody3D" unique_id=605568101 node_paths=PackedStringArray("carry_stack", "visual", "anim", "max_label", "backpack", "run_dust") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_8fi4i")
+run_speed = null
+accel_time = null
+turn_k = null
+lean_degrees = null
+gravity = null
 carry_stack = NodePath("Visual/BackStack")
 visual = NodePath("Visual")
 anim = NodePath("AnimationTree")
 max_label = NodePath("MaxLabel")
-backpack = NodePath("Visual/Backpack")
+backpack = NodePath("")
 run_dust = NodePath("RunDust")
+backpack_tints = null
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1341350313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -37,15 +39,10 @@ shape = SubResource("CapsuleShape3D_07410")
 transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
 
 [node name="BackStack" type="Node3D" parent="Visual" unique_id=1273761912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, -0.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.5)
 script = ExtResource("3_wxynt")
 item_height = 0.168
 pickup_apex = 0.8
-
-[node name="Backpack" type="MeshInstance3D" parent="Visual" unique_id=1445546741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66, -0.34)
-material_override = ExtResource("4_6rogo")
-mesh = SubResource("BoxMesh_wxynt")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1530715278]
 root_node = NodePath("../Visual/Model")

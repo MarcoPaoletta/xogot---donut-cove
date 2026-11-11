@@ -42,6 +42,7 @@ func _ready() -> void:
 			break
 		_line.append(customer)
 		customer.place_at(_slot_position(i), _slot_yaw(i))
+		customer.bubble_size(_bubble_size(i))
 
 
 func _process(delta: float) -> void:
@@ -86,6 +87,7 @@ func spawn(rare: bool = false) -> Customer:
 	_line.append(customer)
 	var index: int = _line.size() - 1
 	customer.go_to(_slot_position(index), _slot_yaw(index), true)
+	customer.bubble_size(_bubble_size(index))
 	if rare:
 		get_tree().call_group(&"game_camera", &"focus_beat", _slot_position(0))
 		Audio.play(&"rare_fanfare")
@@ -167,6 +169,11 @@ func _slot_position(index: int) -> Vector3:
 	return (slots_root.get_child(index) as Node3D).global_position
 
 
+## The first in line shows a full bubble, the rest a smaller one.
+func _bubble_size(index: int) -> float:
+	return 1.0 if index == 0 else 0.6
+
+
 func _slot_yaw(index: int) -> float:
 	return (slots_root.get_child(index) as Node3D).global_rotation.y
 
@@ -180,3 +187,4 @@ func _on_departed(customer: Customer) -> void:
 	for i in _line.size():
 		if is_instance_valid(_line[i]):
 			_line[i].go_to(_slot_position(i), _slot_yaw(i), true)
+			_line[i].bubble_size(_bubble_size(i))

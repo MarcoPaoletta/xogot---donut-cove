@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://csvmbmguqiu2a"]
+
+[ext_resource type="PackedScene" uid="uid://upxhgg8ldvtn" path="res://assets/quaternius/restaurant/Environment_Counter_Drawers.gltf" id="1_ij1v6"]
+[ext_resource type="Material" uid="uid://cau63xbdwtrbw" path="res://materials/sage_green.tres" id="2_wix3k"]
+
+[node name="CounterDrawersSage" type="Node3D" unique_id=2127939260]
+
+[node name="Model" parent="." unique_id=1983546713 instance=ExtResource("1_ij1v6")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Environment_Counter_Drawers" parent="Model" index="0" unique_id=1626517276]
+material_override = ExtResource("2_wix3k")
+
+[editable path="Model"]

@@ -30,3 +30,24 @@ Behaviour suites on the final build: 63 checks, 63 pass (`test_stage1` 12, `test
 4. **Seated pirates have no sitting clip.** They use `Idle` lowered onto the chair (the pirate rigs ship without one, as the GDD allows), which clips their legs into the seat.
 5. **Plan usage numbers.** Marco's `/usage` reading was not given at the start or the end, so the usage log has the exact tokens only.
 6. **The exported `Donut Cove.console.exe` wrapper** fails to start the game (`CreateProcess failed, error 193`); `Donut Cove.exe` itself runs. Not investigated further: the wrapper is only for console output.
+
+## V2 (2026-11-11)
+
+Marco's feedback after v1, all applied in one pass. Details and numbers in `BUILD_NOTES.md` (V2).
+
+| Request | Status | Evidence |
+| :-- | :-- | :-- |
+| The hologram shows which building it is, at its real place | Done | `evidence/v2-pad-brackets-hologram.png`; `test_stage2` |
+| Pads flat on the floor, rounded corners, no fill, coin and price as 3D objects on the floor | Done | `evidence/v2-pad-brackets-hologram.png` |
+| Paying fills the hologram into the real object | Done | `evidence/v2-hologram-filling.png` |
+| Clear what each thing does | Done as a name on every pad and one decoration offered at a time | same captures |
+| Mouse pan and wheel zoom | Done | `test_stage2` (zoom 1.4x, pan 2.5 m, drift back) |
+| Donuts carried in front, no backpack | Done | `test_stage2` |
+| About five more things to buy for the kitchen | Done, five optional decorations | `evidence/v2-kitchen-decorations.png`; `test_stage2` |
+| Better order bubble | Done | `evidence/v2-order-bubbles-queue.png` |
+| Coin model from the new kit | Done | `ASSET_MANIFEST.md` |
+| NPCs face where they walk | Done, measured 98 percent of frames off before and 0.3 percent after | `BUILD_NOTES.md` |
+
+Suites on the V2 build: 82 behaviour checks and 12 structural, all pass. Bot full run 5:27 at real speed. Performance row V2 passes.
+
+Still open in V2: no human playtest of this build, no video (not wanted for V2), and the two unrepeated readings listed in the notes.

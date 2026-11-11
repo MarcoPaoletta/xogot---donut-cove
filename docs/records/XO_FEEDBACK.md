@@ -66,3 +66,11 @@ Top three wishes, in order of time they would have saved: (1) node typed exports
 * NOTE: preset names: `xo export preset list` returns the name under `identity.preset_name`, not `name`; a script that read `name` passed `None` and got "Export preset not found".
 * NOTE: with a self contained Godot (`editor_data/` next to the binary) the templates installed under `%APPDATA%` are not found; `preset option custom_template/debug '"<path>"'` fixed it without copying files.
 * GOOD: `xo test run --root res://tests/editor` ran the 11 structural checks in the editor in one call and reported a clean summary.
+
+## V2 pass (2026-11-11)
+
+* `xo file send` accepted `.gdshader` and `.gltf` files and the editor imported them without a restart; `xo material create shader ... --shader` made the two ShaderMaterials in one call each.
+* `xo export execute` needs both `--platform` and `--preset` even when one preset exists; the error names only the first missing flag.
+* Still true: a script replaced with `file send` keeps its old exports on open scenes until the script is detached and attached again, so a scene whose root script lost an export has to be rebuilt.
+* A whole scene rebuild through `xo batch` stayed reliable at 418 steps (main scene) in under a minute.
+* `xo test run` suites run in the editor without the scene in the tree, so `get_tree()` on an instanced scene is null there; group lookups had to walk the nodes by hand.

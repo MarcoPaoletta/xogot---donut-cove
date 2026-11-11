@@ -16,10 +16,7 @@ extends CharacterBody3D
 @export var visual: Node3D
 @export var anim: CharacterAnim
 @export var max_label: Label3D
-@export var backpack: MeshInstance3D
 @export var run_dust: GPUParticles3D
-## One tint per backpack level (start, bigger, biggest).
-@export var backpack_tints: Array[Color] = [Color(0.2, 0.75, 0.72), Color(1.0, 0.62, 0.2), Color(0.85, 0.35, 0.9)]
 
 ## False while a screen, the ship or a cutscene owns the input.
 var control_enabled: bool = true
@@ -82,19 +79,13 @@ func teleport(point: Vector3, yaw: float = 0.0) -> void:
 	reset_physics_interpolation()
 
 
-## Bigger stack: the tower holds more and the backpack changes colour.
-func upgrade_backpack(level: int, capacity: int) -> void:
+## Bigger stack: the tower she carries in her arms holds more.
+func upgrade_backpack(_level: int, capacity: int) -> void:
 	carry_stack.capacity = capacity
 	if max_label != null:
 		max_label.position.y = 1.4 + float(capacity) * carry_stack.item_height * 0.9
-	if backpack == null:
-		return
-	var material: StandardMaterial3D = backpack.material_override as StandardMaterial3D
-	if material != null:
-		material = material.duplicate() as StandardMaterial3D
-		material.albedo_color = backpack_tints[clampi(level, 0, backpack_tints.size() - 1)]
-		backpack.material_override = material
-	ItemFlight.squash(backpack, 0.5, 0.35)
+	if visual != null:
+		ItemFlight.squash(visual, 0.5, 0.35)
 	Fx.burst(Fx.DUST_RING, self, global_position + Vector3.UP * 0.2, 0.7)
 
 

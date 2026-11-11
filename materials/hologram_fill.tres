@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dfj3v3h8wni0n"]
+
+[ext_resource type="Shader" path="res://shaders/hologram_fill.gdshader" id="1_50byg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_50byg")
+shader_parameter/tint = Color(0.36, 0.96, 0.7, 0.86)
+shader_parameter/edge_color = Color(1, 1, 0.85, 1)
+shader_parameter/fill_y = -1000.0
+shader_parameter/fade = 1.0
+shader_parameter/edge_height = 0.07

@@ -18,12 +18,17 @@ extends Node3D
 @export var shake_decay: float = 1.5
 ## False until the ship is boarded.
 @export var live: bool = false
+## Wheel zoom, as a factor of the authored offset.
+@export var zoom_min: float = 0.7
+@export var zoom_max: float = 1.9
 
 var _yaw: float = 0.0
 var _trauma: float = 0.0
 var _noise: FastNoiseLite = FastNoiseLite.new()
 var _time: float = 0.0
 var _fov_tween: Tween = null
+var _zoom: float = 1.0
+var _zoom_target: float = 1.0
 
 
 func _ready() -> void:
@@ -33,15 +38,26 @@ func _ready() -> void:
 		camera.fov = base_fov
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if not live or not (event is InputEventMouseButton) or not event.pressed:
+		return
+	var button: InputEventMouseButton = event as InputEventMouseButton
+	if button.button_index == MOUSE_BUTTON_WHEEL_UP:
+		_zoom_target = clampf(_zoom_target - 0.1, zoom_min, zoom_max)
+	elif button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		_zoom_target = clampf(_zoom_target + 0.1, zoom_min, zoom_max)
+
+
 func _process(delta: float) -> void:
 	_time += delta
+	_zoom = lerpf(_zoom, _zoom_target, 1.0 - exp(-10.0 * delta))
 	if ship == null or camera == null:
 		return
 	var ship_yaw: float = ship.global_rotation.y
 	_yaw = lerp_angle(_yaw, ship_yaw, 1.0 - exp(-yaw_k * delta))
 	var speed01: float = clampf(absf(ship.speed) / ship.top_speed, 0.0, 1.0)
 	var basis_yaw: Basis = Basis(Vector3.UP, _yaw)
-	var at: Vector3 = ship.global_position + basis_yaw * (offset * (1.0 + pull_back * speed01))
+	var at: Vector3 = ship.global_position + basis_yaw * (offset * _zoom * (1.0 + pull_back * speed01))
 	global_position = at
 	camera.global_position = at
 	camera.look_at(ship.global_position + basis_yaw * look_offset, Vector3.UP)

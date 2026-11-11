@@ -61,3 +61,14 @@ Not used (spare stock): the other rabbits and the panda, `Ship_Small`, `Enemy_Te
 Import settings: unchanged defaults for every model. The OBJ packs (food, interior) store their `Kd` colours in linear space and import too dark; the fix is saved materials in `materials/pal/` assigned as surface overrides on the instances, the source files are untouched.
 
 Fonts: `assets/fonts/LilitaOne-Regular.ttf` (Lilita One, SIL Open Font Licence 1.1, Google Fonts, licence text in `assets/fonts/LilitaOne-OFL.txt`).
+
+## Added in V2 (2026-11-11)
+
+| File | Pack | Licence | Used for |
+| :-- | :-- | :-- | :-- |
+| `assets/quaternius/platformer/Coin.gltf` | Quaternius, Ultimate Platformer Pack (Dec 2021 kit in Downloads) | CC0, `assets/quaternius/platformer/LICENSE.txt` | Every coin: `scenes/props/coin.tscn` |
+| `restaurant/Floor_Wood.gltf` | Quaternius restaurant kit (already in the repo) | CC0 | Decoration WOOD FLOOR, four tiles at 1.06 by 0.4 by 0.8 |
+| `restaurant/Decoration_Plant1.gltf`, `Decoration_Plant2.gltf`, `interior/Houseplant_5.obj` | restaurant and interior kits | CC0 | Decoration PLANTS |
+| `interior/Light_Stand1.obj` | interior kit | CC0 | Decoration LAMPS, scale 0.75 |
+| `restaurant/Environment_Counter_Drawers.gltf`, `Environment_CuttingTable.gltf`, `Environment_Pot_2_Filled.gltf`, `Environment_Pan.gltf` | restaurant kit | CC0 | Decoration PREP COUNTER (`scenes/props/tinted/counter_drawers_sage.tscn`) |
+| `restaurant/Environment_Cabinet_Shelves_2.gltf`, `Environment_Pot_1_Empty.gltf`, `Environment_Bottles.gltf` | restaurant kit | CC0 | Decoration POT SHELF (`scenes/props/tinted/cabinet_shelves2_sage.tscn`) |

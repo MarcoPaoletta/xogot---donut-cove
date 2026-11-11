@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c217ugrin57jb"]
+
+[ext_resource type="PackedScene" uid="uid://cga43bnhd2aab" path="res://assets/quaternius/restaurant/Environment_Cabinet_Shelves_2.gltf" id="1_mt7jp"]
+[ext_resource type="Material" uid="uid://cau63xbdwtrbw" path="res://materials/sage_green.tres" id="2_upqt2"]
+
+[node name="CabinetShelves2Sage" type="Node3D" unique_id=944707781]
+
+[node name="Model" parent="." unique_id=757495060 instance=ExtResource("1_mt7jp")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Environment_Cabinet_Shelves_2" parent="Model" index="0" unique_id=1982071909]
+material_override = ExtResource("2_upqt2")
+
+[editable path="Model"]
