@@ -43,6 +43,26 @@ func _ready() -> void:
 		queue.customer_served.connect(_on_customer_served)
 
 
+## The customers that can take a donut right now. The counter serves the front
+## of its queue; a table serves whoever is seated.
+func ready_customers() -> Array[Customer]:
+	var result: Array[Customer] = []
+	if queue != null:
+		var first: Customer = queue.front()
+		if first != null:
+			result.append(first)
+	return result
+
+
+## True when some ready customer wants a flavor (helpers ask before walking).
+func wanted_kind() -> StringName:
+	for customer: Customer in ready_customers():
+		var kind: StringName = customer.wants()
+		if kind != &"":
+			return kind
+	return &""
+
+
 func _process(delta: float) -> void:
 	for carrier: Node3D in _carriers.keys():
 		_feed(carrier, delta)
@@ -64,16 +84,20 @@ func _feed(carrier: Node3D, delta: float) -> void:
 		return
 	var state: Dictionary = _carriers[carrier]
 	state["cooldown"] = float(state["cooldown"]) - delta
-	if float(state["cooldown"]) > 0.0 or queue == null:
-		return
-	var customer: Customer = queue.front()
-	if customer == null:
-		return
-	var kind: StringName = customer.wants()
-	if kind == &"":
+	if float(state["cooldown"]) > 0.0:
 		return
 	var stack: CarryStack = carrier.call(&"get_carry_stack") as CarryStack
-	if stack == null or not stack.has_kind(kind):
+	if stack == null or stack.is_empty():
+		return
+	var customer: Customer = null
+	var kind: StringName = &""
+	for candidate: Customer in ready_customers():
+		var wanted: StringName = candidate.wants()
+		if wanted != &"" and stack.has_kind(wanted):
+			customer = candidate
+			kind = wanted
+			break
+	if customer == null:
 		return
 	customer.reserve(kind)
 	stack.send_top(customer.receive_position, 0.24, 0.7, customer.receive, kind)

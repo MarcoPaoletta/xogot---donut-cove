@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://p1mjniwra4nn"]
+
+[ext_resource type="PackedScene" uid="uid://b7qwvr3op44n6" path="res://assets/quaternius/pirate/Prop_Cannon.gltf" id="1_5do07"]
+[ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="2_c1omt"]
+
+[node name="HoloCannon" type="Node3D" unique_id=1036125288]
+
+[node name="Model" parent="." unique_id=1354888316 instance=ExtResource("1_5do07")]
+
+[node name="Prop_Cannon" parent="Model" index="0" unique_id=75759713]
+material_override = ExtResource("2_c1omt")
+cast_shadow = 0
+
+[editable path="Model"]

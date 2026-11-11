@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dtjnb6004ps04"]
+
+[ext_resource type="PackedScene" uid="uid://dqlhqd1eu8u4s" path="res://assets/quaternius/pirate/Ship_Large.gltf" id="1_ji357"]
+[ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="2_q5h16"]
+
+[node name="HoloShip" type="Node3D" unique_id=303830739]
+
+[node name="Model" parent="." unique_id=374552523 instance=ExtResource("1_ji357")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+
+[node name="Ship_Large" parent="Model" index="0" unique_id=1041505120]
+material_override = ExtResource("2_q5h16")
+cast_shadow = 0
+
+[editable path="Model"]

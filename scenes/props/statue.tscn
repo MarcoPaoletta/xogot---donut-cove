@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://brdrrmo58ua8u"]
+
+[ext_resource type="Script" uid="uid://dimq7y3dnqqi2" path="res://scripts/props/statue.gd" id="1_avjwt"]
+[ext_resource type="Material" uid="uid://bpwrm6irj6d36" path="res://materials/stone.tres" id="2_hiwi8"]
+[ext_resource type="PackedScene" uid="uid://dwfl4mkjcdhae" path="res://assets/quaternius/pirate/Characters_Skeleton.gltf" id="3_71ng6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nnpw3"]
+size = Vector3(1.5, 0.22, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lsqdh"]
+size = Vector3(1.15, 0.5, 1.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02off"]
+size = Vector3(1.5, 2, 1.5)
+
+[node name="Statue" type="Node3D" unique_id=333481022 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_avjwt")
+animation_player = NodePath("Model/AnimationPlayer")
+
+[node name="PlinthBase" type="MeshInstance3D" parent="." unique_id=238737054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)
+material_override = ExtResource("2_hiwi8")
+mesh = SubResource("BoxMesh_nnpw3")
+
+[node name="Plinth" type="MeshInstance3D" parent="." unique_id=140693942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47, 0)
+material_override = ExtResource("2_hiwi8")
+mesh = SubResource("BoxMesh_lsqdh")
+
+[node name="Model" parent="." unique_id=2139377179 instance=ExtResource("3_71ng6")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.72, 0)
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=1523668238]
+
+[node name="Shape" type="CollisionShape3D" parent="Body" unique_id=2069776478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_02off")

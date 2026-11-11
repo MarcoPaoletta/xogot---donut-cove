@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://qoc0nu3jq7mv"]
+
+[ext_resource type="PackedScene" uid="uid://62g768jbe3nf" path="res://assets/quaternius/pirate/Environment_House1.gltf" id="1_y160r"]
+[ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="2_mqklb"]
+
+[node name="HoloHouse" type="Node3D" unique_id=1358832454]
+
+[node name="Model" parent="." unique_id=84176244 instance=ExtResource("1_y160r")]
+transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0, 0, 0)
+
+[node name="Environment_House1" parent="Model" index="0" unique_id=824102638]
+material_override = ExtResource("2_mqklb")
+cast_shadow = 0
+
+[editable path="Model"]

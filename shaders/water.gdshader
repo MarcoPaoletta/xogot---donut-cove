@@ -9,16 +9,16 @@ render_mode blend_mix, depth_draw_never, cull_back, specular_schlick_ggx;
 
 global uniform float sea_time;
 
-uniform vec3 shallow_color : source_color = vec3(0.10, 0.80, 0.78);
-uniform vec3 mid_color : source_color = vec3(0.04, 0.72, 0.84);
-uniform vec3 deep_color : source_color = vec3(0.0, 0.58, 0.84);
+uniform vec3 shallow_color : source_color = vec3(0.06, 0.78, 0.78);
+uniform vec3 mid_color : source_color = vec3(0.0, 0.60, 0.82);
+uniform vec3 deep_color : source_color = vec3(0.0, 0.44, 0.78);
 uniform vec3 foam_color : source_color = vec3(1.0, 1.0, 1.0);
 uniform float depth_fade = 2.4;
 uniform float foam_width = 0.11;
 uniform float wave_height = 0.10;
 uniform float wave_length = 14.0;
-uniform float facet_scale = 0.22;
-uniform float facet_strength = 0.05;
+uniform float facet_scale = 0.14;
+uniform float facet_strength = 0.09;
 uniform float sparkle_strength = 0.55;
 uniform float fog_start = 90.0;
 uniform float fog_end = 260.0;
@@ -78,7 +78,6 @@ void fragment() {
 
 	vec2 cell = cells(world_pos.xz * facet_scale, sea_time);
 	color += (cell.y - 0.5) * facet_strength;
-	color += smoothstep(0.44, 0.5, cell.x) * 0.06;
 
 	// Foam: a solid band at the contact line and a thin ripple that drifts out.
 	float wobble = sin(sea_time * 1.6 + world_pos.x * 0.9 + world_pos.z * 0.7) * 0.5 + 0.5;

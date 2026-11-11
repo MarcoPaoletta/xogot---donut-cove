@@ -81,6 +81,30 @@ func is_bought(pad_id: StringName) -> bool:
 	return found != null and found.done
 
 
+## Buys the next pad at once with its normal reveal (presenter panel).
+func debug_unlock_next() -> void:
+	var upcoming: UnlockPad = next_pad()
+	if upcoming != null:
+		upcoming.offer()
+		upcoming.unlock_now()
+
+
+func debug_fill_racks() -> void:
+	for node: Node in get_tree().get_nodes_in_group(&"ovens"):
+		(node as Oven).fill_rack()
+
+
+## The performance route asks for the busiest state: everything bought,
+## racks full, the helper working.
+func perf_prepare() -> void:
+	flags[&"first_voyage"] = true
+	flags[&"kraken_won"] = true
+	for i in _pads.size():
+		debug_unlock_next()
+	debug_fill_racks()
+	Wallet.add(5000)
+
+
 func _gate_open(candidate: UnlockPad) -> bool:
 	match candidate.pad_id:
 		&"double_cannons":
@@ -126,9 +150,9 @@ func _apply(pad_id: StringName) -> void:
 				queue.open_slots = 6
 				queue.spawn_interval = 3.0
 		&"backpack":
-			_set_capacity(10)
+			_set_capacity(1, 10)
 		&"backpack2":
-			_set_capacity(16)
+			_set_capacity(2, 16)
 		&"statue":
 			if queue != null:
 				queue.pay_multiplier = 1.2
@@ -139,10 +163,10 @@ func _apply(pad_id: StringName) -> void:
 				Fx.burst(Fx.DUST_RING, self, (node as Node3D).global_position + Vector3.UP)
 
 
-func _set_capacity(value: int) -> void:
+func _set_capacity(level: int, value: int) -> void:
 	if baker == null:
 		return
-	baker.carry_stack.capacity = value
+	baker.upgrade_backpack(level, value)
 	Fx.pop_number(self, baker.global_position + Vector3.UP * 2.6, "MAX %d" % value, Fx.WHITE, 1.2)
 
 

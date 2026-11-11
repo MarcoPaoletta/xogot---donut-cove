@@ -92,6 +92,22 @@ func spawn(rare: bool = false) -> Customer:
 	return customer
 
 
+## A customer that walks in from the entrance but does not join the line
+## (the tables). The caller tells it where to go.
+func create_walker(order_min: int = 2, order_max: int = 3) -> Customer:
+	var scene: PackedScene = _pick_scene()
+	if scene == null:
+		return null
+	var customer: Customer = scene.instantiate() as Customer
+	add_child(customer)
+	customer.global_position = spawn_point.global_position if spawn_point != null else global_position
+	var order: Dictionary = {}
+	if not kinds.is_empty():
+		order[kinds[randi() % kinds.size()]] = randi_range(order_min, order_max)
+	customer.setup(order, pay_multiplier, false, exit_point.global_position if exit_point != null else global_position)
+	return customer
+
+
 ## Frees every customer (restart).
 func clear_all() -> void:
 	for customer: Customer in _line:

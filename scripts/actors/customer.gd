@@ -15,6 +15,10 @@ enum State { WALKING_IN, WAITING, LEAVING }
 @export var walk_speed: float = 2.6
 ## Seconds a customer waits at its slot before leaving grumpy.
 @export var patience: float = 50.0
+## Seconds a seated customer eats before it leaves.
+@export var eat_time: float = 5.0
+## How far the model sinks when it sits on a chair (the pack has no sitting clip for pirates).
+@export var seat_drop: float = 0.22
 @export var turn_k: float = 10.0
 @export var anim: CharacterAnim
 @export var bubble: OrderBubble
@@ -34,6 +38,8 @@ var _yaw: float = 0.0
 var _face_yaw: float = 0.0
 var _has_face: bool = false
 var _wait: float = 0.0
+var _seated: bool = false
+var _seat_height: float = 0.0
 
 
 ## `new_order` maps a flavor to a count. The payment is fixed here so tips and
@@ -68,6 +74,13 @@ func place_at(point: Vector3, face_yaw: float) -> void:
 	_state = State.WAITING
 	if visual != null:
 		visual.rotation = Vector3(0.0, _yaw, 0.0)
+
+
+## Walks to a chair and sits there. `height` is the seat height above the sand.
+func sit_at(point: Vector3, face_yaw: float, height: float) -> void:
+	_seated = true
+	_seat_height = height
+	go_to(point, face_yaw, true)
 
 
 func is_ready() -> bool:
@@ -121,6 +134,8 @@ func _process(delta: float) -> void:
 		_yaw = lerp_angle(_yaw, _face_yaw, 1.0 - exp(-turn_k * delta))
 	if visual != null:
 		visual.rotation = Vector3(0.0, _yaw, 0.0)
+		var sit: float = (_seat_height - seat_drop) if (_seated and not moving and _state == State.WAITING) else 0.0
+		visual.position.y = lerpf(visual.position.y, sit, 1.0 - exp(-10.0 * delta))
 	if anim != null:
 		anim.set_speed01(1.0 if moving else 0.0)
 	match _state:
@@ -168,7 +183,7 @@ func _happy() -> void:
 	Audio.play_varied(&"pirate_happy", 0.12, -3.0)
 	Fx.burst(Fx.HEARTS, self, receive_position() + Vector3.UP * 0.5)
 	served.emit(self, _amount)
-	_leave(0.7)
+	_leave(eat_time if _seated else 0.7)
 
 
 func _grumpy() -> void:
@@ -182,8 +197,15 @@ func _grumpy() -> void:
 
 
 func _leave(delay: float) -> void:
-	_state = State.LEAVING
 	_has_face = false
-	departed.emit(self)
+	if not _seated:
+		_state = State.LEAVING
+		departed.emit(self)
 	_target = global_position
-	get_tree().create_timer(delay).timeout.connect(func() -> void: _target = _exit)
+	get_tree().create_timer(delay).timeout.connect(func() -> void:
+		if _seated:
+			_seated = false
+			_state = State.LEAVING
+			departed.emit(self)
+		_target = _exit
+	)

@@ -27,3 +27,11 @@ Every decision, tuned dial, final light value, final scale, pad price and the me
 * M2. Cliffs use a flat warm grey override (`materials/cliff_rock.tres`) through wrapper scenes: the pack cliffs import dark maroon and read as holes at this exposure.
 * M2. Customers enter and leave by the dock end of the beach (spawn and exit markers in the counter scene).
 * M2. The final purchase pad will stand at the foot of the north west cliff and the house pops in on the cliff top: the cliff top is not walkable.
+* M3. Concept round 4 (Concept 2): the concept island is a compact diorama that the stall fills. The plateau is now 27 by 21 m (ellipse 13.5 by 10.5) instead of the GDD's 36 by 26 m, centred on the stall: at 36 by 26 the stall was a small cluster on a big empty beach and the comparison read as another game. The one to one rule wins over the size.
+* M3. Final island layout (metres): kitchen line at z -6 (ovens at x -5.9, -3.5, -1.1), counter at (3.4, 0.6) rotated -52 degrees, pad spots A (-4.5, 1.0), B (-1.4, 4.2), C (-7.6, 3.6), statue at (-9.2, -1.4), tables at (-6.4, 6.6) and (-1.6, 7.9), dock from x 12.2 at z -0.5, house pad at (-6.2, -3.4).
+* M3. Pads reveal what they buy through groups (`reveal_<pad_id>`): the targets are placed hidden in `main.tscn` (or inside the counter scene for the display case) and the pad disables them (`process_mode` DISABLED, so their collision and zones are out of the world) until bought.
+* M3. Two pads are offered at once, as the concept shows. Pad order and prices as the GDD table.
+* M3. Tables reuse the counter script (`TableSet extends ShopCounter`): same serve zone cadence and cash tray, seated customers instead of the queue front. Seated pirates use `Idle` with the model lowered 0.22 m onto the chair (the pirate rigs have no sitting clip) and eat for 5 s before leaving.
+* M3. The helper carries 4 donuts per trip, picks the oven of the flavor the front customer wants, and steps sideways if blocked for 0.5 s. Measured alone for 60 s: 24 donuts sold, 121 m walked, longest standstill 6.5 s.
+* M3. Backpack: a native box on the bunny's back that changes tint with each capacity pad (teal, orange, purple).
+* M3. Pad holograms: the OBJ oven and table with the hologram material; the skeleton, bunny, ship, house and cannon as wrapper scenes with every mesh overridden (`scenes/props/holo/`).

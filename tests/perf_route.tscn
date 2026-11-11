@@ -5,43 +5,43 @@
 
 [node name="PerfRoute" type="Node3D" unique_id=1311205074 node_paths=PackedStringArray("camera", "waypoints", "main")]
 script = ExtResource("1_iw2ad")
-label = "M2"
+label = "M3"
 camera = NodePath("Camera")
 waypoints = NodePath("Waypoints")
 main = NodePath("Main")
 
 [node name="Main" parent="." unique_id=1280720619 instance=ExtResource("2_ypqi1")]
 
-[node name="Camera" type="Camera3D" parent="." unique_id=1812278406]
+[node name="Camera" type="Camera3D" parent="." unique_id=295686699]
 fov = 38.0
 near = 0.5
 far = 600.0
 
-[node name="Waypoints" type="Node3D" parent="." unique_id=1195510048]
+[node name="Waypoints" type="Node3D" parent="." unique_id=1696014338]
 
-[node name="Stall" type="Marker3D" parent="Waypoints" unique_id=349117452]
-transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, 0.32, 9.29, 5.64)
+[node name="Stall" type="Marker3D" parent="Waypoints" unique_id=808268606]
+transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, -4.68, 9.29, 6.74)
 
-[node name="StallHold" type="Marker3D" parent="Waypoints" unique_id=862672851]
-transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, 1.8, 9.29, 5)
+[node name="StallHold" type="Marker3D" parent="Waypoints" unique_id=717936971]
+transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, -3.2, 9.29, 6)
 
-[node name="Island" type="Marker3D" parent="Waypoints" unique_id=419663664]
-transform = Transform3D(0.88294756, 0.3017705, -0.3596361, 0, 0.76604444, 0.6427876, 0.46947157, -0.56754774, 0.67637706, -14, 30, 34)
+[node name="Island" type="Marker3D" parent="Waypoints" unique_id=1910006699]
+transform = Transform3D(0.8910065, 0.30377895, -0.33738068, 0, 0.7431448, 0.6691306, 0.4539905, -0.59619975, 0.66214687, -10.5, 23, 22.5)
 
-[node name="IslandWest" type="Marker3D" parent="Waypoints" unique_id=872497548]
-transform = Transform3D(0.4694716, 0.46789092, -0.748782, 0, 0.8480481, 0.52991927, 0.88294756, -0.24878205, 0.3981345, -22, 20, 16)
+[node name="IslandWest" type="Marker3D" parent="Waypoints" unique_id=2117781784]
+transform = Transform3D(0.4694716, 0.46789092, -0.748782, 0, 0.8480481, 0.52991927, 0.88294756, -0.24878205, 0.3981345, -18, 16, 10)
 
-[node name="Dock" type="Marker3D" parent="Waypoints" unique_id=350763137]
-transform = Transform3D(0.95105654, 0.1450747, -0.2728458, 0, 0.88294756, 0.46947157, 0.309017, -0.446494, 0.83973306, 14, 7, 9)
+[node name="Dock" type="Marker3D" parent="Waypoints" unique_id=1924688]
+transform = Transform3D(0.95105654, 0.1450747, -0.2728458, 0, 0.88294756, 0.46947157, 0.309017, -0.446494, 0.83973306, 10, 7, 9)
 
-[node name="DockEnd" type="Marker3D" parent="Waypoints" unique_id=1931822944]
-transform = Transform3D(0.99026805, -0.056606803, 0.12714095, 0, 0.9135454, 0.40673664, -0.1391731, -0.4027783, 0.90465486, 26, 6, 8)
+[node name="DockEnd" type="Marker3D" parent="Waypoints" unique_id=1174339627]
+transform = Transform3D(0.99026805, -0.056606803, 0.12714095, 0, 0.9135454, 0.40673664, -0.1391731, -0.4027783, 0.90465486, 22, 6, 8)
 
-[node name="Sea" type="Marker3D" parent="Waypoints" unique_id=1182818174]
-transform = Transform3D(0.76604444, -0.19863228, 0.61132735, 0, 0.95105654, 0.309017, -0.6427876, -0.23672076, 0.72855157, 38, 9, 14)
+[node name="Sea" type="Marker3D" parent="Waypoints" unique_id=1999930573]
+transform = Transform3D(0.76604444, -0.19863228, 0.61132735, 0, 0.95105654, 0.309017, -0.6427876, -0.23672076, 0.72855157, 34, 9, 14)
 
-[node name="SeaFar" type="Marker3D" parent="Waypoints" unique_id=76054467]
-transform = Transform3D(-0.34202012, -0.3213938, 0.8830222, 0, 0.9396926, 0.34202012, -0.9396926, 0.116977766, -0.3213938, 44, 12, -8)
+[node name="SeaFar" type="Marker3D" parent="Waypoints" unique_id=832716187]
+transform = Transform3D(-0.34202012, -0.3213938, 0.8830222, 0, 0.9396926, 0.34202012, -0.9396926, 0.116977766, -0.3213938, 40, 12, -8)
 
-[node name="SeaBack" type="Marker3D" parent="Waypoints" unique_id=2020393774]
-transform = Transform3D(-0.9396926, -0.1710101, 0.2961982, 0, 0.8660254, 0.5, -0.3420202, 0.4698463, -0.81379765, 30, 16, -22)
+[node name="SeaBack" type="Marker3D" parent="Waypoints" unique_id=830573513]
+transform = Transform3D(-0.9396926, -0.1710101, 0.2961982, 0, 0.8660254, 0.5, -0.3420202, 0.4698463, -0.81379765, 26, 16, -22)

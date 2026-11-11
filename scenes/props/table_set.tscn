@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://b5i2nri3ikj0t"]
+
+[ext_resource type="Script" uid="uid://wewgu2u7it54" path="res://scripts/props/table_set.gd" id="1_jry2c"]
+[ext_resource type="PackedScene" uid="uid://b4e3vfxcuw40d" path="res://scenes/props/coin.tscn" id="2_vuklu"]
+[ext_resource type="ArrayMesh" uid="uid://bsl6wy0ipxfle" path="res://assets/quaternius/interior/Table_RoundSmall.obj" id="3_nnsmt"]
+[ext_resource type="Material" uid="uid://v530clyivgyv" path="res://materials/table_white.tres" id="4_scw42"]
+[ext_resource type="ArrayMesh" uid="uid://bs3vwpfogneeb" path="res://assets/quaternius/interior/Chair_1.obj" id="5_pw875"]
+[ext_resource type="Material" uid="uid://cksasb14i0ukq" path="res://materials/chair_pink.tres" id="6_ldhkm"]
+[ext_resource type="Material" uid="uid://dtv7qfotiudc2" path="res://materials/chair_mint.tres" id="7_3dqxa"]
+[ext_resource type="ArrayMesh" uid="uid://bor3t8j8h85mm" path="res://assets/quaternius/interior/Houseplant_3.obj" id="8_7ffgh"]
+[ext_resource type="Material" uid="uid://c6vvsoay44tn6" path="res://materials/pal/interior_Black.tres" id="9_vc06v"]
+[ext_resource type="Material" uid="uid://dpi65yvxgxea2" path="res://materials/pal/interior_Brown.tres" id="10_upjmf"]
+[ext_resource type="Material" uid="uid://do12ogxyjnisr" path="res://materials/pal/interior_DarkGreen.tres" id="11_evt6s"]
+[ext_resource type="Material" uid="uid://cs8uhq14x2efw" path="res://materials/pal/interior_LightOrange.tres" id="12_7q70r"]
+[ext_resource type="Script" uid="uid://bc88uu6ikgpva" path="res://scripts/core/item_tray.gd" id="13_3x5d1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfi5y"]
+size = Vector3(4.4, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dc77l"]
+size = Vector3(4.4, 2, 4)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vjee7"]
+height = 1.0
+radius = 0.62
+
+[node name="TableSet" type="Node3D" unique_id=873948725 node_paths=PackedStringArray("seats_root", "serve_zone", "cash_zone", "cash_tray")]
+script = ExtResource("1_jry2c")
+seats_root = NodePath("Seats")
+open = false
+serve_zone = NodePath("ServeZone")
+cash_zone = NodePath("CashZone")
+cash_tray = NodePath("CashTray")
+coin_scene = ExtResource("2_vuklu")
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=828780388]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("3_nnsmt")
+surface_material_override/0 = ExtResource("4_scw42")
+
+[node name="ChairA" type="MeshInstance3D" parent="." unique_id=260608991]
+transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, -1.02, 0, 0)
+mesh = ExtResource("5_pw875")
+surface_material_override/0 = ExtResource("6_ldhkm")
+
+[node name="ChairB" type="MeshInstance3D" parent="." unique_id=1859233327]
+transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, 1.02, 0, 0)
+mesh = ExtResource("5_pw875")
+surface_material_override/0 = ExtResource("7_3dqxa")
+
+[node name="Plant" type="MeshInstance3D" parent="." unique_id=559785783]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.8, 0)
+mesh = ExtResource("8_7ffgh")
+surface_material_override/0 = ExtResource("9_vc06v")
+surface_material_override/1 = ExtResource("10_upjmf")
+surface_material_override/2 = ExtResource("11_evt6s")
+surface_material_override/3 = ExtResource("12_7q70r")
+
+[node name="Seats" type="Node3D" parent="." unique_id=1839272589]
+
+[node name="SeatA" type="Marker3D" parent="Seats" unique_id=1929343101]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.98, 0, 0)
+
+[node name="SeatB" type="Marker3D" parent="Seats" unique_id=1912654693]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.98, 0, 0)
+
+[node name="CashTray" type="Node3D" parent="." unique_id=1204167433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82, 0.36)
+script = ExtResource("13_3x5d1")
+columns = 2
+rows = 1
+layers = 10
+cell_size = Vector2(0.36, 0.36)
+layer_height = 0.065
+fly_duration = 0.32
+fly_apex = 0.9
+random_yaw = 0.6
+
+[node name="ServeZone" type="Area3D" parent="." unique_id=725412027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 128
+collision_mask = 10
+monitorable = false
+
+[node name="Shape" type="CollisionShape3D" parent="ServeZone" unique_id=1578686314]
+shape = SubResource("BoxShape3D_kfi5y")
+
+[node name="CashZone" type="Area3D" parent="." unique_id=378087124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 128
+collision_mask = 10
+monitorable = false
+
+[node name="Shape" type="CollisionShape3D" parent="CashZone" unique_id=1451503546]
+shape = SubResource("BoxShape3D_dc77l")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=70659196]
+
+[node name="Shape" type="CollisionShape3D" parent="Body" unique_id=1554324070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_vjee7")

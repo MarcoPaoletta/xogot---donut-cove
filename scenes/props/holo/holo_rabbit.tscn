@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://becj76ss68wxi"]
+
+[ext_resource type="PackedScene" uid="uid://43gkwnagj3so" path="res://assets/quaternius/restaurant/Rabbit_Pink.gltf" id="1_v8l3e"]
+[ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="2_3x0uy"]
+
+[node name="HoloRabbit" type="Node3D" unique_id=1208618355]
+
+[node name="Model" parent="." unique_id=799387511 instance=ExtResource("1_v8l3e")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Eyes" parent="Model/CharacterArmature/Skeleton3D" parent_id_path=PackedInt32Array(799387511, 679491305) index="0" unique_id=1814225091]
+material_override = ExtResource("2_3x0uy")
+cast_shadow = 0
+
+[node name="Hair" parent="Model/CharacterArmature/Skeleton3D" parent_id_path=PackedInt32Array(799387511, 679491305) index="1" unique_id=1357686252]
+material_override = ExtResource("2_3x0uy")
+cast_shadow = 0
+
+[node name="Rabbit" parent="Model/CharacterArmature/Skeleton3D" parent_id_path=PackedInt32Array(799387511, 679491305) index="2" unique_id=1333290098]
+material_override = ExtResource("2_3x0uy")
+cast_shadow = 0
+
+[editable path="Model"]

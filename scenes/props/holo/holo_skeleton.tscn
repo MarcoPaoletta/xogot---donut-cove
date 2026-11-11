@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cfgxwl2lbp24r"]
+
+[ext_resource type="PackedScene" uid="uid://dwfl4mkjcdhae" path="res://assets/quaternius/pirate/Characters_Skeleton.gltf" id="1_wynoh"]
+[ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="2_iwmxe"]
+
+[node name="HoloSkeleton" type="Node3D" unique_id=873757714]
+
+[node name="Model" parent="." unique_id=2139377179 instance=ExtResource("1_wynoh")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="Weapon_Dagger" parent="Model/CharacterArmature/Skeleton3D/Middle1_L" parent_id_path=PackedInt32Array(2139377179, 1811790325) index="0" unique_id=1016876380]
+material_override = ExtResource("2_iwmxe")
+cast_shadow = 0
+
+[node name="Skeleton" parent="Model/CharacterArmature/Skeleton3D" parent_id_path=PackedInt32Array(2139377179, 1415735991) index="1" unique_id=1538864278]
+material_override = ExtResource("2_iwmxe")
+cast_shadow = 0
+
+[editable path="Model"]
