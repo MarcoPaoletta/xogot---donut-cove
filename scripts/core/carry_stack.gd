@@ -50,29 +50,45 @@ signal capacity_changed(new_capacity: int)
 @export var land_squash: float = 0.28
 
 @export_group("Audio")
-@export var pickup_sound: AudioStreamPlayer
-@export var pitch_step: float = 0.05
+## Name of the one shot in the `Audio` autoload. Empty is silent.
+@export var pickup_sound: StringName = &"pickup"
+@export var pitch_step: float = 0.06
 @export var pitch_max: float = 2.0
+## The pitch ladder follows a chain of pickups and resets after this pause.
+@export var chain_reset_time: float = 0.6
 
 var _stacked: Array[Node3D] = []
 var _flying: int = 0
 var _velocity: Vector3 = Vector3.ZERO
 var _last_position: Vector3 = Vector3.ZERO
 var _time: float = 0.0
+var _chain: int = 0
+var _chain_timer: float = 0.0
 
 
 func _ready() -> void:
-	_last_position = global_position
+	_last_position = _xf().origin
+
+
+## The rendered transform. With physics interpolation on, the raw transform of
+## a physics body only changes on ticks, which would make the tower jitter.
+func _xf() -> Transform3D:
+	return get_global_transform_interpolated()
 
 
 func _process(delta: float) -> void:
 	_time += delta
-	var raw: Vector3 = (global_position - _last_position) / maxf(delta, 0.0001)
-	_last_position = global_position
+	_chain_timer -= delta
+	if _chain_timer <= 0.0:
+		_chain = 0
+	var xf: Transform3D = _xf()
+	var raw: Vector3 = (xf.origin - _last_position) / maxf(delta, 0.0001)
+	_last_position = xf.origin
 	_velocity = _velocity.lerp(raw, 1.0 - exp(-10.0 * delta))
 	var speed01: float = clampf(Vector2(_velocity.x, _velocity.z).length() / reference_speed, 0.0, 1.0)
 	var span: float = float(maxi(capacity - 1, 1))
-	var right: Vector3 = global_transform.basis.x
+	var right: Vector3 = xf.basis.x.normalized()
+	var base_yaw: float = xf.basis.get_euler().y
 	for i in _stacked.size():
 		var item: Node3D = _stacked[i]
 		if not is_instance_valid(item):
@@ -84,14 +100,14 @@ func _process(delta: float) -> void:
 			item.global_position = target
 		else:
 			item.global_position = item.global_position.lerp(target, 1.0 - exp(-k * delta))
-		var yaw_target: float = global_rotation.y + float(item.get_meta("stack_yaw", 0.0))
+		var yaw_target: float = base_yaw + float(item.get_meta("stack_yaw", 0.0))
 		item.global_rotation.y = lerp_angle(item.global_rotation.y, yaw_target, 1.0 - exp(-yaw_k * delta))
 		item.global_rotation.z = deg_to_rad(idle_wobble_degrees) * sin(_time * 5.0 + float(i) * 1.7)
 
 
 ## World position of slot `index`. Index 0 is the bottom of the stack.
 func slot_global_position(index: int) -> Vector3:
-	return global_transform * Vector3(0.0, (float(index) + 0.5) * item_height, 0.0)
+	return _xf() * Vector3(0.0, (float(index) + 0.5) * item_height, 0.0)
 
 
 func count() -> int:
@@ -125,6 +141,7 @@ func add_item(item: Node3D) -> bool:
 	if item.get_parent() != self:
 		item.reparent(self, true)
 	item.top_level = true
+	item.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	item.global_transform = keep
 	item.set_meta("stack_yaw", randf_range(-0.2, 0.2))
 	item.set_meta("base_scale", item.scale)
@@ -185,7 +202,28 @@ func _ripple() -> void:
 
 
 func _play_pickup() -> void:
-	if pickup_sound == null:
-		return
-	pickup_sound.pitch_scale = minf(1.0 + pitch_step * float(_stacked.size() - 1), pitch_max)
-	pickup_sound.play()
+	Audio.play(pickup_sound, minf(1.0 + pitch_step * float(_chain), pitch_max))
+	_chain += 1
+	_chain_timer = chain_reset_time
+
+
+## Fires the reject cue for a carrier that tries to take more than it holds.
+func notify_full() -> void:
+	rejected_full.emit()
+
+
+## Number of stacked items of `kind`.
+func count_kind(kind: StringName) -> int:
+	var total: int = 0
+	for item: Node3D in _stacked:
+		if item.get_meta("kind", &"") == kind:
+			total += 1
+	return total
+
+
+## Frees every stacked item at once (restart).
+func clear_all() -> void:
+	for item: Node3D in _stacked:
+		if is_instance_valid(item):
+			item.queue_free()
+	_stacked.clear()

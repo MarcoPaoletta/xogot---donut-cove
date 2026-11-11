@@ -18,12 +18,18 @@ extends Node3D
 var _time: float = 0.0
 
 
+func _ready() -> void:
+	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
+
+
 func _process(delta: float) -> void:
 	_time += delta
 	if target == null or not is_instance_valid(target):
 		visible = false
 		return
 	var near: bool = player != null and player.global_position.distance_to(target.global_position) < hide_distance
+	if not visible and not near:
+		ItemFlight.pop_in(self, 0.25, 1.2)
 	visible = not near
 	global_position = target.global_position + Vector3.UP * (height + sin(_time * bob_speed) * bob_height)
 	rotation.y += spin_speed * delta
@@ -32,4 +38,5 @@ func _process(delta: float) -> void:
 func point_at(new_target: Node3D) -> void:
 	target = new_target
 	if new_target != null:
+		scale = Vector3.ONE
 		ItemFlight.pop_in(self, 0.3, 1.2)

@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://6dgdq8xnn14g"]
+
+[ext_resource type="ArrayMesh" uid="uid://hr4b1pi6bq43" path="res://assets/quaternius/interior/Shelf_1.obj" id="1_ik3ry"]
+[ext_resource type="Material" uid="uid://wwyoh6htxjjk" path="res://materials/pal/interior_White.tres" id="2_cel05"]
+[ext_resource type="Material" uid="uid://dh4q4bv5awi3g" path="res://materials/pal/interior_Wood.tres" id="2_r7rtf"]
+[ext_resource type="PackedScene" uid="uid://cx2ildosamykj" path="res://scenes/props/donut_strawberry.tscn" id="3_r7rtf"]
+[ext_resource type="PackedScene" uid="uid://cuu6oggrssewq" path="res://scenes/props/donut_honey.tscn" id="4_qbecj"]
+[ext_resource type="PackedScene" uid="uid://dvdauc6yud6le" path="res://scenes/props/donut_chocolate.tscn" id="5_leopl"]
+[ext_resource type="PackedScene" uid="uid://d1w1sdw1t4da0" path="res://scenes/props/tinted/counter_sink_sage.tscn" id="6_bdl0i"]
+[ext_resource type="PackedScene" uid="uid://derxlol31j4ac" path="res://scenes/props/tinted/counter_straight_sage.tscn" id="7_eh75b"]
+[ext_resource type="Material" uid="uid://bwnjabmuaq6kn" path="res://materials/counter_top.tres" id="8_f608x"]
+[ext_resource type="ArrayMesh" uid="uid://xkyhjvbdp80a" path="res://assets/quaternius/interior/Kitchen_Fridge.obj" id="9_qbecj"]
+[ext_resource type="PackedScene" uid="uid://dpkbr40dduswj" path="res://scenes/props/tinted/cabinet_shelves_sage.tscn" id="10_c478q"]
+[ext_resource type="Material" uid="uid://c6vvsoay44tn6" path="res://materials/pal/interior_Black.tres" id="11_leopl"]
+[ext_resource type="PackedScene" uid="uid://b47r4ykn4l4k4" path="res://assets/quaternius/restaurant/Environment_Bowl.gltf" id="11_yjxl0"]
+[ext_resource type="PackedScene" uid="uid://b6m4t4jsgp005" path="res://assets/quaternius/restaurant/Environment_Plate.gltf" id="12_lj270"]
+[ext_resource type="ArrayMesh" uid="uid://dp8w1je71vcxc" path="res://assets/quaternius/food/KetchupBottle.obj" id="13_i3i71"]
+[ext_resource type="Material" uid="uid://dpr0uly84eja5" path="res://materials/pal/food_Red.tres" id="14_ew272"]
+[ext_resource type="ArrayMesh" uid="uid://bfnk71wenkthe" path="res://assets/quaternius/food/MustardBottle.obj" id="15_hjc0l"]
+[ext_resource type="Material" uid="uid://cgcm5tpg4ttjb" path="res://materials/pal/food_Yellow.tres" id="16_37cvu"]
+[ext_resource type="PackedScene" uid="uid://uf32skuwmn4q" path="res://assets/quaternius/pirate/Prop_Barrel.gltf" id="17_m6wt8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bdl0i"]
+size = Vector3(1.72, 0.05, 0.78)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eh75b"]
+size = Vector3(4.6, 1.4, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f608x"]
+size = Vector3(1.5, 2, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8ij7"]
+size = Vector3(1.9, 1, 1.3)
+
+[node name="KitchenLine" type="Node3D" unique_id=1436289981]
+
+[node name="Shelf1" type="MeshInstance3D" parent="." unique_id=167463687]
+transform = Transform3D(-0.62, 0, -5.4202122e-08, 0, 0.62, 0, 5.4202122e-08, 0, -0.62, -10.95, 0, 0)
+mesh = ExtResource("1_ik3ry")
+surface_material_override/0 = ExtResource("2_r7rtf")
+
+[node name="Shelf2" type="MeshInstance3D" parent="." unique_id=471961341]
+transform = Transform3D(-0.62, 0, -5.4202122e-08, 0, 0.62, 0, 5.4202122e-08, 0, -0.62, -10.25, 0, 0)
+mesh = ExtResource("1_ik3ry")
+surface_material_override/0 = ExtResource("2_r7rtf")
+
+[node name="ShelfDonut1" parent="." unique_id=531055059 instance=ExtResource("3_r7rtf")]
+transform = Transform3D(0.1252558, 0, 0.89124125, 0, 0.9, 0, -0.89124125, 0, 0.1252558, -10.95, 0.47, 0.02)
+
+[node name="ShelfDonut2" parent="." unique_id=1418128999 instance=ExtResource("4_qbecj")]
+transform = Transform3D(0.7092097, 0, 0.5540953, 0, 0.9, 0, -0.5540953, 0, 0.7092097, -10.95, 0.86, 0.02)
+
+[node name="ShelfDonut3" parent="." unique_id=1281412164 instance=ExtResource("5_leopl")]
+transform = Transform3D(-0.17172812, 0, 0.88346446, 0, 0.9, 0, -0.88346446, 0, -0.17172812, -10.95, 1.25, 0.02)
+
+[node name="ShelfDonut4" parent="." unique_id=1826253082 instance=ExtResource("4_qbecj")]
+transform = Transform3D(-0.87326616, 0, 0.21772967, 0, 0.9, 0, -0.21772967, 0, -0.87326616, -10.25, 0.47, 0.02)
+
+[node name="ShelfDonut5" parent="." unique_id=1025355509 instance=ExtResource("5_leopl")]
+transform = Transform3D(0.8803328, 0, 0.18712053, 0, 0.9, 0, -0.18712053, 0, 0.8803328, -10.25, 0.86, 0.02)
+
+[node name="ShelfDonut6" parent="." unique_id=546039560 instance=ExtResource("3_r7rtf")]
+transform = Transform3D(0.8559509, 0, 0.2781153, 0, 0.9, 0, -0.2781153, 0, 0.8559509, -10.25, 1.25, 0.02)
+
+[node name="SinkCounter" parent="." unique_id=1238741445 instance=ExtResource("6_bdl0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+
+[node name="Counter" parent="." unique_id=624857314 instance=ExtResource("7_eh75b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0, 0)
+
+[node name="CounterTop" type="MeshInstance3D" parent="." unique_id=1285699614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0.83, 0)
+material_override = ExtResource("8_f608x")
+mesh = SubResource("BoxMesh_bdl0i")
+
+[node name="Fridge" type="MeshInstance3D" parent="." unique_id=460734986]
+transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 4.3, 0, -0.05)
+mesh = ExtResource("9_qbecj")
+surface_material_override/0 = ExtResource("2_cel05")
+surface_material_override/1 = ExtResource("11_leopl")
+
+[node name="WallCabinet" parent="." unique_id=858574880 instance=ExtResource("10_c478q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.95, -0.45)
+
+[node name="Bowl" parent="." unique_id=2028804813 instance=ExtResource("11_yjxl0")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 2.2, 0.88, 0)
+
+[node name="Plates" parent="." unique_id=1228435486 instance=ExtResource("12_lj270")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 2.95, 0.86, 0.05)
+
+[node name="Ketchup" type="MeshInstance3D" parent="." unique_id=533125295]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.25, 0.86, -0.2)
+mesh = ExtResource("13_i3i71")
+surface_material_override/0 = ExtResource("14_ew272")
+
+[node name="Mustard" type="MeshInstance3D" parent="." unique_id=383564410]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.42, 0.86, -0.12)
+mesh = ExtResource("15_hjc0l")
+surface_material_override/0 = ExtResource("16_37cvu")
+
+[node name="Barrel1" parent="." unique_id=236487478 instance=ExtResource("17_m6wt8")]
+transform = Transform3D(1.2685851, 0, 0.46172717, 0, 1.35, 0, -0.46172717, 0, 1.2685851, 5.75, 0, 0.3)
+
+[node name="Barrel2" parent="." unique_id=706387032 instance=ExtResource("17_m6wt8")]
+transform = Transform3D(0.4617272, 0, 1.2685851, 0, 1.35, 0, -1.2685851, 0, 0.4617272, 6.55, 0, 0.75)
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=1194148045]
+
+[node name="Counters" type="CollisionShape3D" parent="Body" unique_id=1389361074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0.7, 0)
+shape = SubResource("BoxShape3D_eh75b")
+
+[node name="Shelves" type="CollisionShape3D" parent="Body" unique_id=1677384977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6, 1, 0)
+shape = SubResource("BoxShape3D_f608x")
+
+[node name="Barrels" type="CollisionShape3D" parent="Body" unique_id=556849510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15, 0.5, 0.5)
+shape = SubResource("BoxShape3D_l8ij7")

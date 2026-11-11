@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cmtl31ksemnvx"]
+
+[ext_resource type="Script" uid="uid://c4bscl70c3e1o" path="res://scripts/actors/customer.gd" id="1_l6plm"]
+[ext_resource type="PackedScene" uid="uid://emhpbbbioj2h" path="res://assets/quaternius/pirate/Characters_Henry.gltf" id="2_3eti1"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ctnnfw3c2c3il" path="res://assets/anim/pirate_tree.tres" id="3_v8ywj"]
+[ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="4_vfqqq"]
+[ext_resource type="PackedScene" uid="uid://crnfy3arvnh52" path="res://scenes/props/order_bubble.tscn" id="5_2v4ve"]
+
+[node name="CustomerHenry" type="Node3D" unique_id=1231864792 node_paths=PackedStringArray("anim", "bubble", "visual", "receive_point")]
+physics_interpolation_mode = 2
+script = ExtResource("1_l6plm")
+anim = NodePath("AnimationTree")
+bubble = NodePath("Bubble")
+visual = NodePath("Visual")
+receive_point = NodePath("ReceivePoint")
+
+[node name="Visual" type="Node3D" parent="." unique_id=326060385]
+
+[node name="Model" parent="Visual" unique_id=2012641942 instance=ExtResource("2_3eti1")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1480356029]
+root_node = NodePath("../Visual/Model")
+tree_root = ExtResource("3_v8ywj")
+anim_player = NodePath("../Visual/Model/AnimationPlayer")
+parameters/Loco/blend_position = 0.0
+parameters/Shot_Yes/active = false
+parameters/Shot_Yes/internal_active = false
+parameters/Shot_Yes/request = 0
+parameters/Shot_Wave/active = false
+parameters/Shot_Wave/internal_active = false
+parameters/Shot_Wave/request = 0
+parameters/Shot_No/active = false
+parameters/Shot_No/internal_active = false
+parameters/Shot_No/request = 0
+script = ExtResource("4_vfqqq")
+
+[node name="Bubble" parent="." unique_id=2085741632 instance=ExtResource("5_2v4ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 2.55, 0)
+
+[node name="ReceivePoint" type="Marker3D" parent="." unique_id=1255742042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0.3)

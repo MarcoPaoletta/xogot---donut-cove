@@ -1,0 +1,11 @@
+[gd_resource type="CylinderMesh" format=3 uid="uid://w3pnj8vj28gl"]
+
+[ext_resource type="Material" uid="uid://cvwr6b8uv3r3p" path="res://materials/coin_gold.tres" id="1_77bwq"]
+
+[resource]
+material = ExtResource("1_77bwq")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.05
+radial_segments = 12
+rings = 1

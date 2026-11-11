@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dxk1hws5tjb4l"]
+
+[ext_resource type="Material" uid="uid://b0o5up5jbiop4" path="res://materials/sand_flat.tres" id="1_hjluf"]
+[ext_resource type="PackedScene" uid="uid://ban0f6kuaqg4u" path="res://scenes/props/oven_strawberry.tscn" id="2_wjfds"]
+[ext_resource type="PackedScene" uid="uid://dk65e5bo1f40e" path="res://scenes/props/counter.tscn" id="3_wmmtw"]
+[ext_resource type="PackedScene" uid="uid://da7ohhtp3xa53" path="res://scenes/actors/baker.tscn" id="4_seiyd"]
+[ext_resource type="PackedScene" uid="uid://b26pun8htlit4" path="res://scenes/core/island_camera.tscn" id="5_4kotp"]
+[ext_resource type="PackedScene" uid="uid://b1lx7dnumk5ye" path="res://scenes/ui/hud.tscn" id="6_82yli"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sgyv2"]
+size = Vector2(60, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22f3s"]
+size = Vector3(60, 1, 60)
+
+[node name="StackLab" type="Node3D" unique_id=980173567]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=477078262]
+transform = Transform3D(-0.76604444, 0.5265408, -0.36868784, 0, 0.57357645, 0.81915206, 0.64278764, 0.62750685, -0.43938506, 0, 0, 0)
+light_color = Color(1, 0.957, 0.878, 1)
+light_energy = 1.3
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1036890224]
+
+[node name="Mesh" type="MeshInstance3D" parent="Ground" unique_id=1472094873]
+material_override = ExtResource("1_hjluf")
+mesh = SubResource("PlaneMesh_sgyv2")
+
+[node name="Shape" type="CollisionShape3D" parent="Ground" unique_id=858495193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_22f3s")
+
+[node name="Oven1" parent="." unique_id=81000961 instance=ExtResource("2_wjfds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -4)
+start_stock = 4
+
+[node name="Counter" parent="." unique_id=1801664688 instance=ExtResource("3_wmmtw")]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 2, 0, 0.5)
+
+[node name="Baker" parent="." unique_id=605568101 instance=ExtResource("4_seiyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.05, 0.5)
+
+[node name="IslandCamera" parent="." unique_id=1317193283 node_paths=PackedStringArray("target") instance=ExtResource("5_4kotp")]
+target = NodePath("../Baker")
+
+[node name="Hud" parent="." unique_id=122610672 instance=ExtResource("6_82yli")]

@@ -1,0 +1,11 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cfoyf8to7ctnd"]
+
+[resource]
+direction = Vector3(0, 1, 0)
+spread = 42.0
+initial_velocity_min = 4.5
+initial_velocity_max = 7.5
+gravity = Vector3(0, -9, 0)
+scale_min = 0.8
+scale_max = 1.4
+color = Color(0.31, 0.84, 0.78, 1)

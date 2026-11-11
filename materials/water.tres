@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dyu45svqlfsgq"]
+
+[ext_resource type="Shader" uid="uid://cufcmv3jjt7uy" path="res://shaders/water.gdshader" id="1_6gfwt"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6gfwt")
+shader_parameter/shallow_color = Color(0.243, 0.827, 0.835, 1)
+shader_parameter/mid_color = Color(0.16, 0.8, 0.9, 1)
+shader_parameter/deep_color = Color(0.027, 0.725, 0.882, 1)
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/depth_fade = 3.2
+shader_parameter/foam_width = 0.55
+shader_parameter/wave_height = 0.1
+shader_parameter/wave_length = 14.0
+shader_parameter/facet_scale = 0.16
+shader_parameter/facet_strength = 0.1
+shader_parameter/sparkle_strength = 0.55
+shader_parameter/fog_start = 90.0
+shader_parameter/fog_end = 260.0
+shader_parameter/horizon_color = Color(0.45, 0.83, 0.95, 1)

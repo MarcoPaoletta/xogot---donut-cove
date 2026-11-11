@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://brp23cw2nbo41"]
+
+[ext_resource type="Script" uid="uid://d1t0gqivb4do2" path="res://scripts/sea/sea.gd" id="1_0bdoy"]
+[ext_resource type="Material" uid="uid://dyu45svqlfsgq" path="res://materials/water.tres" id="2_v84jf"]
+[ext_resource type="Material" uid="uid://dd1t8au03l1qt" path="res://materials/seabed.tres" id="3_b5doh"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dfaf2"]
+size = Vector2(640, 640)
+subdivide_width = 160
+subdivide_depth = 160
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b2qeb"]
+size = Vector2(900, 900)
+
+[node name="Sea" type="Node3D" unique_id=422665981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
+script = ExtResource("1_0bdoy")
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=387332838]
+material_override = ExtResource("2_v84jf")
+cast_shadow = 0
+extra_cull_margin = 2.0
+mesh = SubResource("PlaneMesh_dfaf2")
+
+[node name="SeaBed" type="MeshInstance3D" parent="." unique_id=36677913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+material_override = ExtResource("3_b5doh")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_b2qeb")

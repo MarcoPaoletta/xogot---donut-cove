@@ -1,0 +1,7 @@
+[gd_resource type="BoxMesh" format=3 uid="uid://c670u1h2bn0hb"]
+
+[ext_resource type="Material" uid="uid://2pe8hcbxluc" path="res://materials/fx_vertex_unlit.tres" id="1_hypad"]
+
+[resource]
+material = ExtResource("1_hypad")
+size = Vector3(0.16, 0.02, 0.1)

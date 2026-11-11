@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgpbcjn251y36"]
+
+[ext_resource type="FontFile" uid="uid://cs8ipfukn2b8m" path="res://assets/fonts/LilitaOne-Regular.ttf" id="1_d4e8u"]
+[ext_resource type="Script" uid="uid://bby0x4vqooxau" path="res://scripts/core/pop_number.gd" id="2_wbw4w"]
+
+[node name="PopNumber" type="Label3D" unique_id=1083506826]
+pixel_size = 0.006
+billboard = 1
+no_depth_test = true
+render_priority = 5
+outline_render_priority = 4
+outline_modulate = Color(0.25, 0.14, 0.08, 1)
+text = "+12"
+font = ExtResource("1_d4e8u")
+font_size = 120
+outline_size = 36
+script = ExtResource("2_wbw4w")

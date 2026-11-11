@@ -1,0 +1,56 @@
+[gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://ctnnfw3c2c3il"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vq2xp"]
+animation = &"No"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v0j18"]
+animation = &"Wave"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_161ki"]
+animation = &"Yes"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xqooh"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fx8p2"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_8pkp4"]
+min_space = 0.0
+sync_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_xqooh")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_fx8p2")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"1"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hwjx6"]
+fadein_time = 0.25
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_gdvur"]
+fadein_time = 0.25
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_fxfgj"]
+fadein_time = 0.25
+fadeout_time = 0.3
+
+[resource]
+nodes/output/position = Vector2(1250, 100)
+nodes/Loco/node = SubResource("AnimationNodeBlendSpace1D_8pkp4")
+nodes/Loco/position = Vector2(0, 0)
+nodes/Clip_Yes/node = SubResource("AnimationNodeAnimation_161ki")
+nodes/Clip_Yes/position = Vector2(300, 300)
+nodes/Shot_Yes/node = SubResource("AnimationNodeOneShot_fxfgj")
+nodes/Shot_Yes/position = Vector2(500, 100)
+nodes/Clip_Wave/node = SubResource("AnimationNodeAnimation_v0j18")
+nodes/Clip_Wave/position = Vector2(550, 300)
+nodes/Shot_Wave/node = SubResource("AnimationNodeOneShot_gdvur")
+nodes/Shot_Wave/position = Vector2(750, 100)
+nodes/Clip_No/node = SubResource("AnimationNodeAnimation_vq2xp")
+nodes/Clip_No/position = Vector2(800, 300)
+nodes/Shot_No/node = SubResource("AnimationNodeOneShot_hwjx6")
+nodes/Shot_No/position = Vector2(1000, 100)
+node_connections = [&"output", 0, &"Shot_No", &"Shot_Yes", 0, &"Loco", &"Shot_Yes", 1, &"Clip_Yes", &"Shot_Wave", 0, &"Shot_Yes", &"Shot_Wave", 1, &"Clip_Wave", &"Shot_No", 0, &"Shot_Wave", &"Shot_No", 1, &"Clip_No"]

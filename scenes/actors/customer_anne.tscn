@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bndsd0hcsgeav"]
+
+[ext_resource type="Script" uid="uid://c4bscl70c3e1o" path="res://scripts/actors/customer.gd" id="1_1701v"]
+[ext_resource type="PackedScene" uid="uid://cgjpd4nqn6li0" path="res://assets/quaternius/pirate/Characters_Anne.gltf" id="2_orw1g"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ctnnfw3c2c3il" path="res://assets/anim/pirate_tree.tres" id="3_3tswj"]
+[ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="4_etw7s"]
+[ext_resource type="PackedScene" uid="uid://crnfy3arvnh52" path="res://scenes/props/order_bubble.tscn" id="5_qgdry"]
+
+[node name="CustomerAnne" type="Node3D" unique_id=301010657 node_paths=PackedStringArray("anim", "bubble", "visual", "receive_point")]
+physics_interpolation_mode = 2
+script = ExtResource("1_1701v")
+anim = NodePath("AnimationTree")
+bubble = NodePath("Bubble")
+visual = NodePath("Visual")
+receive_point = NodePath("ReceivePoint")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1573959321]
+
+[node name="Model" parent="Visual" unique_id=341674533 instance=ExtResource("2_orw1g")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=358527780]
+root_node = NodePath("../Visual/Model")
+tree_root = ExtResource("3_3tswj")
+anim_player = NodePath("../Visual/Model/AnimationPlayer")
+parameters/Loco/blend_position = 0.0
+parameters/Shot_Yes/active = false
+parameters/Shot_Yes/internal_active = false
+parameters/Shot_Yes/request = 0
+parameters/Shot_Wave/active = false
+parameters/Shot_Wave/internal_active = false
+parameters/Shot_Wave/request = 0
+parameters/Shot_No/active = false
+parameters/Shot_No/internal_active = false
+parameters/Shot_No/request = 0
+script = ExtResource("4_etw7s")
+
+[node name="Bubble" parent="." unique_id=2085741632 instance=ExtResource("5_qgdry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 2.55, 0)
+
+[node name="ReceivePoint" type="Marker3D" parent="." unique_id=1798131048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0.3)

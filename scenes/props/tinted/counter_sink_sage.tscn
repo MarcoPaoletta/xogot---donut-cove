@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d1w1sdw1t4da0"]
+
+[ext_resource type="PackedScene" uid="uid://xaqib84gy7o3" path="res://assets/quaternius/restaurant/Environment_Counter_Sink.gltf" id="1_xhskg"]
+[ext_resource type="Material" uid="uid://cau63xbdwtrbw" path="res://materials/sage_green.tres" id="2_8n5fb"]
+
+[node name="CounterSinkSage" type="Node3D" unique_id=1238741445]
+
+[node name="Model" parent="." unique_id=1644308642 instance=ExtResource("1_xhskg")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Environment_Counter_Sink" parent="Model" index="0" unique_id=1950372574]
+material_override = ExtResource("2_8n5fb")
+
+[editable path="Model"]

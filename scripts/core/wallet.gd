@@ -11,12 +11,17 @@ signal spent(amount: int)
 signal rejected(amount: int)
 
 var cash: int = 0
+## Everything ever earned in this session (the end card).
+var lifetime_earned: int = 0
+## Session counters for the end card: donuts sold, sharks, tentacles.
+var stats: Dictionary = {}
 
 
 func add(amount: int, world_position: Vector3 = Vector3.INF) -> void:
 	if amount <= 0:
 		return
 	cash += amount
+	lifetime_earned += amount
 	earned.emit(amount, world_position)
 	changed.emit(cash)
 
@@ -41,3 +46,18 @@ func can_afford(amount: int) -> bool:
 func set_cash(value: int) -> void:
 	cash = maxi(value, 0)
 	changed.emit(cash)
+
+
+func bump(stat_name: StringName, by: int = 1) -> void:
+	stats[stat_name] = int(stats.get(stat_name, 0)) + by
+
+
+func stat(stat_name: StringName) -> int:
+	return int(stats.get(stat_name, 0))
+
+
+## Back to a fresh session (restart, erase progress).
+func reset(start_cash: int) -> void:
+	lifetime_earned = 0
+	stats.clear()
+	set_cash(start_cash)

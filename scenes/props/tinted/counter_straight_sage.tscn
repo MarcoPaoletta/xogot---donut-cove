@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://derxlol31j4ac"]
+
+[ext_resource type="PackedScene" uid="uid://cautw5mstdab7" path="res://assets/quaternius/restaurant/Environment_Counter_Straight.gltf" id="1_knv31"]
+[ext_resource type="Material" uid="uid://cau63xbdwtrbw" path="res://materials/sage_green.tres" id="2_3dfjx"]
+
+[node name="CounterStraightSage" type="Node3D" unique_id=624857314]
+
+[node name="Model" parent="." unique_id=1405824268 instance=ExtResource("1_knv31")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Environment_Counter_Straight" parent="Model" index="0" unique_id=1374324393]
+material_override = ExtResource("2_3dfjx")
+
+[editable path="Model"]

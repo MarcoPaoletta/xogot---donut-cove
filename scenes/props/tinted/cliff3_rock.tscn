@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://kharcsgvekpp"]
+
+[ext_resource type="PackedScene" uid="uid://dkw1sfwm1t8sg" path="res://assets/quaternius/pirate/Environment_Cliff3.gltf" id="1_cbg42"]
+[ext_resource type="Material" uid="uid://cex1xa0p8lqqn" path="res://materials/cliff_rock.tres" id="2_00lbc"]
+
+[node name="Cliff3Rock" type="Node3D" unique_id=275202545]
+
+[node name="Model" parent="." unique_id=2075077499 instance=ExtResource("1_cbg42")]
+
+[node name="Environment_Cliff3" parent="Model" index="0" unique_id=1515357298]
+material_override = ExtResource("2_00lbc")
+
+[editable path="Model"]

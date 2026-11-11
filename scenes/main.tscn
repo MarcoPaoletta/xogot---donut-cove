@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://banp2rkfmj1ju"]
+
+[ext_resource type="Script" uid="uid://by7keynvyolx" path="res://scripts/core/game.gd" id="1_yc10j"]
+[ext_resource type="PackedScene" uid="uid://c4t0dr5hy8gt3" path="res://scenes/island/sky.tscn" id="2_jscy8"]
+[ext_resource type="PackedScene" uid="uid://brp23cw2nbo41" path="res://scenes/sea/sea.tscn" id="3_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://du4k6g8h12vqu" path="res://scenes/island/island.tscn" id="4_y6deb"]
+[ext_resource type="PackedScene" uid="uid://ban0f6kuaqg4u" path="res://scenes/props/oven_strawberry.tscn" id="5_og1vs"]
+[ext_resource type="PackedScene" uid="uid://dfe2nux7hh0mg" path="res://scenes/props/oven_chocolate.tscn" id="6_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://756b4spylom6" path="res://scenes/props/oven_honey.tscn" id="7_vxglm"]
+[ext_resource type="PackedScene" uid="uid://dk65e5bo1f40e" path="res://scenes/props/counter.tscn" id="8_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://6wwrjxy0wvga" path="res://scenes/island/unlock_pad.tscn" id="9_yq6so"]
+[ext_resource type="Material" uid="uid://bjsjf7h42tdrv" path="res://materials/hologram.tres" id="10_fv21b"]
+[ext_resource type="ArrayMesh" uid="uid://dy80vami4s564" path="res://assets/quaternius/interior/Kitchen_Oven.obj" id="11_tel4y"]
+[ext_resource type="Material" uid="uid://dqo1qkawa4d74" path="res://materials/pal/interior_Kitchen.tres" id="12_qkpxi"]
+[ext_resource type="Material" uid="uid://wwyoh6htxjjk" path="res://materials/pal/interior_White.tres" id="13_5q0nq"]
+[ext_resource type="Material" uid="uid://c3a5rsgk3vstl" path="res://materials/pal/interior_LightMetal.tres" id="14_dgi5k"]
+[ext_resource type="Material" uid="uid://swa53736ogxh" path="res://materials/pal/interior_DarkMetal.tres" id="15_j8jky"]
+[ext_resource type="Material" uid="uid://b0alltk73imwr" path="res://materials/pal/interior_Glass.tres" id="16_kmb1v"]
+[ext_resource type="Material" uid="uid://b6k8bpvfv2r3c" path="res://materials/pal/interior_KitchenTop.tres" id="17_fuf3a"]
+[ext_resource type="PackedScene" uid="uid://da7ohhtp3xa53" path="res://scenes/actors/baker.tscn" id="18_pibwh"]
+[ext_resource type="PackedScene" uid="uid://b26pun8htlit4" path="res://scenes/core/island_camera.tscn" id="19_c6pm6"]
+[ext_resource type="PackedScene" uid="uid://iu8b3qxj6rkc" path="res://scenes/island/objective_arrow.tscn" id="20_5he1u"]
+[ext_resource type="PackedScene" uid="uid://b1lx7dnumk5ye" path="res://scenes/ui/hud.tscn" id="21_5poiv"]
+
+[node name="Main" type="Node3D" unique_id=1280720619 node_paths=PackedStringArray("baker", "pads_root", "arrow", "counter", "first_oven")]
+script = ExtResource("1_yc10j")
+baker = NodePath("Baker")
+pads_root = NodePath("Pads")
+arrow = NodePath("ObjectiveArrow")
+counter = NodePath("Counter")
+first_oven = NodePath("Ovens/Oven1")
+
+[node name="Sky" parent="." unique_id=217713243 instance=ExtResource("2_jscy8")]
+
+[node name="Sea" parent="." unique_id=422665981 instance=ExtResource("3_pm3ni")]
+
+[node name="Island" parent="." unique_id=1773429126 instance=ExtResource("4_y6deb")]
+
+[node name="Ovens" type="Node3D" parent="." unique_id=45525324]
+
+[node name="Oven1" parent="Ovens" unique_id=81000961 groups=["ovens"] instance=ExtResource("5_og1vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4, 0, -8.2)
+start_stock = 4
+
+[node name="Oven2" parent="Ovens" unique_id=855695761 groups=["ovens", "reveal_oven2"] instance=ExtResource("6_2wyq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 0, -8.2)
+visible = false
+active = false
+
+[node name="Oven3" parent="Ovens" unique_id=1955787113 groups=["ovens", "reveal_oven3"] instance=ExtResource("7_vxglm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 0, -8.2)
+visible = false
+active = false
+
+[node name="Counter" parent="." unique_id=1801664688 instance=ExtResource("8_2f3dj")]
+transform = Transform3D(0.6156615, 0, -0.7880107, 0, 1, 0, 0.7880107, 0, 0.6156615, 4.5, 0, 1.5)
+
+[node name="Pads" type="Node3D" parent="." unique_id=890647888]
+
+[node name="Pad_oven2" parent="Pads" unique_id=632523551 instance=ExtResource("9_yq6so")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 1.5)
+pad_id = &"oven2"
+price = 40
+
+[node name="Ghost" type="MeshInstance3D" parent="Pads/Pad_oven2" unique_id=2027568752]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.1, 0)
+material_override = ExtResource("10_fv21b")
+mesh = ExtResource("11_tel4y")
+surface_material_override/0 = ExtResource("12_qkpxi")
+surface_material_override/1 = ExtResource("13_5q0nq")
+surface_material_override/2 = ExtResource("14_dgi5k")
+surface_material_override/3 = ExtResource("15_j8jky")
+surface_material_override/4 = ExtResource("16_kmb1v")
+surface_material_override/5 = ExtResource("17_fuf3a")
+
+[node name="Baker" parent="." unique_id=605568101 instance=ExtResource("18_pibwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -2.5)
+
+[node name="IslandCamera" parent="." unique_id=1317193283 node_paths=PackedStringArray("target") instance=ExtResource("19_c6pm6")]
+target = NodePath("../Baker")
+limits = Rect2(-13, -8, 39, 16)
+
+[node name="ObjectiveArrow" parent="." unique_id=2132936263 node_paths=PackedStringArray("player") instance=ExtResource("20_5he1u")]
+player = NodePath("../Baker")
+
+[node name="Hud" parent="." unique_id=122610672 instance=ExtResource("21_5poiv")]
+
+[node name="ConceptCams" type="Node3D" parent="." unique_id=921467769]
+
+[node name="ConceptCam_Stall" type="Camera3D" parent="ConceptCams" unique_id=1810332452]
+transform = Transform3D(0.8660254, 0.37157243, -0.33456528, 0, 0.66913056, 0.74314487, 0.5, -0.64358234, 0.57948405, -1.4, 10.4, 10.7)
+fov = 38.0
+near = 0.5
+far = 400.0

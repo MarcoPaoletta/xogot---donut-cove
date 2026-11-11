@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://dk65e5bo1f40e"]
+
+[ext_resource type="Script" uid="uid://b5fx6lwjm8d2o" path="res://scripts/props/shop_counter.gd" id="1_khu81"]
+[ext_resource type="PackedScene" uid="uid://b4e3vfxcuw40d" path="res://scenes/props/coin.tscn" id="2_grmxg"]
+[ext_resource type="PackedScene" uid="uid://b22653ftlj3a3" path="res://scenes/props/tinted/counter_bar_sage.tscn" id="3_m2gys"]
+[ext_resource type="Material" uid="uid://bwnjabmuaq6kn" path="res://materials/counter_top.tres" id="4_sjoy6"]
+[ext_resource type="Material" uid="uid://cavkcph7aige" path="res://materials/register_grey.tres" id="5_5w25a"]
+[ext_resource type="Material" uid="uid://6361uwc5jqq1" path="res://materials/register_dark.tres" id="6_ykmfu"]
+[ext_resource type="Material" uid="uid://f5lfbp348fqf" path="res://materials/glass.tres" id="7_144jk"]
+[ext_resource type="PackedScene" uid="uid://cx2ildosamykj" path="res://scenes/props/donut_strawberry.tscn" id="8_5amex"]
+[ext_resource type="PackedScene" uid="uid://cuu6oggrssewq" path="res://scenes/props/donut_honey.tscn" id="9_jijff"]
+[ext_resource type="PackedScene" uid="uid://bhq2l1agb6w52" path="res://scenes/props/donut_plain.tscn" id="10_nrlkk"]
+[ext_resource type="PackedScene" uid="uid://dvdauc6yud6le" path="res://scenes/props/donut_chocolate.tscn" id="11_4poot"]
+[ext_resource type="Script" uid="uid://bc88uu6ikgpva" path="res://scripts/core/item_tray.gd" id="12_hyelr"]
+[ext_resource type="Script" uid="uid://ci4jkg3v2kr5v" path="res://scripts/island/customer_queue.gd" id="13_twqpf"]
+[ext_resource type="PackedScene" uid="uid://bndsd0hcsgeav" path="res://scenes/actors/customer_anne.tscn" id="14_5w25a"]
+[ext_resource type="PackedScene" uid="uid://bbou07xy7h22r" path="res://scenes/actors/customer_captain.tscn" id="14_ew3gw"]
+[ext_resource type="PackedScene" uid="uid://cmtl31ksemnvx" path="res://scenes/actors/customer_henry.tscn" id="15_ykmfu"]
+[ext_resource type="PackedScene" uid="uid://b4fuwh6lwtpqe" path="res://scenes/actors/customer_sharky.tscn" id="16_144jk"]
+[ext_resource type="PackedScene" uid="uid://ce5gv5ooes0oy" path="res://scenes/actors/customer_mako.tscn" id="17_5amex"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjnuj"]
+size = Vector3(3.44, 0.06, 1.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1qsew"]
+size = Vector3(0.5, 0.16, 0.42)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jomrc"]
+size = Vector3(0.44, 0.34, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cbwwh"]
+size = Vector3(0.36, 0.24, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fmtr7"]
+size = Vector3(3.44, 1.2, 1.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l05pm"]
+size = Vector3(2.2, 0.5, 0.62)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yxmi8"]
+size = Vector3(2.16, 0.04, 0.58)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pl7f3"]
+size = Vector3(3.6, 2, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22y5o"]
+size = Vector3(1.9, 2, 1.5)
+
+[node name="Counter" type="Node3D" unique_id=1801664688 node_paths=PackedStringArray("queue", "serve_zone", "cash_zone", "cash_tray")]
+script = ExtResource("1_khu81")
+queue = NodePath("Queue")
+serve_zone = NodePath("ServeZone")
+cash_zone = NodePath("CashZone")
+cash_tray = NodePath("CashTray")
+coin_scene = ExtResource("2_grmxg")
+
+[node name="ModelA" parent="." unique_id=493164617 instance=ExtResource("3_m2gys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84, 0, 0)
+
+[node name="ModelB" parent="." unique_id=1971552683 instance=ExtResource("3_m2gys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=1824149044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.835, 0.175)
+material_override = ExtResource("4_sjoy6")
+mesh = SubResource("BoxMesh_hjnuj")
+
+[node name="Register" type="Node3D" parent="." unique_id=241939120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 0.865, 0.1)
+
+[node name="Base" type="MeshInstance3D" parent="Register" unique_id=1464717827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+material_override = ExtResource("5_5w25a")
+mesh = SubResource("BoxMesh_1qsew")
+
+[node name="Screen" type="MeshInstance3D" parent="Register" unique_id=2140747567]
+transform = Transform3D(1, 0, 0, 0, 0.95105654, 0.309017, 0, -0.309017, 0.95105654, 0, 0.33, -0.08)
+material_override = ExtResource("5_5w25a")
+mesh = SubResource("BoxMesh_jomrc")
+
+[node name="Display" type="MeshInstance3D" parent="Register" unique_id=1574788102]
+transform = Transform3D(1, 0, 0, 0, 0.95105654, 0.309017, 0, -0.309017, 0.95105654, 0, 0.33, -0.045)
+material_override = ExtResource("6_ykmfu")
+mesh = SubResource("BoxMesh_cbwwh")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=209815029]
+
+[node name="Shape" type="CollisionShape3D" parent="Body" unique_id=1657634962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.175)
+shape = SubResource("BoxShape3D_fmtr7")
+
+[node name="DisplayCase" type="Node3D" parent="." unique_id=541473499 groups=["reveal_display_case"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0.865, -0.05)
+visible = false
+
+[node name="Glass" type="MeshInstance3D" parent="DisplayCase" unique_id=444524697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("7_144jk")
+mesh = SubResource("BoxMesh_l05pm")
+
+[node name="Shelf" type="MeshInstance3D" parent="DisplayCase" unique_id=1905277934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = ExtResource("4_sjoy6")
+mesh = SubResource("BoxMesh_yxmi8")
+
+[node name="Sample1" parent="DisplayCase" unique_id=531055059 instance=ExtResource("8_5amex")]
+transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, -0.78, 0.13, 0.02)
+
+[node name="Sample2" parent="DisplayCase" unique_id=1418128999 instance=ExtResource("9_jijff")]
+transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, -0.26, 0.13, 0.02)
+
+[node name="Sample3" parent="DisplayCase" unique_id=313398877 instance=ExtResource("10_nrlkk")]
+transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, 0.26, 0.13, 0.02)
+
+[node name="Sample4" parent="DisplayCase" unique_id=1281412164 instance=ExtResource("11_4poot")]
+transform = Transform3D(1.05, 0, 0, 0, 0.9270949, -0.49294513, 0, 0.49294513, 0.9270949, 0.78, 0.13, 0.02)
+
+[node name="CashTray" type="Node3D" parent="." unique_id=1024302919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05, 0.87, 0.52)
+script = ExtResource("12_hyelr")
+columns = 2
+rows = 2
+layers = 10
+cell_size = Vector2(0.36, 0.36)
+layer_height = 0.065
+fly_duration = 0.32
+fly_apex = 0.9
+random_yaw = 0.6
+
+[node name="ServeZone" type="Area3D" parent="." unique_id=321982886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.55)
+collision_layer = 128
+collision_mask = 10
+monitorable = false
+
+[node name="Shape" type="CollisionShape3D" parent="ServeZone" unique_id=138291026]
+shape = SubResource("BoxShape3D_pl7f3")
+
+[node name="CashZone" type="Area3D" parent="." unique_id=905041992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1.55)
+collision_layer = 128
+collision_mask = 10
+monitorable = false
+
+[node name="Shape" type="CollisionShape3D" parent="CashZone" unique_id=1812673096]
+shape = SubResource("BoxShape3D_22y5o")
+
+[node name="Queue" type="Node3D" parent="." unique_id=272885424 node_paths=PackedStringArray("slots_root", "spawn_point", "exit_point")]
+script = ExtResource("13_twqpf")
+customer_scenes = Array[PackedScene]([ExtResource("14_5w25a"), ExtResource("15_ykmfu"), ExtResource("16_144jk"), ExtResource("17_5amex")])
+rare_scene = ExtResource("14_ew3gw")
+slots_root = NodePath("Slots")
+spawn_point = NodePath("Spawn")
+exit_point = NodePath("Exit")
+
+[node name="Slots" type="Node3D" parent="Queue" unique_id=1097255456]
+
+[node name="Slot1" type="Marker3D" parent="Queue/Slots" unique_id=326380310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, -1.15)
+
+[node name="Slot2" type="Marker3D" parent="Queue/Slots" unique_id=1027203]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5, 0, -0.95)
+
+[node name="Slot3" type="Marker3D" parent="Queue/Slots" unique_id=189192257]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.7, 0, -0.95)
+
+[node name="Slot4" type="Marker3D" parent="Queue/Slots" unique_id=1832017318]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.9, 0, -0.95)
+
+[node name="Slot5" type="Marker3D" parent="Queue/Slots" unique_id=174852883]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.1, 0, -0.95)
+
+[node name="Slot6" type="Marker3D" parent="Queue/Slots" unique_id=1684462918]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.3, 0, -0.95)
+
+[node name="Spawn" type="Marker3D" parent="Queue" unique_id=1461753545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42, 0, -11)
+
+[node name="Exit" type="Marker3D" parent="Queue" unique_id=214481812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.84, 0, -9.89)

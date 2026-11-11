@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cx2ildosamykj"]
+
+[ext_resource type="ArrayMesh" uid="uid://dg0aucuih3suo" path="res://assets/quaternius/food/Donut1.obj" id="1_ajsho"]
+[ext_resource type="Material" uid="uid://dv8o1gen7wkkn" path="res://materials/pal/food_LightYellow.tres" id="2_3lcba"]
+[ext_resource type="Material" uid="uid://03mhjivkgu4k" path="res://materials/pal/food_PalePink.tres" id="3_4pk1y"]
+[ext_resource type="Material" uid="uid://dpr0uly84eja5" path="res://materials/pal/food_Red.tres" id="4_g81ov"]
+[ext_resource type="Material" uid="uid://b1n422jpbeadt" path="res://materials/pal/food_Blue.tres" id="5_j8b5k"]
+[ext_resource type="Material" uid="uid://dxhmsjkqytgkd" path="res://materials/pal/food_Green.tres" id="6_eheam"]
+
+[node name="DonutStrawberry" type="Node3D" unique_id=531055059]
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=1689812446]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+mesh = ExtResource("1_ajsho")
+surface_material_override/0 = ExtResource("2_3lcba")
+surface_material_override/1 = ExtResource("3_4pk1y")
+surface_material_override/2 = ExtResource("4_g81ov")
+surface_material_override/3 = ExtResource("5_j8b5k")
+surface_material_override/4 = ExtResource("6_eheam")

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ce5gv5ooes0oy"]
+
+[ext_resource type="Script" uid="uid://c4bscl70c3e1o" path="res://scripts/actors/customer.gd" id="1_ldjhh"]
+[ext_resource type="PackedScene" uid="uid://ii26n65w2xih" path="res://assets/quaternius/pirate/Characters_Mako.gltf" id="2_6bsk4"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ctnnfw3c2c3il" path="res://assets/anim/pirate_tree.tres" id="3_njj5n"]
+[ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="4_c7g5w"]
+[ext_resource type="PackedScene" uid="uid://crnfy3arvnh52" path="res://scenes/props/order_bubble.tscn" id="5_xhw8v"]
+
+[node name="CustomerMako" type="Node3D" unique_id=612780177 node_paths=PackedStringArray("anim", "bubble", "visual", "receive_point")]
+physics_interpolation_mode = 2
+script = ExtResource("1_ldjhh")
+anim = NodePath("AnimationTree")
+bubble = NodePath("Bubble")
+visual = NodePath("Visual")
+receive_point = NodePath("ReceivePoint")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1879306680]
+
+[node name="Model" parent="Visual" unique_id=61706748 instance=ExtResource("2_6bsk4")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=711379726]
+root_node = NodePath("../Visual/Model")
+tree_root = ExtResource("3_njj5n")
+anim_player = NodePath("../Visual/Model/AnimationPlayer")
+parameters/Loco/blend_position = 0.0
+parameters/Shot_Yes/active = false
+parameters/Shot_Yes/internal_active = false
+parameters/Shot_Yes/request = 0
+parameters/Shot_Wave/active = false
+parameters/Shot_Wave/internal_active = false
+parameters/Shot_Wave/request = 0
+parameters/Shot_No/active = false
+parameters/Shot_No/internal_active = false
+parameters/Shot_No/request = 0
+script = ExtResource("4_c7g5w")
+
+[node name="Bubble" parent="." unique_id=2085741632 instance=ExtResource("5_xhw8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 2.55, 0)
+
+[node name="ReceivePoint" type="Marker3D" parent="." unique_id=1048792374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0.3)

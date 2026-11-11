@@ -1,0 +1,6 @@
+[gd_resource type="CurveTexture" format=3 uid="uid://v6fh6f6ilkuw"]
+
+[ext_resource type="Curve" uid="uid://c7outgeulsppl" path="res://assets/fx/shrink_curve.tres" id="1_kmtma"]
+
+[resource]
+curve = ExtResource("1_kmtma")

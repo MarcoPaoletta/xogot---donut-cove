@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dvdauc6yud6le"]
+
+[ext_resource type="ArrayMesh" uid="uid://cgt2ddcmf6hx7" path="res://assets/quaternius/food/Donut4.obj" id="1_xfs8o"]
+[ext_resource type="Material" uid="uid://dv8o1gen7wkkn" path="res://materials/pal/food_LightYellow.tres" id="2_rs55g"]
+[ext_resource type="Material" uid="uid://5e2wn8bd4k4u" path="res://materials/pal/food_DarkBrown.tres" id="3_pofxu"]
+[ext_resource type="Material" uid="uid://2li6h7joxdul" path="res://materials/pal/food_White.tres" id="4_cung1"]
+
+[node name="DonutChocolate" type="Node3D" unique_id=1281412164]
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=1133117324]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+mesh = ExtResource("1_xfs8o")
+surface_material_override/0 = ExtResource("2_rs55g")
+surface_material_override/1 = ExtResource("3_pofxu")
+surface_material_override/2 = ExtResource("4_cung1")

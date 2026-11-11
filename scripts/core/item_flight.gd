@@ -27,6 +27,7 @@ static func fly(
 	on_land: Callable = Callable()
 ) -> Tween:
 	item.top_level = true
+	item.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	var start: Vector3 = item.global_position
 	var start_yaw: float = item.global_rotation.y
 	var base_scale: Vector3 = item.scale

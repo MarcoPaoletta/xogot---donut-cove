@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cokaqcy31mfue"]
+
+[ext_resource type="ArrayMesh" uid="uid://dy80vami4s564" path="res://assets/quaternius/interior/Kitchen_Oven.obj" id="1_coko4"]
+[ext_resource type="ArrayMesh" uid="uid://d23cnq3vxgved" path="res://assets/quaternius/interior/Shelf_Small1.obj" id="2_l2gfx"]
+[ext_resource type="Material" uid="uid://dqo1qkawa4d74" path="res://materials/pal/interior_Kitchen.tres" id="2_undfa"]
+[ext_resource type="ArrayMesh" uid="uid://hr4b1pi6bq43" path="res://assets/quaternius/interior/Shelf_1.obj" id="3_gkbtg"]
+[ext_resource type="Material" uid="uid://wwyoh6htxjjk" path="res://materials/pal/interior_White.tres" id="3_wvun1"]
+[ext_resource type="Material" uid="uid://c3a5rsgk3vstl" path="res://materials/pal/interior_LightMetal.tres" id="4_c1xqe"]
+[ext_resource type="ArrayMesh" uid="uid://xkyhjvbdp80a" path="res://assets/quaternius/interior/Kitchen_Fridge.obj" id="4_ndu7m"]
+[ext_resource type="ArrayMesh" uid="uid://bsl6wy0ipxfle" path="res://assets/quaternius/interior/Table_RoundSmall.obj" id="5_qqmvw"]
+[ext_resource type="Material" uid="uid://swa53736ogxh" path="res://materials/pal/interior_DarkMetal.tres" id="5_ymu3e"]
+[ext_resource type="Material" uid="uid://b0alltk73imwr" path="res://materials/pal/interior_Glass.tres" id="6_h5bsj"]
+[ext_resource type="ArrayMesh" uid="uid://bs3vwpfogneeb" path="res://assets/quaternius/interior/Chair_1.obj" id="6_um705"]
+[ext_resource type="Material" uid="uid://b6k8bpvfv2r3c" path="res://materials/pal/interior_KitchenTop.tres" id="7_kcoeb"]
+[ext_resource type="PackedScene" uid="uid://dom4f0k5wst4d" path="res://assets/quaternius/restaurant/Environment_Counter_Straight_2.gltf" id="7_rcltx"]
+[ext_resource type="PackedScene" uid="uid://chyy7j4mcqxed" path="res://assets/quaternius/restaurant/Rabbit_Cyan.gltf" id="8_d7owr"]
+[ext_resource type="PackedScene" uid="uid://cgjpd4nqn6li0" path="res://assets/quaternius/pirate/Characters_Anne.gltf" id="9_undfa"]
+[ext_resource type="PackedScene" uid="uid://xaqib84gy7o3" path="res://assets/quaternius/restaurant/Environment_Counter_Sink.gltf" id="10_wvun1"]
+[ext_resource type="Material" uid="uid://c6vvsoay44tn6" path="res://materials/pal/interior_Black.tres" id="11_rtgd3"]
+[ext_resource type="Material" uid="uid://dh4q4bv5awi3g" path="res://materials/pal/interior_Wood.tres" id="13_2ahxt"]
+[ext_resource type="PackedScene" uid="uid://cx2ildosamykj" path="res://scenes/props/donut_strawberry.tscn" id="19_ymu3e"]
+[ext_resource type="PackedScene" uid="uid://dvdauc6yud6le" path="res://scenes/props/donut_chocolate.tscn" id="20_h5bsj"]
+[ext_resource type="PackedScene" uid="uid://cuu6oggrssewq" path="res://scenes/props/donut_honey.tscn" id="21_kcoeb"]
+
+[node name="AssetPreview" type="Node3D" unique_id=2034374714]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1426773011]
+transform = Transform3D(0.8660254, 0.38302222, -0.32139382, 0, 0.64278764, 0.76604444, 0.5, -0.66341394, 0.5566704, 0, 0, 0)
+
+[node name="Oven" type="MeshInstance3D" parent="." unique_id=829050768]
+mesh = ExtResource("1_coko4")
+surface_material_override/0 = ExtResource("2_undfa")
+surface_material_override/1 = ExtResource("3_wvun1")
+surface_material_override/2 = ExtResource("4_c1xqe")
+surface_material_override/3 = ExtResource("5_ymu3e")
+surface_material_override/4 = ExtResource("6_h5bsj")
+surface_material_override/5 = ExtResource("7_kcoeb")
+
+[node name="ShelfSmall" type="MeshInstance3D" parent="." unique_id=944793826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 0)
+mesh = ExtResource("2_l2gfx")
+surface_material_override/0 = ExtResource("3_wvun1")
+
+[node name="Shelf1" type="MeshInstance3D" parent="." unique_id=1726170524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0, 0)
+mesh = ExtResource("3_gkbtg")
+surface_material_override/0 = ExtResource("3_wvun1")
+
+[node name="Fridge" type="MeshInstance3D" parent="." unique_id=12224456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, 0, 0)
+mesh = ExtResource("4_ndu7m")
+surface_material_override/0 = ExtResource("3_wvun1")
+surface_material_override/1 = ExtResource("11_rtgd3")
+
+[node name="Table" type="MeshInstance3D" parent="." unique_id=1974707782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0, 0)
+mesh = ExtResource("5_qqmvw")
+surface_material_override/0 = ExtResource("13_2ahxt")
+
+[node name="Chair" type="MeshInstance3D" parent="." unique_id=443222290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+mesh = ExtResource("6_um705")
+surface_material_override/0 = ExtResource("13_2ahxt")
+
+[node name="Counter2" parent="." unique_id=1957622411 instance=ExtResource("7_rcltx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2, 0, 0)
+
+[node name="Rabbit" parent="." unique_id=99096947 instance=ExtResource("8_d7owr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7, 0, 0)
+
+[node name="Anne" parent="." unique_id=341674533 instance=ExtResource("9_undfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, 0, 0)
+
+[node name="Sink" parent="." unique_id=1644308642 instance=ExtResource("10_wvun1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7, 0, 0)
+
+[node name="D1" parent="." unique_id=531055059 instance=ExtResource("19_ymu3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="D2" parent="." unique_id=1281412164 instance=ExtResource("20_h5bsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 0)
+
+[node name="D3" parent="." unique_id=1418128999 instance=ExtResource("21_kcoeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)

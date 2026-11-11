@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dbo0lnhg3eggc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wiif1"]
+bg_color = Color(1, 0.8, 0.18, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.93, 0.58, 0.05, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[node name="HudCoin" type="Panel" unique_id=1795975694]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1860.0
+offset_bottom = -1020.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wiif1")
+
+[node name="Sign" type="Label" parent="." unique_id=1968046157]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0.78, 0.45, 0.02, 1)
+theme_override_font_sizes/font_size = 40
+text = "$"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -113,3 +113,12 @@ func _on_landed(item: Node3D) -> void:
 	_items.append(item)
 	ItemFlight.squash(item, land_squash)
 	changed.emit(_items.size())
+
+
+## Frees every item (restart).
+func clear_all() -> void:
+	for item: Node3D in _items:
+		if is_instance_valid(item):
+			item.queue_free()
+	_items.clear()
+	changed.emit(0)

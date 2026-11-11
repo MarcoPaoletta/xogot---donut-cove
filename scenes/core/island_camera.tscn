@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b26pun8htlit4"]
+
+[ext_resource type="Script" uid="uid://ksgh5psvuwy3" path="res://scripts/island/island_camera.gd" id="1_vs3tp"]
+
+[node name="IslandCamera" type="Node3D" unique_id=1317193283 node_paths=PackedStringArray("camera") groups=["game_camera"]]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0, 0, 0)
+script = ExtResource("1_vs3tp")
+camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=146060948]
+transform = Transform3D(1, 0, 0, 0, 0.66913056, 0.74314487, 0, -0.74314487, 0.66913056, 0, 8.55, 7.7)
+current = true
+fov = 38.0
+near = 0.5
+far = 400.0

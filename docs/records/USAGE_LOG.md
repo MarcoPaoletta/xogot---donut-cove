@@ -15,3 +15,10 @@ Snapshot at 2026-11-11 18:59 UTC (15:59 -0300 local). Sessions counted from 2026
 | Agent | Messages | Input | Cache write | Cache read | Output | First | Last |
 | :-- | --: | --: | --: | --: | --: | :-- | :-- |
 | **All agents** | 0 | 0 | 0 | 0 | 0 | | |
+
+## M0
+Snapshot at 2026-11-11 19:08 UTC (16:08 -0300 local). Sessions counted from 2026-11-11T15:59:35.
+
+| Agent | Messages | Input | Cache write | Cache read | Output | First | Last |
+| :-- | --: | --: | --: | --: | --: | :-- | :-- |
+| **All agents** | 0 | 0 | 0 | 0 | 0 | | |

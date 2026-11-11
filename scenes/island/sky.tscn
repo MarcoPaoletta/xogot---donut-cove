@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c4t0dr5hy8gt3"]
+
+[ext_resource type="Environment" uid="uid://b2e8tu054k8ms" path="res://assets/env/island_environment.tres" id="1_fqu7b"]
+
+[node name="Sky" type="Node3D" unique_id=217713243]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1361262920]
+environment = ExtResource("1_fqu7b")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=697802905]
+transform = Transform3D(-0.92050487, 0.32006824, -0.2241142, 0, 0.57357645, 0.81915206, 0.39073116, 0.75403345, -0.5279799, 0, 0, 0)
+light_color = Color(1, 0.957, 0.878, 1)
+light_energy = 1.15
+light_angular_distance = 1.5
+shadow_enabled = true
+shadow_bias = 0.06
+shadow_normal_bias = 1.5
+shadow_blur = 2.0
+directional_shadow_max_distance = 80.0

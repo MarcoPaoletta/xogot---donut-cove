@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://7mhkiho4pkge"]
+
+[ext_resource type="Script" uid="uid://c5no3tjiq08fx" path="res://scripts/core/fx_burst.gd" id="1_i7b2h"]
+[ext_resource type="Material" uid="uid://dknmbpgws83y4" path="res://assets/fx/fx_confetti_0_process.tres" id="2_pttvq"]
+[ext_resource type="BoxMesh" uid="uid://c670u1h2bn0hb" path="res://assets/fx/confetti_mesh.tres" id="3_kqn1k"]
+[ext_resource type="Material" uid="uid://bw5cqk4xkn042" path="res://assets/fx/fx_confetti_1_process.tres" id="4_vcc0c"]
+[ext_resource type="Material" uid="uid://cfoyf8to7ctnd" path="res://assets/fx/fx_confetti_2_process.tres" id="5_5whar"]
+[ext_resource type="Material" uid="uid://cc5u6g8fpbd3v" path="res://assets/fx/fx_confetti_3_process.tres" id="6_1v2up"]
+
+[node name="FxConfetti" type="Node3D" unique_id=1425734090]
+script = ExtResource("1_i7b2h")
+life = 2.2
+
+[node name="P0" type="GPUParticles3D" parent="." unique_id=357744397]
+emitting = false
+amount = 12
+lifetime = 1.7
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("2_pttvq")
+draw_pass_1 = ExtResource("3_kqn1k")
+
+[node name="P1" type="GPUParticles3D" parent="." unique_id=2105937299]
+emitting = false
+amount = 12
+lifetime = 1.7
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("4_vcc0c")
+draw_pass_1 = ExtResource("3_kqn1k")
+
+[node name="P2" type="GPUParticles3D" parent="." unique_id=2071120349]
+emitting = false
+amount = 12
+lifetime = 1.7
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("5_5whar")
+draw_pass_1 = ExtResource("3_kqn1k")
+
+[node name="P3" type="GPUParticles3D" parent="." unique_id=955220447]
+emitting = false
+amount = 12
+lifetime = 1.7
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("6_1v2up")
+draw_pass_1 = ExtResource("3_kqn1k")

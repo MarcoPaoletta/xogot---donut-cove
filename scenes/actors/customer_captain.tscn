@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bbou07xy7h22r"]
+
+[ext_resource type="Script" uid="uid://c4bscl70c3e1o" path="res://scripts/actors/customer.gd" id="1_22keb"]
+[ext_resource type="PackedScene" uid="uid://dsey812p42a8l" path="res://assets/quaternius/pirate/Characters_Captain_Barbarossa.gltf" id="2_7led8"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ctnnfw3c2c3il" path="res://assets/anim/pirate_tree.tres" id="3_q4eie"]
+[ext_resource type="Script" uid="uid://bvb8h7oj7526c" path="res://scripts/actors/character_anim.gd" id="4_sejn8"]
+[ext_resource type="PackedScene" uid="uid://crnfy3arvnh52" path="res://scenes/props/order_bubble.tscn" id="5_4jrhw"]
+
+[node name="CustomerCaptain" type="Node3D" unique_id=1179306452 node_paths=PackedStringArray("anim", "bubble", "visual", "receive_point")]
+physics_interpolation_mode = 2
+script = ExtResource("1_22keb")
+anim = NodePath("AnimationTree")
+bubble = NodePath("Bubble")
+visual = NodePath("Visual")
+receive_point = NodePath("ReceivePoint")
+
+[node name="Visual" type="Node3D" parent="." unique_id=316696409]
+
+[node name="Model" parent="Visual" unique_id=140611586 instance=ExtResource("2_7led8")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1052524789]
+root_node = NodePath("../Visual/Model")
+tree_root = ExtResource("3_q4eie")
+anim_player = NodePath("../Visual/Model/AnimationPlayer")
+parameters/Loco/blend_position = 0.0
+parameters/Shot_Yes/active = false
+parameters/Shot_Yes/internal_active = false
+parameters/Shot_Yes/request = 0
+parameters/Shot_Wave/active = false
+parameters/Shot_Wave/internal_active = false
+parameters/Shot_Wave/request = 0
+parameters/Shot_No/active = false
+parameters/Shot_No/internal_active = false
+parameters/Shot_No/request = 0
+script = ExtResource("4_sejn8")
+
+[node name="Bubble" parent="." unique_id=2085741632 instance=ExtResource("5_4jrhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 2.55, 0)
+
+[node name="ReceivePoint" type="Marker3D" parent="." unique_id=320004276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0.3)

@@ -1,0 +1,79 @@
+[gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://2h0npeux08n6"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_p16sg"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_apfhr"]
+animation = &"HitReact"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_drj42"]
+animation = &"Yes"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3317p"]
+animation = &"Idle_Holding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6tstp"]
+animation = &"Walk_Holding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_blwl8"]
+animation = &"Run_Holding"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_4in6s"]
+min_space = 0.0
+sync_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_3317p")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_6tstp")
+blend_point_1/pos = 0.5
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_blwl8")
+blend_point_2/pos = 1.0
+blend_point_2/name = &"2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tcaj4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y5t7n"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ya3ut"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_y5m5g"]
+min_space = 0.0
+sync_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_tcaj4")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_y5t7n")
+blend_point_1/pos = 0.5
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_ya3ut")
+blend_point_2/pos = 1.0
+blend_point_2/name = &"2"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_502ed"]
+fadein_time = 0.25
+fadeout_time = 0.3
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_l17ui"]
+fadein_time = 0.25
+fadeout_time = 0.3
+
+[resource]
+nodes/output/position = Vector2(1000, 100)
+nodes/Loco/node = SubResource("AnimationNodeBlendSpace1D_y5m5g")
+nodes/Loco/position = Vector2(0, 0)
+nodes/Hold/node = SubResource("AnimationNodeBlendSpace1D_4in6s")
+nodes/Hold/position = Vector2(0, 200)
+nodes/Carry/node = SubResource("AnimationNodeBlend2_p16sg")
+nodes/Carry/position = Vector2(250, 100)
+nodes/Clip_Yes/node = SubResource("AnimationNodeAnimation_drj42")
+nodes/Clip_Yes/position = Vector2(300, 300)
+nodes/Shot_Yes/node = SubResource("AnimationNodeOneShot_l17ui")
+nodes/Shot_Yes/position = Vector2(500, 100)
+nodes/Clip_HitReact/node = SubResource("AnimationNodeAnimation_apfhr")
+nodes/Clip_HitReact/position = Vector2(550, 300)
+nodes/Shot_HitReact/node = SubResource("AnimationNodeOneShot_502ed")
+nodes/Shot_HitReact/position = Vector2(750, 100)
+node_connections = [&"output", 0, &"Shot_HitReact", &"Carry", 0, &"Loco", &"Carry", 1, &"Hold", &"Shot_Yes", 0, &"Carry", &"Shot_Yes", 1, &"Clip_Yes", &"Shot_HitReact", 0, &"Shot_Yes", &"Shot_HitReact", 1, &"Clip_HitReact"]

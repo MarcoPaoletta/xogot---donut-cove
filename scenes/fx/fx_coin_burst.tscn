@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dlqucp8nowbxv"]
+
+[ext_resource type="Script" uid="uid://c5no3tjiq08fx" path="res://scripts/core/fx_burst.gd" id="1_uh04i"]
+[ext_resource type="Material" uid="uid://q8w3st4sch7g" path="res://assets/fx/fx_coin_burst_process.tres" id="2_0l8xr"]
+[ext_resource type="CylinderMesh" uid="uid://w3pnj8vj28gl" path="res://assets/fx/coin_mesh.tres" id="2_b7b8b"]
+
+[node name="FxCoinBurst" type="Node3D" unique_id=1685850507]
+script = ExtResource("1_uh04i")
+
+[node name="P" type="GPUParticles3D" parent="." unique_id=1162642290]
+emitting = false
+amount = 14
+one_shot = true
+explosiveness = 0.95
+process_material = ExtResource("2_0l8xr")
+draw_pass_1 = ExtResource("2_b7b8b")

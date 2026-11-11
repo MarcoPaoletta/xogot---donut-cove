@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dqlye6em8e5jr"]
+
+[ext_resource type="Texture2D" uid="uid://v6fh6f6ilkuw" path="res://assets/fx/shrink_curve_tex.tres" id="1_itgpq"]
+
+[resource]
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.6
+gravity = Vector3(0, 0.6, 0)
+damping_min = 6.0
+damping_max = 8.0
+scale_max = 1.9
+scale_curve = ExtResource("1_itgpq")
+color = Color(0.98, 0.88, 0.62, 1)

@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b1lx7dnumk5ye"]
+
+[ext_resource type="Script" uid="uid://cv8ypmeyuqg6u" path="res://scripts/ui/hud.gd" id="1_8qguk"]
+[ext_resource type="Script" uid="uid://e33jk7hybm4q" path="res://scripts/ui/money_counter.gd" id="2_136eg"]
+[ext_resource type="Script" uid="uid://bq8uo61cu1ct6" path="res://scripts/ui/hud_coin_flight.gd" id="3_oj5la"]
+[ext_resource type="PackedScene" uid="uid://dbo0lnhg3eggc" path="res://scenes/ui/hud_coin.tscn" id="4_gss2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h022r"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 40.0
+content_margin_bottom = 10.0
+bg_color = Color(0.995, 0.965, 0.885, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.47, 0.29, 0.14, 1)
+corner_radius_top_left = 56
+corner_radius_top_right = 56
+corner_radius_bottom_right = 56
+corner_radius_bottom_left = 56
+corner_detail = 12
+shadow_color = Color(0.2, 0.1, 0, 0.28)
+shadow_size = 10
+shadow_offset = Vector2(0, 5)
+anti_aliasing_size = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jqwt"]
+bg_color = Color(1, 0.8, 0.18, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.93, 0.58, 0.05, 1)
+corner_radius_top_left = 44
+corner_radius_top_right = 44
+corner_radius_bottom_right = 44
+corner_radius_bottom_left = 44
+corner_detail = 12
+anti_aliasing_size = 1.5
+
+[node name="Hud" type="CanvasLayer" unique_id=122610672 node_paths=PackedStringArray("coin_flight", "root_control") groups=["hud"]]
+layer = 5
+script = ExtResource("1_8qguk")
+coin_flight = NodePath("Root/CoinFlight")
+root_control = NodePath("Root")
+
+[node name="Root" type="Control" parent="." unique_id=431059827]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="CoinPill" type="PanelContainer" parent="Root" unique_id=1307853918]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 26.0
+offset_right = 27.0
+offset_bottom = 138.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h022r")
+
+[node name="Row" type="HBoxContainer" parent="Root/CoinPill" unique_id=740795607]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="CoinIcon" type="Panel" parent="Root/CoinPill/Row" unique_id=1784837885]
+custom_minimum_size = Vector2(88, 88)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jqwt")
+
+[node name="Sign" type="Label" parent="Root/CoinPill/Row/CoinIcon" unique_id=1880194676]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_colors/font_color = Color(0.78, 0.45, 0.02, 1)
+theme_override_font_sizes/font_size = 60
+text = "$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Count" type="Label" parent="Root/CoinPill/Row" unique_id=178660372 node_paths=PackedStringArray("punch_target")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.22, 0.12, 1)
+theme_override_font_sizes/font_size = 84
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_136eg")
+punch_target = NodePath("../..")
+
+[node name="CoinFlight" type="Control" parent="Root" unique_id=619117723 node_paths=PackedStringArray("counter")]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("3_oj5la")
+counter = NodePath("../CoinPill/Row/CoinIcon")
+coin_scene = ExtResource("4_gss2c")
