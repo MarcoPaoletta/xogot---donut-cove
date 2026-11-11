@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7nwhm7qeognb"
+path="res://.godot/imported/Croissant.obj-c133c75a9ea834eb66e9d69a3315deea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Croissant.obj-c133c75a9ea834eb66e9d69a3315deea.mesh"]
+
+source_file="res://assets/quaternius/food/Croissant.obj"
+dest_files=["res://.godot/imported/Croissant.obj-c133c75a9ea834eb66e9d69a3315deea.mesh", "res://.godot/imported/Croissant.obj-c133c75a9ea834eb66e9d69a3315deea.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

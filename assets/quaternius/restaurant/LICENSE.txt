@@ -1,0 +1,5 @@
+Sushi Restaurant Kit (May 2023), subset by Quaternius (quaternius.com)
+Source: https://quaternius.com/packs/sushirestaurantkit.html
+License: CC0 1.0 Universal, public domain dedication
+https://creativecommons.org/publicdomain/zero/1.0/
+No attribution required. Copied unmodified from the downloaded zip on 2026-11-11.

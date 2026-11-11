@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "deny": [
+      "mcp__godot-ai",
+      "mcp__godot_ai",
+      "mcp__fennara"
+    ]
+  }
+}

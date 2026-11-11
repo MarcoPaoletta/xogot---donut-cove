@@ -1,0 +1,23 @@
+# Godot
+.godot/
+.import/
+*.tmp
+
+# Local skill copy, never commit
+skills/
+
+# Secrets
+.env
+# Private game-dev authoring skill, local only (Marco, 2026-10-07)
+/skills/game-dev/
+/skills/godot-game-dev/
+/skills/README.md
+
+# xo addon and its installed agent skill: Xogot beta tooling, installed per machine, not committed (2026-11-11)
+/addons/xo/
+/.claude/skills/
+.claude/settings.local.json
+.DS_Store
+
+# Builds and exports
+/build/
