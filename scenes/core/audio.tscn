@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b6yjxjfroruuo"]
+
+[ext_resource type="Script" uid="uid://be6bue0qty443" path="res://scripts/core/audio.gd" id="1_8wyu3"]
+
+[node name="Audio" type="Node" unique_id=1959703911]
+script = ExtResource("1_8wyu3")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1920249906]
+volume_db = -8.0
+bus = &"Music"
+
+[node name="Pool" type="Node" parent="." unique_id=1862697009]
+
+[node name="Sfx01" type="AudioStreamPlayer" parent="Pool" unique_id=206421765]
+bus = &"SFX"
+
+[node name="Sfx02" type="AudioStreamPlayer" parent="Pool" unique_id=425466341]
+bus = &"SFX"
+
+[node name="Sfx03" type="AudioStreamPlayer" parent="Pool" unique_id=2025993720]
+bus = &"SFX"
+
+[node name="Sfx04" type="AudioStreamPlayer" parent="Pool" unique_id=1730929692]
+bus = &"SFX"
+
+[node name="Sfx05" type="AudioStreamPlayer" parent="Pool" unique_id=921757862]
+bus = &"SFX"
+
+[node name="Sfx06" type="AudioStreamPlayer" parent="Pool" unique_id=605019670]
+bus = &"SFX"
+
+[node name="Sfx07" type="AudioStreamPlayer" parent="Pool" unique_id=681032154]
+bus = &"SFX"
+
+[node name="Sfx08" type="AudioStreamPlayer" parent="Pool" unique_id=859745392]
+bus = &"SFX"
+
+[node name="Sfx09" type="AudioStreamPlayer" parent="Pool" unique_id=1830635105]
+bus = &"SFX"
+
+[node name="Sfx10" type="AudioStreamPlayer" parent="Pool" unique_id=1648649131]
+bus = &"SFX"
+
+[node name="Sfx11" type="AudioStreamPlayer" parent="Pool" unique_id=1400068936]
+bus = &"SFX"
+
+[node name="Sfx12" type="AudioStreamPlayer" parent="Pool" unique_id=339241006]
+bus = &"SFX"

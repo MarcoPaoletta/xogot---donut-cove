@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# xo wrapper for Windows. Run from Git Bash: tools/xo <any xo arguments>
+# Read docs/context/xo-windows.md for the reason this exists.
+#
+#   tools/xo up            start the Donut Cove editor (or reuse it) and wait until xo answers
+#   tools/xo down          close the editor that this wrapper started
+#   tools/xo <xo args>     run any xo command against the Donut Cove editor over TCP
+#
+# Overrides: XO_BIN (path to xo.exe), XO_PORT (default 47321).
+
+set -u
+
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -W 2>/dev/null || pwd)"
+XO_BIN="${XO_BIN:-C:/Users/Usuario/Downloads/xo-0.1.0-windows-x86_64/xo-0.1.0-windows-x86_64/bin/xo.exe}"
+XO_PORT="${XO_PORT:-47321}"
+XO_HOST="127.0.0.1"
+
+export XO_RUNTIME_DIR="${LOCALAPPDATA//\\//}/xo/run-tcp"
+export XO_ADDON_DIR="$(dirname "$(dirname "$XO_BIN")")/addons/xo"
+TOKEN_FILE="$XO_RUNTIME_DIR/donut-cove.token"
+PID_FILE="$XO_RUNTIME_DIR/donut-cove.pid"
+mkdir -p "$XO_RUNTIME_DIR"
+
+if [ ! -s "$TOKEN_FILE" ]; then
+	head -c 32 /dev/urandom | od -An -tx1 | tr -d ' \n' > "$TOKEN_FILE"
+fi
+TOKEN="$(tr -d '\r\n' < "$TOKEN_FILE")"
+
+remote() { "$XO_BIN" --connect "$XO_HOST:$XO_PORT" --token "$TOKEN" "$@"; }
+alive() { remote --timeout 3000 ping >/dev/null 2>&1; }
+
+case "${1:-}" in
+up)
+	if alive; then
+		echo "xo: Donut Cove editor already reachable on $XO_HOST:$XO_PORT"
+		exit 0
+	fi
+	# A fresh instance name on every start: Windows keeps the old .sock file and
+	# cannot bind it again, and a failed bind stops the TCP listener too.
+	NAME="donut-$(date +%H%M%S)"
+	XO_TCP_LISTEN="$XO_HOST:$XO_PORT" XO_TCP_TOKEN="$TOKEN" \
+		"$XO_BIN" launch --path "$PROJECT_DIR" --name "$NAME" --wait-timeout 1 >/dev/null 2>"$XO_RUNTIME_DIR/launch.err"
+	grep -o 'pid [0-9]*' "$XO_RUNTIME_DIR/launch.err" | grep -o '[0-9]*' > "$PID_FILE"
+	for _ in $(seq 1 90); do
+		if alive; then
+			echo "xo: Donut Cove editor ready on $XO_HOST:$XO_PORT ($NAME)"
+			exit 0
+		fi
+		sleep 2
+	done
+	echo "xo: the editor did not answer on $XO_HOST:$XO_PORT. See $XO_RUNTIME_DIR/$NAME.log" >&2
+	exit 1
+	;;
+down)
+	remote editor quit 2>/dev/null || { [ -s "$PID_FILE" ] && taskkill //PID "$(cat "$PID_FILE")" >/dev/null 2>&1; }
+	;;
+*)
+	remote "$@"
+	;;
+esac
