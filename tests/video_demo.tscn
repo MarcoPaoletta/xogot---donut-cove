@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://vqima23xjk86"]
+
+[ext_resource type="Script" uid="uid://dh1dwx8httj5l" path="res://scripts/core/video_demo.gd" id="1_4fvld"]
+[ext_resource type="PackedScene" uid="uid://banp2rkfmj1ju" path="res://scenes/main.tscn" id="2_gl1f2"]
+
+[node name="VideoDemo" type="Node" unique_id=1008956175 node_paths=PackedStringArray("main")]
+script = ExtResource("1_4fvld")
+main = NodePath("Main")
+
+[node name="Main" parent="." unique_id=1280720619 instance=ExtResource("2_gl1f2")]
