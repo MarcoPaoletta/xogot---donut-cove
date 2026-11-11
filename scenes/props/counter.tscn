@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cmtl31ksemnvx" path="res://scenes/actors/customer_henry.tscn" id="15_ykmfu"]
 [ext_resource type="PackedScene" uid="uid://b4fuwh6lwtpqe" path="res://scenes/actors/customer_sharky.tscn" id="16_144jk"]
 [ext_resource type="PackedScene" uid="uid://ce5gv5ooes0oy" path="res://scenes/actors/customer_mako.tscn" id="17_5amex"]
+[ext_resource type="PackedScene" uid="uid://dqqxqd33ac220" path="res://assets/quaternius/pirate/Environment_Dock_Pole.gltf" id="19_144jk"]
+[ext_resource type="Material" uid="uid://dpmsdt7yugefe" path="res://materials/rope.tres" id="20_5amex"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hjnuj"]
 size = Vector3(3.44, 0.06, 1.16)
@@ -45,6 +47,62 @@ size = Vector3(3.6, 2, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_22y5o"]
 size = Vector3(1.9, 2, 1.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jijff"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nrlkk"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4poot"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hyelr"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_twqpf"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ew3gw"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hjnuj"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1qsew"]
+top_radius = 0.035
+bottom_radius = 0.035
+height = 0.747
+radial_segments = 8
+rings = 1
 
 [node name="Counter" type="Node3D" unique_id=1801664688 node_paths=PackedStringArray("queue", "serve_zone", "cash_zone", "cash_tray")]
 script = ExtResource("1_khu81")
@@ -174,7 +232,64 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.1,
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.3, 0, -0.95)
 
 [node name="Spawn" type="Marker3D" parent="Queue" unique_id=1461753545]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42, 0, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52, 0, -6.75)
 
 [node name="Exit" type="Marker3D" parent="Queue" unique_id=214481812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.84, 0, -9.89)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94, 0, -5.64)
+
+[node name="Rope" type="Node3D" parent="." unique_id=545460989]
+
+[node name="Post1" parent="Rope" unique_id=964923236 instance=ExtResource("19_144jk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.95, 0.62, -0.25)
+
+[node name="Post2" parent="Rope" unique_id=1817897378 instance=ExtResource("19_144jk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.4, 0.62, -0.25)
+
+[node name="Post3" parent="Rope" unique_id=36649479 instance=ExtResource("19_144jk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 4.85, 0.62, -0.25)
+
+[node name="Post4" parent="Rope" unique_id=2070531793 instance=ExtResource("19_144jk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 6.3, 0.62, -0.25)
+
+[node name="Post5" parent="Rope" unique_id=1535391917 instance=ExtResource("19_144jk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 7.75, 0.62, -0.25)
+
+[node name="Swag1a" type="MeshInstance3D" parent="Rope" unique_id=952879916]
+transform = Transform3D(0.24090573, -0.9705485, 0, 0.9705485, 0.24090573, 0, 0, 0, 1, 2.3125, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_jijff")
+
+[node name="Swag1b" type="MeshInstance3D" parent="Rope" unique_id=1558917205]
+transform = Transform3D(-0.2409057, -0.9705485, 0, 0.9705485, -0.2409057, 0, 0, 0, 1, 3.0375, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_nrlkk")
+
+[node name="Swag2a" type="MeshInstance3D" parent="Rope" unique_id=867305543]
+transform = Transform3D(0.24090573, -0.9705485, 0, 0.9705485, 0.24090573, 0, 0, 0, 1, 3.7625, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_4poot")
+
+[node name="Swag2b" type="MeshInstance3D" parent="Rope" unique_id=73555258]
+transform = Transform3D(-0.2409057, -0.9705485, 0, 0.9705485, -0.2409057, 0, 0, 0, 1, 4.4875, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_hyelr")
+
+[node name="Swag3a" type="MeshInstance3D" parent="Rope" unique_id=183537484]
+transform = Transform3D(0.24090573, -0.9705485, 0, 0.9705485, 0.24090573, 0, 0, 0, 1, 5.2125, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_twqpf")
+
+[node name="Swag3b" type="MeshInstance3D" parent="Rope" unique_id=509574332]
+transform = Transform3D(-0.2409057, -0.9705485, 0, 0.9705485, -0.2409057, 0, 0, 0, 1, 5.9375, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_ew3gw")
+
+[node name="Swag4a" type="MeshInstance3D" parent="Rope" unique_id=2020478949]
+transform = Transform3D(0.24090573, -0.9705485, 0, 0.9705485, 0.24090573, 0, 0, 0, 1, 6.6625, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_hjnuj")
+
+[node name="Swag4b" type="MeshInstance3D" parent="Rope" unique_id=1373548209]
+transform = Transform3D(-0.2409057, -0.9705485, 0, 0.9705485, -0.2409057, 0, 0, 0, 1, 7.3875, 0.75, -0.25)
+material_override = ExtResource("20_5amex")
+mesh = SubResource("CylinderMesh_1qsew")

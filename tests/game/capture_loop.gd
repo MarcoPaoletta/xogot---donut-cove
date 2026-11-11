@@ -27,7 +27,7 @@ func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
 	var main: Game = tree.current_scene as Game
 	var baker: Baker = main.baker
-	baker.teleport(Vector3(-7.6, 0.05, -6.5), PI)
+	baker.teleport(Vector3(-0.3, 0.05, -5.5), PI)
 	await _wait(0.1)
 	await _shot("scoop_arc")
 	await _wait(0.14)
@@ -45,7 +45,7 @@ func _run() -> void:
 	await _shot("stop_tower_swings")
 	await _wait(0.6)
 	await _shot("tower_recovered")
-	baker.teleport(Vector3(3.28, 0.05, 2.45), 2.2)
+	baker.teleport(Vector3(7.18, 0.05, 0.55), 2.2)
 	await _wait(0.12)
 	await _shot("serve_arc")
 	await _wait(0.2)
@@ -54,7 +54,7 @@ func _run() -> void:
 	await _shot("coins_to_tray")
 	await _wait(1.2)
 	await _shot("cash_pile")
-	baker.teleport(Vector3(2.66, 0.05, 1.67), 2.2)
+	baker.teleport(Vector3(6.56, 0.05, -0.23), 2.2)
 	await _wait(0.2)
 	await _shot("cash_to_hud")
 	await _wait(0.35)

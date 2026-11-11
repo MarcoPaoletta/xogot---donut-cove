@@ -8,7 +8,7 @@ script = ExtResource("1_vs3tp")
 camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=146060948]
-transform = Transform3D(1, 0, 0, 0, 0.66913056, 0.74314487, 0, -0.74314487, 0.66913056, 0, 8.55, 7.7)
+transform = Transform3D(1, 0, 0, 0, 0.66913056, 0.74314487, 0, -0.74314487, 0.66913056, 0, 9.29, 8.36)
 current = true
 fov = 38.0
 near = 0.5

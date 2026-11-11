@@ -5,8 +5,8 @@ render_mode cull_back;
 // near the waterline (by world height, so nothing is coplanar), and soft
 // large patches of lighter and darker sand so the plateau is not flat colour.
 
-uniform vec3 dry_color : source_color = vec3(0.90, 0.69, 0.35);
-uniform vec3 light_color : source_color = vec3(0.95, 0.77, 0.44);
+uniform vec3 dry_color : source_color = vec3(0.93, 0.66, 0.30);
+uniform vec3 light_color : source_color = vec3(0.97, 0.75, 0.40);
 uniform vec3 wet_color : source_color = vec3(0.74, 0.55, 0.30);
 uniform float wet_top = -0.12;
 uniform float wet_bottom = -0.5;

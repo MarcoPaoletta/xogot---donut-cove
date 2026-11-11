@@ -60,5 +60,5 @@ modulate = Color(1, 0.36, 0.3, 1)
 outline_modulate = Color(0.25, 0.14, 0.08, 1)
 text = "MAX"
 font = ExtResource("6_rydtt")
-font_size = 100
-outline_size = 30
+font_size = 76
+outline_size = 24

@@ -17,14 +17,14 @@ func _run() -> void:
 	_check("start cash", Wallet.cash == 60, str(Wallet.cash))
 	_check("muted at boot", AudioServer.is_bus_mute(0))
 	_check("arrow points at the oven", main.arrow.target == main.first_oven.pickup_zone)
-	baker.teleport(Vector3(-7.8, 0.05, -7.0), PI)
+	baker.teleport(Vector3(-0.3, 0.05, -5.6), PI)
 	await tree.create_timer(2.0).timeout
 	_check("stack filled from the rack", stack.count() >= 4, str(stack.count()))
 	_check("arrow points at the counter", main.arrow.target == main.counter.serve_zone)
-	baker.teleport(Vector3(3.28, 0.05, 2.45), 0.0)
+	baker.teleport(Vector3(7.18, 0.05, 0.55), 0.0)
 	await tree.create_timer(3.0).timeout
 	_check("donuts served", stack.count() < 4 or Wallet.stat(&"donuts_sold") > 0, "sold %d" % Wallet.stat(&"donuts_sold"))
-	baker.teleport(Vector3(2.66, 0.05, 1.67), 0.0)
+	baker.teleport(Vector3(6.56, 0.05, -0.23), 0.0)
 	await tree.create_timer(2.5).timeout
 	_check("cash collected", Wallet.cash > 60, str(Wallet.cash))
 	var pad: UnlockPad = main.pad(&"oven2")

@@ -4,3 +4,4 @@ Target: 60 fps at 1920x1080 on an RTX 3060 (GDD Section 15). One row per check, 
 
 | Date and time | Milestone | Change since previous row | Avg fps | 1% low | p95 frame ms | Max draw calls | Max triangles | VRAM | Pass |
 | :-- | :-- | :-- | --: | --: | --: | --: | --: | --: | :-- |
+| 2026-11-11 16:56 | M2 | First row: island, stall, kitchen line, dock, water, one pad | 197 | 108 | 6.36 | 337 | 628,528 | 477 MB | yes |
