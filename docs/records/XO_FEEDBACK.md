@@ -39,3 +39,30 @@ GDD Section 0.4. One line per item: command, what happened, cause, workaround. C
 * GOOD: `xo theme create`, `theme stylebox` and `theme set` built the whole project theme in nine calls; `--bg r,g,b,a` works for a transparent focus style.
 * GOOD: a sea behaviour suite of 16 checks (boarding cycles, autopilot voyage, limp home, Kraken) runs through one `xo game eval --file` with `Engine.time_scale` 3 to 4.
 * FELL BACK TO EVAL: script reload (see the bug above), hologram and tint overrides inside glTF instances (6), typed array defaults avoided by code defaults.
+* LIMIT: no way through xo to run the game in its own resizable window: `xo project run` has no size or embed option, and with the editor's "Embed Game on Next Play" on, `get_window().size = ...` answers "Embedded window can't be moved". Setting `run/window_placement/game_embed_mode` or the `game_view/embed_on_play` project metadata through `xo eval` did not change the next run. The expand aspect captures were made by starting a capture scene with the Godot binary and `--resolution`. Wish: `xo project run --no-embed` or `--resolution WxH`.
+* NOTE: `xo eval` one liners: a `for` loop followed by `; return x` on the same line puts the `return` inside the loop body (GDScript rule, not an xo bug). It produced two wrong readings before it was noticed. Multi line files avoid it.
+* GOOD: `xo editor screenshot --source game --max-resolution 0` returned exactly 1920 by 1080 on this Windows machine (no HiDPI scaling), so comparisons needed no rescale.
+* GOOD: `xo game eval` suites drove 63 behaviour checks, a 16 frame contact sheet capture and a full five minute bot run with real `Input.action_press` movement.
+
+## Summary and counts (2026-11-11, xo 0.1.0, Godot 4.7.2 stable, Windows 11)
+
+What was built through xo: 72 scenes, 48 project scripts, 11 test files, 60 materials, 2 shaders, 2 animation trees, a theme, a bus layout, an environment, the InputMap (11 actions), the project settings and both autoloads.
+
+| Kind | Count | Note |
+| :-- | --: | :-- |
+| `xo batch` files in the final generation | 67 | 2,375 steps in total; the largest is the main scene with 266 steps. Every scene was assembled with `scene create`, `batch`, `scene save`; layout changes were rebuilt in place. |
+| Theme override properties set one by one | 54 | Batch validation rejects them (limit above). |
+| Node typed exports assigned through `xo eval` | 152 | `node property set` cannot write them (gotcha above). The largest single use of eval. |
+| Other `xo eval` uses | about 25 | Model measuring (3), editable instances and overrides inside glTF instances (14), blend trees (1), environment (5 passes), bus layout (1), typed array (1), script reload after `file send` (after every script replace). |
+| Real failures of xo commands | 9 kinds | Listed above: MSYS path rewrite, node exports, script create overwrite, class cache, batch theme overrides, batch metadata, particle process resources, `resource curve` needing `--type`, stale script source after `file send`. |
+| Silent failures (no error, wrong result) | 2 | Node exports saved as plain `NodePath`; exports dropped on a stale script. Both were found by the game crashing or a test, not by xo. |
+| Things that worked first time | most | `project setting`, `inputmap`, `autoload`, `shader-global`, `scene create`, `node create --scene-type`, `resource create` and `inline`, `material create` and `assign`, `theme`, `ui anchor` and `ui draw`, `script create` (also for shaders), `script patch`, `script check`, `file send`, `project run --wait`, `game eval --file`, `game input key`, `editor screenshot --source game`, `debug errors`, `editor output`. |
+
+Top three wishes, in order of time they would have saved: (1) node typed exports through `node property set`; (2) `script create --overwrite` that also refreshes the editor's copy; (3) theme overrides and metadata accepted by batch validation.
+
+## Export (M9)
+
+* GOOD: `xo export preset add`, `preset metadata --export-path --exclude-filter`, `preset option`, `preset save`, `validate` and `execute --kind project --configuration debug` produced the Windows build with no editor UI. `validate` named the missing template path exactly.
+* NOTE: preset names: `xo export preset list` returns the name under `identity.preset_name`, not `name`; a script that read `name` passed `None` and got "Export preset not found".
+* NOTE: with a self contained Godot (`editor_data/` next to the binary) the templates installed under `%APPDATA%` are not found; `preset option custom_template/debug '"<path>"'` fixed it without copying files.
+* GOOD: `xo test run --root res://tests/editor` ran the 11 structural checks in the editor in one call and reported a clean summary.

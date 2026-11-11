@@ -21,7 +21,7 @@ func open(game: Game) -> void:
 		GameSettings.set_value("best_time", snappedf(game.session_time, 0.1))
 	stats_label.text = "Coins earned: %s\nDonuts sold: %s\nSharks sent under: %d\nTentacles sent under: %d\nTime: %d:%02d" % [
 		MoneyCounter.format_number(Wallet.lifetime_earned), MoneyCounter.format_number(Wallet.stat(&"donuts_sold")),
-		Wallet.stat(&"sharks"), Wallet.stat(&"tentacles"), seconds / 60, seconds % 60]
+		Wallet.stat(&"sharks"), Wallet.stat(&"tentacles"), floori(float(seconds) / 60.0), seconds % 60]
 	visible = true
 	root_control.modulate.a = 0.0
 	panel.pivot_offset = panel.size * 0.5

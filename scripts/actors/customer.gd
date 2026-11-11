@@ -99,6 +99,8 @@ func is_ready() -> bool:
 
 ## The next flavor this customer still needs sent, or empty.
 func wants() -> StringName:
+	if _state == State.LEAVING:
+		return &""
 	for kind: StringName in _pending.keys():
 		if int(_pending[kind]) > 0:
 			return kind
@@ -137,8 +139,19 @@ func receive(item: Node3D) -> void:
 	if is_instance_valid(item):
 		kind = item.get_meta("kind", &"")
 		item.queue_free()
-	if order.has(kind):
-		order[kind] = maxi(int(order[kind]) - 1, 0)
+	if _state == State.LEAVING:
+		return
+	# A donut that was already flying when the order changed flavor still counts.
+	var key: StringName = kind
+	if not order.has(key) or int(order[key]) <= 0:
+		key = &""
+		for open_kind: StringName in order.keys():
+			if int(order[open_kind]) > 0:
+				key = open_kind
+				break
+	if key != &"":
+		order[key] = int(order[key]) - 1
+		_pending[key] = mini(int(_pending.get(key, 0)), int(order[key]))
 	Wallet.bump(&"donuts_sold")
 	Audio.play_varied(&"donut_land", 0.1, -4.0)
 	if visual != null:

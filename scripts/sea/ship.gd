@@ -224,8 +224,11 @@ func _sail(delta: float) -> void:
 	var throttle: float = Input.get_axis(&"move_down", &"move_up")
 	var steer: float = Input.get_axis(&"move_right", &"move_left")
 	if autopilot:
-		throttle = 1.0
 		steer = _autopilot_steer()
+		# Slow down in a hard turn, or the hull circles its goal without reaching it.
+		throttle = 0.35 if absf(steer) > 0.8 else 1.0
+		if throttle < 1.0 and speed > top_speed * 0.45:
+			throttle = 0.0
 	var target: float = 0.0
 	if throttle > 0.0:
 		target = top_speed

@@ -20,7 +20,7 @@ var _stuck: float = 0.0
 var _last: Vector3 = Vector3.ZERO
 var _sidestep: float = 0.0
 var _voyage_time: float = 0.0
-var _speed: float = 3.0
+var _speed: float = 1.0
 var debug: bool = false
 var _printed: float = 0.0
 
@@ -120,7 +120,7 @@ func _island_goal() -> Vector3:
 	var pad: UnlockPad = main.next_pad()
 	if pad != null and pad.available and Wallet.cash >= pad.remaining():
 		return pad.global_position
-	if main.is_bought(&"ship") and not main.kraken_done and (main.voyages == 0 or main.kraken_ready):
+	if main.is_bought(&"ship") and not main.kraken_done:
 		return main.boarding_pad.global_position
 	if main.counter.cash_waiting() > 0 and (stack.is_empty() or (pad != null and Wallet.cash + main.counter.cash_waiting() >= pad.remaining())):
 		return main.counter.cash_zone.global_position
