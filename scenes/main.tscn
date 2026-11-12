@@ -386,16 +386,16 @@ counter = NodePath("../../Counter")
 visible = false
 
 [node name="Planks1" parent="Reveals/KitchenFloor" unique_id=1688414639 instance=ExtResource("23_0loja")]
-transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, -7.5, 0, -5.6)
+transform = Transform3D(1.0625, 0, 0, 0, 0.25, 0, 0, 0, 0.8, -7.5, 0.05, -5.6)
 
 [node name="Planks2" parent="Reveals/KitchenFloor" unique_id=802499073 instance=ExtResource("23_0loja")]
-transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, -3.25, 0, -5.6)
+transform = Transform3D(1.0625, 0, 0, 0, 0.25, 0, 0, 0, 0.8, -3.25, 0.05, -5.6)
 
 [node name="Planks3" parent="Reveals/KitchenFloor" unique_id=1540209202 instance=ExtResource("23_0loja")]
-transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 1, 0, -5.6)
+transform = Transform3D(1.0625, 0, 0, 0, 0.25, 0, 0, 0, 0.8, 1, 0.05, -5.6)
 
 [node name="Planks4" parent="Reveals/KitchenFloor" unique_id=19432085 instance=ExtResource("23_0loja")]
-transform = Transform3D(1.0625, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 5.25, 0, -5.6)
+transform = Transform3D(1.0625, 0, 0, 0, 0.25, 0, 0, 0, 0.8, 5.25, 0.05, -5.6)
 
 [node name="Plants" type="Node3D" parent="Reveals" unique_id=1412740641 groups=["reveal_plants"]]
 visible = false

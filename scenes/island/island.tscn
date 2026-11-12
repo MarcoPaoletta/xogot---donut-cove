@@ -50,7 +50,7 @@ transform = Transform3D(1.1276312, 0, 0.41042417, 0, 1.2, 0, -0.41042417, 0, 1.1
 transform = Transform3D(1.2310097, 0, -0.21706022, 0, 1.25, 0, 0.21706022, 0, 1.2310097, 0.6, 0.2, -10.8)
 
 [node name="Cliff3" parent="Cliffs" unique_id=13943972 instance=ExtResource("6_kjvkg")]
-transform = Transform3D(-0.9866772, 0, 0.3591212, 0, 1.05, 0, -0.3591212, 0, -0.9866772, 6.9, 0.2, -9.5)
+transform = Transform3D(-0.9866772, 0, 0.3591212, 0, 1.05, 0, -0.3591212, 0, -0.9866772, 6.9, 0.2, -11.5)
 
 [node name="Cliff4" parent="Cliffs" unique_id=259605451 instance=ExtResource("7_fvylf")]
 transform = Transform3D(-1.1746157, 0, -0.4275252, 0, 1.25, 0, 0.4275252, 0, -1.1746157, -11.4, 0.2, -5)
